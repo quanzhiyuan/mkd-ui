@@ -2,40 +2,40 @@
   <div class="page-button">
     <h1 class="page-title">Button</h1>
     <div class="page-button-group">
-      <mt-button size="large">default</mt-button>
-      <mt-button size="large" type="primary">primary</mt-button>
-      <mt-button size="large" type="danger">danger</mt-button>
+      <mkd-button size="large">default</mkd-button>
+      <mkd-button size="large" type="primary">primary</mkd-button>
+      <mkd-button size="large" type="danger">danger</mkd-button>
     </div>
 
     <div class="page-button-group">
-      <mt-button>default</mt-button>
-      <mt-button type="primary">primary</mt-button>
-      <mt-button type="danger">danger</mt-button>
+      <mkd-button>default</mkd-button>
+      <mkd-button type="primary">primary</mkd-button>
+      <mkd-button type="danger">danger</mkd-button>
     </div>
 
     <div class="page-button-group">
-      <mt-button size="small">default</mt-button>
-      <mt-button size="small" type="primary">primary</mt-button>
-      <mt-button size="small" type="danger">danger</mt-button>
+      <mkd-button size="small">default</mkd-button>
+      <mkd-button size="small" type="primary">primary</mkd-button>
+      <mkd-button size="small" type="danger">danger</mkd-button>
     </div>
 
     <div class="page-button-group">
-      <mt-button disabled size="large">default</mt-button>
-      <mt-button disabled size="large" type="primary">primary</mt-button>
-      <mt-button disabled size="large" type="danger">danger</mt-button>
+      <mkd-button disabled size="large">default</mkd-button>
+      <mkd-button disabled size="large" type="primary">primary</mkd-button>
+      <mkd-button disabled size="large" type="danger">danger</mkd-button>
     </div>
 
     <div class="page-button-group">
-      <mt-button plain size="large">default</mt-button>
-      <mt-button plain size="large" type="primary">primary</mt-button>
-      <mt-button plain size="large" type="danger">danger</mt-button>
+      <mkd-button plain size="large">default</mkd-button>
+      <mkd-button plain size="large" type="primary">primary</mkd-button>
+      <mkd-button plain size="large" type="danger">danger</mkd-button>
     </div>
 
     <div class="page-button-group">
-      <mt-button>
+      <mkd-button>
         <img src="../assets/100x100.png" height="20" width="20" slot="icon">
         带自定义图标
-      </mt-button>
+      </mkd-button>
     </div>
   </div>
 </template>

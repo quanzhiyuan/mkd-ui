@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import App from './app';
 import routes from './route';
-import { install as Mint } from 'src/index';
+import { install as Mkd } from 'src/index';
 import VueRouter from 'vue-router';
 
 document.addEventListener('DOMContentLoaded', function() {
   if (window.FastClick) window.FastClick.attach(document.body);
 }, false);
 
-Vue.use(Mint);
+Vue.use(Mkd);
 Vue.use(VueRouter);
 
 const router = new VueRouter({

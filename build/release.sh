@@ -1,5 +1,5 @@
 set -e
-echo "[Mint UI for Vue 2.0]Enter release version: "
+echo "[Mkd UI for Vue 2.0]Enter release version: "
 read VERSION
 
 read -p "Releasing $VERSION - are you sure? (y/n)" -n 1 -r

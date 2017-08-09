@@ -1,12 +1,12 @@
 {
-  "name": "mint-button",
+  "name": "mkd-button",
   "description": "",
   "version": "0.1.0",
   "main": "lib/index.js",
-  "author": "elemefe",
-  "homepage": "https://github.com/ElemeFE/mint-ui",
+  "author": "kux",
+  "homepage": "",
   "license": "MIT",
-  "repository": "https://github.com/ElemeFE/mint-ui/tree/master/components/mint-button",
+  "repository": "",
   "dependencies": {
   }
 }
