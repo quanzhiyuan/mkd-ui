@@ -19,7 +19,7 @@
 
 <script>
 if (process.env.NODE_ENV === 'component') {
-  require('mkd-ui/packages/font/style.css');
+  require('mint-ui/packages/font/style.css');
 }
 /**
  * mkd-header

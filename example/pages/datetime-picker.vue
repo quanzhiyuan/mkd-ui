@@ -2,11 +2,11 @@
   <div class="page-datetime">
     <h1 class="page-title">Datetime Picker</h1>
     <div class="page-datetime-wrapper">
-      <mt-button @click.native="open('picker1')" size="large">点击弹出 DateTime Picker</mt-button>
-      <mt-button @click.native="open('picker2')" size="large">点击弹出 Date Picker</mt-button>
-      <mt-button @click.native="open('picker3')" size="large">点击弹出 Time Picker</mt-button>
-      <mt-button @click.native="open('picker4')" size="large">自定义模板</mt-button>
-      <mt-button @click.native="open('picker5')" size="large">设定初始值</mt-button>
+      <mkd-button @click.native="open('picker1')" size="large">点击弹出 DateTime Picker</mkd-button>
+      <mkd-button @click.native="open('picker2')" size="large">点击弹出 Date Picker</mkd-button>
+      <mkd-button @click.native="open('picker3')" size="large">点击弹出 Time Picker</mkd-button>
+      <mkd-button @click.native="open('picker4')" size="large">自定义模板</mkd-button>
+      <mkd-button @click.native="open('picker5')" size="large">设定初始值</mkd-button>
     </div>
     <mt-datetime-picker
       ref="picker1"

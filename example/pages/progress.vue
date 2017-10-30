@@ -17,7 +17,7 @@
       <mt-progress :value="60" :bar-height="5"></mt-progress>
     </mt-cell>
     <div class="page-progress-wrapper">
-      <mt-button size="large" type="primary" @click.native="uploadFile">上传文件</mt-button>
+      <mkd-button size="large" type="primary" @click.native="uploadFile">上传文件</mkd-button>
       <mt-progress :value="value" v-if="progressVisible" transition="progress-fade">
         <div slot="end">{{ value }}%</div>
       </mt-progress>

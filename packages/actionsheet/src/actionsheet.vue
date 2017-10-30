@@ -1,16 +1,16 @@
 <template>
   <transition name="actionsheet-float">
-    <div v-show="currentValue" class="mint-actionsheet">
-      <ul class="mint-actionsheet-list" :style="{ 'margin-bottom': cancelText ? '5px' : '0' }">
-        <li v-for="( item, index ) in actions" class="mint-actionsheet-listitem" @click.stop="itemClick(item, index)">{{ item.name }}</li>
+    <div v-show="currentValue" class="mkd-actionsheet">
+      <ul class="mkd-actionsheet-list" :style="{ 'margin-bottom': cancelText ? '5px' : '0' }">
+        <li v-for="( item, index ) in actions" class="mkd-actionsheet-listitem" @click.stop="itemClick(item, index)">{{ item.name }}</li>
       </ul>
-      <a class="mint-actionsheet-button" @click.stop="currentValue = false" v-if="cancelText">{{ cancelText }}</a>
+      <a class="mkd-actionsheet-button" @click.stop="currentValue = false" v-if="cancelText">{{ cancelText }}</a>
     </div>
   </transition>
 </template>
 
 <style>
-  @component-namespace mint {
+  @component-namespace mkd {
     @component actionsheet {
       position: fixed;
       background: #e0e0e0;

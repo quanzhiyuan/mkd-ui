@@ -14,7 +14,7 @@ cooking.set({
   },
   clean: true,
   hash: true,
-  publicPath: '/mint-ui/',
+  publicPath: './',
   assetsPath: 'static',
   urlLoaderLimit: 10000,
   extractCSS: true,

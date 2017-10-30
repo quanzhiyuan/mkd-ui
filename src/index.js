@@ -12,6 +12,7 @@ import TabContainer from '../packages/tab-container';
 import Navbar from '../packages/navbar';
 import Tabbar from '../packages/tabbar';
 import Search from '../packages/search';
+import Card from '../packages/card';
 import Checklist from '../packages/checklist';
 import Radio from '../packages/radio';
 import Loadmore from '../packages/loadmore';
@@ -34,7 +35,7 @@ import PaletteButton from '../packages/palette-button';
 import '../src/assets/font/iconfont.css';
 import merge from './utils/merge';
 
-const version = '0.1.1';
+const version = '0.1.3';
 const install = function(Vue, config = {}) {
   if (install.installed) return;
 
@@ -51,6 +52,7 @@ const install = function(Vue, config = {}) {
   Vue.component(TabContainer.name, TabContainer);
   Vue.component(Navbar.name, Navbar);
   Vue.component(Tabbar.name, Tabbar);
+  Vue.component(Card.name, Card);
   Vue.component(Search.name, Search);
   Vue.component(Checklist.name, Checklist);
   Vue.component(Radio.name, Radio);
@@ -99,6 +101,7 @@ module.exports = {
   Navbar,
   Tabbar,
   Search,
+  Card,
   Checklist,
   Radio,
   Loadmore,

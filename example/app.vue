@@ -11,7 +11,7 @@
   @reset-global mobile;
 
   html, body {
-    background-color: #fafafa;
+    background-color:  #E9EFF6;
     -webkit-overflow-scrolling: touch;
     user-select: none;
   }

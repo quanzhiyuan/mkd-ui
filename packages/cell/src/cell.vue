@@ -1,43 +1,33 @@
 <template>
-  <a class="mint-cell" :href="href">
-    <span class="mint-cell-mask" v-if="isLink"></span>
-    <div class="mint-cell-left">
-      <slot name="left"></slot>
-    </div>
-    <div class="mint-cell-wrapper">
-      <div class="mint-cell-title">
-        <slot name="icon">
-          <i v-if="icon" class="mintui" :class="'mintui-' + icon"></i>
+  <a class="mkd-cell" :href="href">
+    <!-- <span class="mkd-cell-mask" v-if="isLink"></span> -->
+    <div class="mkd-cell-wrapper">
+      <div class="mkd-cell-title">
+        <slot name="icon" style="margin-right:10px;">
+          <!-- <i v-if="icon" class="mkdui" :class="'mkdui-' + icon"></i> -->
         </slot>
         <slot name="title">
-          <span class="mint-cell-text" v-text="title"></span>
-          <span v-if="label" class="mint-cell-label" v-text="label"></span>
+          <span class="mkd-cell-text" v-text="title"></span>
+          <!-- <span v-if="label" class="mkd-cell-label" v-text="label"></span> -->
         </slot>
       </div>
-      <div class="mint-cell-value" :class="{ 'is-link' : isLink }">
+      <div class="mkd-cell-value" :class="{ 'is-link' : isLink , 'is-edit': isEdit}">
         <slot>
           <span v-text="value"></span>
         </slot>
       </div>
     </div>
-    <div class="mint-cell-right">
-      <slot name="right"></slot>
-    </div>
-    <i v-if="isLink" class="mint-cell-allow-right"></i>
+    <i v-if="isLink" class="mkd-cell-allow-right"></i>
   </a>
 </template>
 
 <script>
-if (process.env.NODE_ENV === 'component') {
-  require('mint-ui/packages/font/style.css');
-}
-
 /**
  * mt-cell
  * @module components/cell
  * @desc 单元格
  * @param {string|Object} [to] - 跳转链接，使用 vue-router 的情况下 to 会传递给 router.push，否则作为 a 标签的 href 属性处理
- * @param {string} [icon] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .mintui-xxx）
+ * @param {string} [icon] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .mkdui-xxx）
  * @param {string} [title] - 标题
  * @param {string} [label] - 备注信息
  * @param {boolean} [is-link=false] - 可点击的链接
@@ -53,14 +43,15 @@ if (process.env.NODE_ENV === 'component') {
  * </mt-cell>
  */
 export default {
-  name: 'mt-cell',
+  name: 'mkd-cell',
 
   props: {
     to: [String, Object],
     icon: String,
     title: String,
-    label: String,
+    // label: String,   暂时不用
     isLink: Boolean,
+    isEdit: Boolean,
     value: {}
   },
 
@@ -92,45 +83,30 @@ export default {
 <style lang="css">
   @import "../../../src/style/var.css";
 
-  @component-namespace mint {
+  @component-namespace mkd {
     @component cell {
       background-color: $color-white;
       box-sizing: border-box;
       color: inherit;
-      min-height: 48px;
+      height: $cell-min-height;
       display: block;
       overflow: hidden;
       position: relative;
       text-decoration: none;
-
-      &:first-child {
-        .mint-cell-wrapper {
-          background-origin: border-box;
-        }
-      }
-
-      &:last-child {
-        background-image: linear-gradient(0deg, $color-grey, $color-grey 50%, transparent 50%);
-        background-size: 100% 1px;
-        background-repeat: no-repeat;
-        background-position: bottom;
-      }
-
+      width: 96%;
+      margin: 0px auto;
+      padding: 11px 12px;
       @descendent wrapper {
-        background-image:linear-gradient(180deg, $color-grey, $color-grey 50%, transparent 50%);
-        background-size: 120% 1px;
-        background-repeat: no-repeat;
-        background-position: top left;
         background-origin: content-box;
         align-items: center;
         box-sizing: border-box;
         display: flex;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 1;
         min-height: inherit;
         overflow: hidden;
-        padding: 0 10px;
         width: 100%;
+        height: 100%;
       }
 
       @descendent mask {
@@ -150,28 +126,30 @@ export default {
         vertical-align: middle;
       }
 
-      @descendent label {
-        color: #888;
-        display: block;
-        font-size: 12px;
-        margin-top: 6px;
-      }
-
       img {
         vertical-align: middle;
       }
 
       @descendent title {
         flex: 1;
+        font-size: 15px;
+        color: #999999;
+        letter-spacing: 0;
+        line-height: 14px;
       }
 
       @descendent value {
         color: $cell-value-color;
         display: flex;
         align-items: center;
-
+        font-size: 14px;
+        color: #999999;
+        letter-spacing: 0;
         @when link {
           margin-right: 24px;
+        }
+        @when edit {
+          color: #3F3F3F;
         }
       }
 
@@ -191,13 +169,32 @@ export default {
       }
 
       @descendent allow-right::after {
-        border: solid 2px $border-color;
+        border: solid 1px #C0C7CE;
         border-bottom-width: 0;
         border-left-width: 0;
         content: " ";
         position: absolute 50% 20px * *;
         size: 5px;
         transform: translateY(-50%) rotate(45deg);
+      }
+    }
+    @component cells {
+      @descendent wrapper {
+        &>:first-child {
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+        }
+        &>:last-child {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+
+        &>:not(:first-child) {
+          background-image:linear-gradient(180deg, $color-grey, $color-grey 50%, transparent 50%);
+          background-size: 100% 1px;
+          background-repeat: no-repeat;
+          background-position: top left;
+        }
       }
     }
   }

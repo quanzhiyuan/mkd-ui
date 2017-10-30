@@ -1,0 +1,10 @@
+{
+  "name": "mkd-card",
+  "description": "",
+  "version": "0.1.0",
+  "main": "lib/index.js",
+  "author": "kingdee ued",
+  "license": "MIT",
+  "dependencies": {
+  }
+}

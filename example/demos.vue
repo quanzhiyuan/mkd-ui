@@ -2,15 +2,19 @@
   <section class="page-demo">
     <div v-for="group in navs">
       <div class="page-title" v-text="group.title"></div>
-      <mt-cell
-        v-for="item in group.list"
-        :to="item.path"
-        is-link>
-        <div slot="title">
-          <i :class="['indexicon', 'icon-' + item.icon]"></i>
-          <span>{{ item.name }}</span>
+      <div class="page-cotentblock">
+        <div class="mkd-cells-wrapper">
+        <mkd-cell
+          v-for="item in group.list"
+          :to="item.path" :key="item"
+          is-link>
+          <div slot="title">
+            <i :class="['indexicon', 'icon-' + item.icon]"></i>
+            <span>{{ item.name }}</span>
+          </div>
+        </mkd-cell>
         </div>
-      </mt-cell>
+      </div>
     </div>
   </section>
 </template>
@@ -43,7 +47,17 @@
       display: block;
       line-height: 1;
     }
-
+    @component cotentblock {
+      &>:first-child {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        background-size: 0;
+      }
+      &>:last-child {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+    }
     @component part {
       margin-bottom: 15px;
     }

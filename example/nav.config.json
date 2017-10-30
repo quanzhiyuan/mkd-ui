@@ -1,6 +1,6 @@
 [
   {
-    "title": "JS Components",
+    "title": "JS 组件",
     "list": [
       {
         "path": "/toast",
@@ -130,6 +130,11 @@
       {
         "path": "/search",
         "name": "Search",
+        "icon": "searchbar"
+      },
+      {
+        "path": "/card",
+        "name": "Card",
         "icon": "searchbar"
       }
     ]

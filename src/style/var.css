@@ -8,7 +8,12 @@ $warning-color: #ffc107;
 
 /* Cell Component */
 $cell-value-color: #888;
+$cell-min-height: 44px;
 
+/* Card Component */
+$card-title-height: 42px;
+$card-content-minheight: 100px;
+$card-width: 351px;
 /* Header Component */
 $header-height: 40px;
 

@@ -25,6 +25,5 @@ route.route.push({
   path: '/',
   component: require('./demos.vue')
 });
-
 export const navs = route.navs;
 export default route.route;

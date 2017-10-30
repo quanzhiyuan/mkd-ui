@@ -21,7 +21,7 @@
             <mt-cell v-for="n in 12" :title="'我的 ' + n" />
           </div>
           <router-link to="/">
-            <mt-button type="danger" size="large">退出</mt-button>
+            <mkd-button type="danger" size="large">退出</mkd-button>
           </router-link>
         </mt-tab-container-item>
       </mt-tab-container>
