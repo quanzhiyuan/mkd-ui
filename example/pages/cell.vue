@@ -11,7 +11,6 @@
         <mkd-cell title="标题文字" is-link is-edit value="带链接"></mkd-cell>
       </div>
 
-
       <div class="page-title">其他</div>
       <div class="mkd-cells-wrapper">
       <mkd-cell is-link title="标题文字" value="带图片">
@@ -34,9 +33,16 @@
     </div>
   </div>
 </template>
-<style lang="css">
-@component page-cell {
+<style lang="scss">
+.page-cell {
   padding-bottom: 100px;
+}
+.page-title {
+  font-size: 20px;
+  margin: 20px auto;
+  text-align: center;
+  display: block;
+  line-height: 1;
 }
 .marginbtm {
   margin-bottom: 10px;

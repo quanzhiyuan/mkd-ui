@@ -29,9 +29,9 @@
 </template>
 
 <script>
-import XCell from 'mint-ui/packages/cell/index.js';
+import XCell from 'mkd-ui/packages/cell/index.js';
 if (process.env.NODE_ENV === 'component') {
-  require('mint-ui/packages/cell/style.css');
+  require('mkd-ui/packages/cell/style.css');
 }
 
 /**
@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style lang="css">
-  @import "../../../src/style/var.css";
+  @import "../../../src/style/var.scss";
 
   @component-namespace mint {
     @component search {

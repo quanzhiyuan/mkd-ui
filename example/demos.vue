@@ -1,6 +1,6 @@
 <template>
   <section class="page-demo">
-    <div v-for="group in navs">
+    <div v-for="(group, key) in navs" :key="key" >
       <div class="page-title" v-text="group.title"></div>
       <div class="page-cotentblock">
         <div class="mkd-cells-wrapper">
@@ -19,10 +19,9 @@
   </section>
 </template>
 
-<style>
+<style lang="scss">
   .page-demo {
     padding-bottom: 50px;
-
     .indexicon {
       font-size: 22px;
       color: #26a2ff;
@@ -38,16 +37,14 @@
         font-size: 18px;
       }
     }
-  }
-  @component-namespace page {
-    @component title {
+    .page-title {
       font-size: 20px;
       margin: 20px auto;
       text-align: center;
       display: block;
       line-height: 1;
     }
-    @component cotentblock {
+    .page-contentblock {
       &>:first-child {
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
@@ -58,24 +55,23 @@
         border-bottom-right-radius: 3px;
       }
     }
-    @component part {
+    .page-part {
       margin-bottom: 15px;
     }
   }
 </style>
 
 <script type="text/babel">
-  import { navs } from './route';
+  import { navs } from './route'
 
   export default {
     data() {
       return {
         navs: []
-      };
+      }
     },
-
     created() {
-      this.navs = navs;
+      this.navs = navs
     }
-  };
+  }
 </script>

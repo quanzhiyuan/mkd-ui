@@ -19,7 +19,7 @@
 
 <script>
 if (process.env.NODE_ENV === 'component') {
-  require('mint-ui/packages/font/style.css');
+  require('mkd-ui/packages/font/style.css');
 }
 /**
  * mkd-header
@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style lang="css">
-  @import "../../../src/style/var.css";
+  @import "../../../src/style/var.scss";
 
   @component-namespace mkd {
     @component button {

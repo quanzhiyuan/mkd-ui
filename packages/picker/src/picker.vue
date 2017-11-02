@@ -117,7 +117,7 @@
         var target;
         var children = this.$children.filter(child => child.$options.name === 'picker-slot');
 
-        slots.forEach(function(slot, index) {
+        slots.forEach(function (slot, index) {
           if (!slot.divider) {
             if (slotIndex === count) {
               target = children[index];
@@ -173,7 +173,7 @@
       values() {
         var slots = this.slots || [];
         var values = [];
-        slots.forEach(function(slot) {
+        slots.forEach(function (slot) {
           if (!slot.divider) values.push(slot.value);
         });
 
@@ -182,7 +182,7 @@
       slotCount() {
         var slots = this.slots || [];
         var result = 0;
-        slots.forEach(function(slot) {
+        slots.forEach(function (slot) {
           if (!slot.divider) result++;
         });
         return result;

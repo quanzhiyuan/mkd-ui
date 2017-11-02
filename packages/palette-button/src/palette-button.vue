@@ -14,7 +14,7 @@
   export default {
     name: 'mt-palette-button',
 
-    data: function() {
+    data: function () {
       return {
         transforming: false,    // 是否正在执行动画
         expanded: false           // 是否已经展开子按钮

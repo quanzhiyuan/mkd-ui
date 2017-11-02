@@ -26,7 +26,7 @@ let removeDom = event => {
   }
 };
 
-ToastConstructor.prototype.close = function() {
+ToastConstructor.prototype.close = function () {
   this.visible = false;
   this.$el.addEventListener('transitionend', removeDom);
   this.closed = true;
@@ -45,10 +45,10 @@ let Toast = (options = {}) => {
   instance.iconClass = options.iconClass || '';
 
   document.body.appendChild(instance.$el);
-  Vue.nextTick(function() {
+  Vue.nextTick(function () {
     instance.visible = true;
     instance.$el.removeEventListener('transitionend', removeDom);
-    ~duration && (instance.timer = setTimeout(function() {
+    ~duration && (instance.timer = setTimeout(function () {
       if (instance.closed) return;
       instance.close();
     }, duration));

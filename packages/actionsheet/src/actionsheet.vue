@@ -54,8 +54,8 @@
 </style>
 
 <script type="text/babel">
-  import Popup from 'mint-ui/src/utils/popup';
-  import 'mint-ui/src/style/popup.css';
+  import Popup from 'mkd-ui/src/utils/popup';
+  import 'mkd-ui/src/style/popup.css';
 
   export default {
     name: 'mt-actionsheet',

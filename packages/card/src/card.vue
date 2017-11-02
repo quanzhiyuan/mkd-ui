@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="css">
-  @import "../../../src/style/var.css";
+  @import "../../../src/style/var.scss";
 
   @component-namespace mkd {
     @component card {

@@ -25,38 +25,38 @@ npm i mint-ui@1 -S
 Import all components.
 
 ```javascript
-import Vue from 'vue';
-import Mint from 'mint-ui';
-import 'mint-ui/lib/style.css';
+import Vue from 'vue'
+import Mint from 'mint-ui'
+import 'mint-ui/lib/style.css'
 
-Vue.use(Mint);
+Vue.use(Mint)
 ```
 
 Or import specified component. (Use [babel-plugin-component](https://www.npmjs.com/package/babel-plugin-component))
 
 ```javascript
-import { Cell, Checklist } from 'mint-ui';
+import { Cell, Checklist } from 'mint-ui'
 
-Vue.component(Cell.name, Cell);
-Vue.component(Checklist.name, Checklist);
+Vue.component(Cell.name, Cell)
+Vue.component(Checklist.name, Checklist)
 ```
 
 
 Equals to
 
 ```javascript
-import Vue from 'vue';
-import Mint from 'mint-ui';
-import 'mint-ui/lib/style.css';
+import Vue from 'vue'
+import Mint from 'mint-ui'
+import 'mint-ui/lib/style.css'
 
-Vue.use(Mint);
+Vue.use(Mint)
 
 // import specified component
 
-import MtRadio from 'mint-ui/lib/radio';
-import 'mint-ui/lib/radio/style.css';
+import MtRadio from 'mint-ui/lib/radio'
+import 'mint-ui/lib/radio/style.css'
 
-Vue.component(MtRadio.name, MtRadio);
+Vue.component(MtRadio.name, MtRadio)
 ```
 
 ## babel-plugin-component

@@ -1,12 +1,12 @@
 <template>
   <header
-    class="mint-header"
+    class="mkd-header"
     :class="{ 'is-fixed': fixed }">
-    <div class="mint-header-button is-left">
+    <div class="mkd-header-button is-left">
       <slot name="left"></slot>
     </div>
-    <h1 class="mint-header-title" v-text="title"></h1>
-    <div class="mint-header-button is-right">
+    <h1 class="mkd-header-title" v-text="title"></h1>
+    <div class="mkd-header-button is-right">
       <slot name="right"></slot>
     </div>
   </header>
@@ -29,7 +29,7 @@
  * </mt-header>
  */
 export default {
-  name: 'mt-header',
+  name: 'mkd-header',
 
   props: {
     fixed: Boolean,
@@ -38,65 +38,58 @@ export default {
 };
 </script>
 
-<style lang="css">
-  @import "../../../src/style/var.css";
+<style lang="scss">
+  @import "../../../src/style/var.scss";
+.mkd-header {
+  align-items: center;
+  background-color: $color-blue;
+  box-sizing: border-box;
+  color: $color-white;
+  display: flex;
+  font-size: 14px;
+  height: $header-height;
+  line-height: 1;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  .mkd-button {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    color: inherit;
+    display: inline-block;
+    padding: 0;
+    font-size: inherit;
 
-  @component-namespace mint {
-    @component header {
-      align-items: center;
-      background-color: $color-blue;
-      box-sizing: border-box;
-      color: $color-white;
-      display: flex;
-      font-size: 14px;
-      height: $header-height;
-      line-height: 1;
-      padding: 0 10px;
-      position: relative;
-      text-align: center;
-      white-space: nowrap;
-
-      .mint-button {
-        background-color: transparent;
-        border: 0;
-        box-shadow: none;
-        color: inherit;
-        display: inline-block;
-        padding: 0;
-        font-size: inherit;
-
-        &::after {
-          content: none;
-        }
-      }
-
-      @descendent button {
-        flex: .5;
-
-        > a {
-          color: inherit;
-        }
-
-        @when left {
-          text-align: left;
-        }
-
-        @when right {
-          text-align: right;
-        }
-      }
-
-      @descendent title {
-        @utils-ellipsis;
-        font-size: inherit;
-        font-weight: normal;
-        flex: 1;
-      }
-
-      @when fixed {
-        position: fixed 0 0 * 0;
-        z-index: $z-index-normal;
-      }
+    &::after {
+      content: none;
     }
   }
+  >.mkd-header-button {
+    flex: .5;
+
+    > a {
+      color: inherit;
+    }
+    .is-left {
+      text-align: left;
+    }
+    .is-right {
+      text-align: right;
+    }
+  }
+  >.mkd-header-title {
+    font-size: inherit;
+    font-weight: normal;
+    flex: 1;
+    .is-fixed {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: $z-index-normal;
+    }
+  }
+}
 </style>

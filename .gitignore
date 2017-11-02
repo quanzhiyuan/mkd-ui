@@ -2,6 +2,7 @@
 .cache
 .DS_Store
 .idea
+node_modules/
 .vscode/
 packages/**/lib
 lib/*
@@ -9,4 +10,3 @@ lib/*
 !lib/style.css
 node_modules
 example/dist
-

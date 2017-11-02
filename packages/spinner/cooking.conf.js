@@ -5,7 +5,7 @@ var config = require('../../build/config');
 var WebpackShellPlugin = require('webpack-shell-plugin');
 
 var entrys = {};
-Object.keys(Components).forEach(function(key) {
+Object.keys(Components).forEach(function (key) {
   entrys[key] = [path.join(__dirname, Components[key])];
 });
 

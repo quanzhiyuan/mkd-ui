@@ -142,13 +142,13 @@
     transform: translate3d(-50%, -50%, 0) scale(0.9);
   }
 </style>
-<style src="mint-ui/src/style/popup.css"></style>
+<style src="mkd-ui/src/style/popup.css"></style>
 
 <script type="text/babel">
   let CONFIRM_TEXT = '确定';
   let CANCEL_TEXT = '取消';
 
-  import Popup from 'mint-ui/src/utils/popup';
+  import Popup from 'mkd-ui/src/utils/popup';
 
   export default {
     mixins: [ Popup ],

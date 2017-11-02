@@ -1,14 +1,13 @@
 <template>
   <div>
     <router-link class="page-back" v-if="visible" :to="'/'">
-      <i class="mintui mintui-back"></i>
+      <i class="mkdui mkdui-back"></i>
     </router-link>
     <router-view></router-view>
   </div>
 </template>
 
-<style>
-  @reset-global mobile;
+<style lang="scss">
 
   html, body {
     background-color:  #E9EFF6;
@@ -19,10 +18,11 @@
   a {
     color: inherit;
   }
-
   .page-back {
     display: inline-block;
-    position: absolute 12px * * 10px;
+    position: absolute;
+    top: 12px;
+    left: 10px;
     width: 40px;
     height: 40px;
     text-align: center;
@@ -33,14 +33,15 @@
   }
 </style>
 
-<script type="text/babel">
-  import 'src/assets/font/iconfont.css';
+<script>
+  import '../src/assets/font/iconfont.css'
+  import '../src/style/common.css'
 
   export default {
     computed: {
       visible() {
-        return ['/', '/header', '/search'].indexOf(this.$route.path) < 0;
+        return ['/', '/header', '/search'].indexOf(this.$route.path) < 0
       }
     }
-  };
+  }
 </script>

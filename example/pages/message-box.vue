@@ -26,7 +26,7 @@
 </style>
 
 <script type="text/babel">
-  import { MessageBox } from 'src/index';
+  import { MessageBox } from '$src/index';
 
   export default {
     methods: {

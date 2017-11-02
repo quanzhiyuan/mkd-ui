@@ -31,7 +31,7 @@ if (!Vue.prototype.$isServer) {
     translate3d = true;
   }
 
-  var getTranslate = function(element) {
+  var getTranslate = function (element) {
     var result = {left: 0, top: 0};
     if (element === null || element.style === null) return result;
 
@@ -45,7 +45,7 @@ if (!Vue.prototype.$isServer) {
     return result;
   };
 
-  var translateElement = function(element, x, y) {
+  var translateElement = function (element, x, y) {
     if (x === null && y === null) return;
 
     if (element === null || element === undefined || element.style === null) return;
@@ -71,7 +71,7 @@ if (!Vue.prototype.$isServer) {
     }
   };
 
-  var cancelTranslateElement = function(element) {
+  var cancelTranslateElement = function (element) {
     if (element === null || element.style === null) return;
     var transformValue = element.style[transformProperty];
     if (transformValue) {

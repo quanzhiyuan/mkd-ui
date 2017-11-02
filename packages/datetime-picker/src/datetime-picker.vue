@@ -14,7 +14,7 @@
 </template>
 
 <style lang="css">
-  @import "../../../src/style/var.css";
+  @import "../../../src/style/var.scss";
 
   @component-namespace mint {
     @component datetime {
@@ -49,11 +49,11 @@
 </style>
 
 <script type="text/babel">
-  import picker from 'mint-ui/packages/picker/index.js';
-  import popup from 'mint-ui/packages/popup/index.js';
+  import picker from 'mkd-ui/packages/picker/index.js';
+  import popup from 'mkd-ui/packages/popup/index.js';
   if (process.env.NODE_ENV === 'component') {
-    require('mint-ui/packages/picker/style.css');
-    require('mint-ui/packages/popup/style.css');
+    require('mkd-ui/packages/picker/style.css');
+    require('mkd-ui/packages/popup/style.css');
   }
 
   const FORMAT_MAP = {

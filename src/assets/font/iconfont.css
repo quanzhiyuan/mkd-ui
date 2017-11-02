@@ -1,20 +1,21 @@
 
-@font-face {font-family: "mintui";
+
+@font-face {
+  font-family: "mkdui";
   src: url('iconfont.ttf?t=1464927413')
 }
-
-.mintui {
-  font-family:"mintui" !important;
+.mkdui {
+  font-family:"mkdui" !important;
   font-size:16px;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.mintui-search:before { content: "\e604"; }
-.mintui-more:before { content: "\e601"; }
-.mintui-back:before { content: "\e600"; }
-.mintui-field-error:before { content: "\e605"; }
-.mintui-field-warning:before { content: "\e608"; }
-.mintui-success:before { content: "\e602"; }
-.mintui-field-success:before { content: "\e609"; }
+.mkdui-back:before { content: "\e600" };
+.mkdui-search:before { content: "\e604" };
+.mkdui-more:before { content: "\e601" };
+.mkdui-field-error:before { content: "\e605" };
+.mkdui-field-warning:before { content: "\e608" };
+.mkdui-success:before { content: "\e602" };
+.mkdui-field-success:before { content: "\e609" };

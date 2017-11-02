@@ -29,7 +29,7 @@ var defaults = {
 import Vue from 'vue';
 import msgboxVue from './message-box.vue';
 
-var merge = function(target) {
+var merge = function (target) {
   for (var i = 1, j = arguments.length; i < j; i++) {
     var source = arguments[i];
     for (var prop in source) {
@@ -79,7 +79,7 @@ const defaultCallback = action => {
   }
 };
 
-var initInstance = function() {
+var initInstance = function () {
   instance = new MessageBoxConstructor({
     el: document.createElement('div')
   });
@@ -87,7 +87,7 @@ var initInstance = function() {
   instance.callback = defaultCallback;
 };
 
-var showNextMsg = function() {
+var showNextMsg = function () {
   if (!instance) {
     initInstance();
   }
@@ -119,7 +119,7 @@ var showNextMsg = function() {
   }
 };
 
-var MessageBox = function(options, callback) {
+var MessageBox = function (options, callback) {
   if (typeof options === 'string') {
     options = {
       title: options
@@ -135,7 +135,7 @@ var MessageBox = function(options, callback) {
   }
 
   if (typeof Promise !== 'undefined') {
-    return new Promise(function(resolve, reject) { // eslint-disable-line
+    return new Promise(function (resolve, reject) { // eslint-disable-line
       msgQueue.push({
         options: merge({}, defaults, MessageBox.defaults || {}, options),
         callback: callback,
@@ -155,11 +155,11 @@ var MessageBox = function(options, callback) {
   }
 };
 
-MessageBox.setDefaults = function(defaults) {
+MessageBox.setDefaults = function (defaults) {
   MessageBox.defaults = defaults;
 };
 
-MessageBox.alert = function(message, title, options) {
+MessageBox.alert = function (message, title, options) {
   if (typeof title === 'object') {
     options = title;
     title = '';
@@ -173,7 +173,7 @@ MessageBox.alert = function(message, title, options) {
   }, options));
 };
 
-MessageBox.confirm = function(message, title, options) {
+MessageBox.confirm = function (message, title, options) {
   if (typeof title === 'object') {
     options = title;
     title = '';
@@ -186,7 +186,7 @@ MessageBox.confirm = function(message, title, options) {
   }, options));
 };
 
-MessageBox.prompt = function(message, title, options) {
+MessageBox.prompt = function (message, title, options) {
   if (typeof title === 'object') {
     options = title;
     title = '';
@@ -200,7 +200,7 @@ MessageBox.prompt = function(message, title, options) {
   }, options));
 };
 
-MessageBox.close = function() {
+MessageBox.close = function () {
   if (!instance) return;
   instance.value = false;
   msgQueue = [];

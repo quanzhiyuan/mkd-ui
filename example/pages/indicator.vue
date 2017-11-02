@@ -26,7 +26,7 @@
 </style>
 
 <script type="text/babel">
-  import { Indicator } from 'src/index';
+  import { Indicator } from '$src/index';
 
   export default {
     methods: {

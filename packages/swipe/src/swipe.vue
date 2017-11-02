@@ -60,8 +60,8 @@
 </template>
 
 <script>
-  import { once } from 'mint-ui/src/utils/dom';
-  import { addClass, removeClass } from 'mint-ui/src/utils/dom';
+  import { once } from 'mkd-ui/src/utils/dom';
+  import { addClass, removeClass } from 'mkd-ui/src/utils/dom';
 
   export default {
     name: 'mt-swipe',
@@ -190,7 +190,7 @@
         var defaultIndex = (intDefaultIndex >= 0 && intDefaultIndex < children.length) ? intDefaultIndex : 0;
         this.index = defaultIndex;
 
-        children.forEach(function(child, index) {
+        children.forEach(function (child, index) {
           pages.push(child.$el);
 
           removeClass(child.$el, 'is-active');

@@ -50,11 +50,11 @@
 </template>
 
 <script>
-import { once } from 'mint-ui/src/utils/dom';
-import XCell from 'mint-ui/packages/cell/index.js';
-import Clickoutside from 'mint-ui/src/utils/clickoutside';
+import { once } from 'mkd-ui/src/utils/dom';
+import XCell from 'mkd-ui/packages/cell/index.js';
+import Clickoutside from 'mkd-ui/src/utils/clickoutside';
 if (process.env.NODE_ENV === 'component') {
-  require('mint-ui/packages/cell/style.css');
+  require('mkd-ui/packages/cell/style.css');
 }
 
 /**
@@ -205,7 +205,7 @@ export default {
 </script>
 
 <style lang="css">
-  @import "../../../src/style/var.css";
+  @import "../../../src/style/var.scss";
 
   @component-namespace mint {
     @component cell-swipe {

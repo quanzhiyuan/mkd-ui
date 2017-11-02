@@ -9,7 +9,7 @@ const SPINNERS = [
   'triple-bounce',
   'fading-circle'
 ];
-const parseSpinner = function(index) {
+const parseSpinner = function (index) {
   if ({}.toString.call(index) === '[object Number]') {
     if (SPINNERS.length <= index) {
       console.warn(`'${index}' spinner not found, use the default spinner.`);

@@ -1,15 +1,15 @@
 import Vue from 'vue';
 const ctx = '@@InfiniteScroll';
 
-var throttle = function(fn, delay) {
+var throttle = function (fn, delay) {
   var now, lastExec, timer, context, args; //eslint-disable-line
 
-  var execute = function() {
+  var execute = function () {
     fn.apply(context, args);
     lastExec = now;
   };
 
-  return function() {
+  return function () {
     context = this;
     args = arguments;
 
@@ -35,7 +35,7 @@ var throttle = function(fn, delay) {
   };
 };
 
-var getScrollTop = function(element) {
+var getScrollTop = function (element) {
   if (element === window) {
     return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop);
   }
@@ -45,7 +45,7 @@ var getScrollTop = function(element) {
 
 var getComputedStyle = Vue.prototype.$isServer ? {} : document.defaultView.getComputedStyle;
 
-var getScrollEventTarget = function(element) {
+var getScrollEventTarget = function (element) {
   var currentNode = element;
   // bugfix, see http://w3help.org/zh-cn/causes/SD9013 and http://stackoverflow.com/questions/17016740/onscroll-function-is-not-working-for-chrome
   while (currentNode && currentNode.tagName !== 'HTML' && currentNode.tagName !== 'BODY' && currentNode.nodeType === 1) {
@@ -58,7 +58,7 @@ var getScrollEventTarget = function(element) {
   return window;
 };
 
-var getVisibleHeight = function(element) {
+var getVisibleHeight = function (element) {
   if (element === window) {
     return document.documentElement.clientHeight;
   }
@@ -66,14 +66,14 @@ var getVisibleHeight = function(element) {
   return element.clientHeight;
 };
 
-var getElementTop = function(element) {
+var getElementTop = function (element) {
   if (element === window) {
     return getScrollTop(window);
   }
   return element.getBoundingClientRect().top + getScrollTop(window);
 };
 
-var isAttached = function(element) {
+var isAttached = function (element) {
   var currentNode = element.parentNode;
   while (currentNode) {
     if (currentNode.tagName === 'HTML') {
@@ -87,7 +87,7 @@ var isAttached = function(element) {
   return false;
 };
 
-var doBind = function() {
+var doBind = function () {
   if (this.binded) return; // eslint-disable-line
   this.binded = true;
 
@@ -102,7 +102,7 @@ var doBind = function() {
   var disabled = false;
 
   if (disabledExpr) {
-    this.vm.$watch(disabledExpr, function(value) {
+    this.vm.$watch(disabledExpr, function (value) {
       directive.disabled = value;
       if (!value && directive.immediateCheck) {
         doCheck.call(directive);
@@ -135,13 +135,13 @@ var doBind = function() {
 
   var eventName = element.getAttribute('infinite-scroll-listen-for-event');
   if (eventName) {
-    directive.vm.$on(eventName, function() {
+    directive.vm.$on(eventName, function () {
       doCheck.call(directive);
     });
   }
 };
 
-var doCheck = function(force) {
+var doCheck = function (force) {
   var scrollEventTarget = this.scrollEventTarget;
   var element = this.el;
   var distance = this.distance;
@@ -172,15 +172,15 @@ export default {
       expression: binding.value
     };
     const args = arguments;
-    var cb = function() {
-      el[ctx].vm.$nextTick(function() {
+    var cb = function () {
+      el[ctx].vm.$nextTick(function () {
         if (isAttached(el)) {
           doBind.call(el[ctx], args);
         }
 
         el[ctx].bindTryCount = 0;
 
-        var tryBind = function() {
+        var tryBind = function () {
           if (el[ctx].bindTryCount > 10) return; //eslint-disable-line
           el[ctx].bindTryCount++;
           if (isAttached(el)) {

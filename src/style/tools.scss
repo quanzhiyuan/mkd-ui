@@ -1,0 +1,7 @@
+@import 'var.scss';
+@function vm($px){ // $px为需要转换的字号
+    @return $px / 375 * 100vw;
+}
+@function vh($px){ // $px为需要转换的字号
+    @return $px / 667 * 100vh;
+}

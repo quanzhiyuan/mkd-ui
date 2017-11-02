@@ -1,8 +1,8 @@
 import InfiniteScroll from './directive';
-import 'mint-ui/src/style/empty.css';
+import 'mkd-ui/src/style/empty.css';
 import Vue from 'vue';
 
-const install = function(Vue) {
+const install = function (Vue) {
   Vue.directive('InfiniteScroll', InfiniteScroll);
 };
 

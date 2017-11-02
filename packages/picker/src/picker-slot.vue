@@ -101,14 +101,14 @@
 <script type="text/babel">
   import draggable from './draggable';
   import translateUtil from './translate';
-  import { once, addClass, removeClass } from 'mint-ui/src/utils/dom';
-  import emitter from 'mint-ui/src/mixins/emitter';
+  import { once, addClass, removeClass } from 'mkd-ui/src/utils/dom';
+  import emitter from 'mkd-ui/src/mixins/emitter';
   import Vue from 'vue';
   if (!Vue.prototype.$isServer) {
     require('raf.js');
   }
 
-  var rotateElement = function(element, angle) {
+  var rotateElement = function (element, angle) {
     if (!element) return;
     var transformProperty = translateUtil.transformProperty;
 
@@ -240,7 +240,7 @@
         return this.mutatingValues[index];
       },
 
-      updateRotate: function(currentTranslate, pickerItems) {
+      updateRotate: function (currentTranslate, pickerItems) {
         if (this.divider) return;
         var dragRange = this.dragRange;
         var wrapper = this.$refs.wrapper;
@@ -276,7 +276,7 @@
         });
       },
 
-      planUpdateRotate: function() {
+      planUpdateRotate: function () {
         var el = this.$refs.wrapper;
         cancelAnimationFrame(this.animationFrameId);
 
