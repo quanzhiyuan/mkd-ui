@@ -1,7 +1,20 @@
 @import 'var.scss';
-@function vm($px){ // $px为需要转换的字号
+@function vm($px){ // $px转vw
     @return $px / 375 * 100vw;
 }
-@function vh($px){ // $px为需要转换的字号
+@function vh($px){ // $px转vh
     @return $px / 667 * 100vh;
+}
+
+@mixin border-top {
+  background-image:linear-gradient(180deg, $color-grey, $color-grey 50%, transparent 50%);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+@mixin border-bottom{
+  background-image:linear-gradient(180deg, $color-grey, $color-grey 50%, transparent 50%);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
 }

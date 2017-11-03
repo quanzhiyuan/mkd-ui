@@ -23,6 +23,7 @@ const route = registerRoute(NavConfig);
 
 route.route.push({
   path: '/',
+  name: 'index',
   component: require('./demos.vue')
 });
 export const navs = route.navs;

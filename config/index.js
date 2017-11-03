@@ -28,7 +28,7 @@ module.exports = {
     },
     port: 8080,
     autoOpenBrowser: true,
-    assetsSubDirectory: 'assets',
+    assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
     },

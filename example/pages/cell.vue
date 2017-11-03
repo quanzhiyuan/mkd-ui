@@ -14,7 +14,7 @@
       <div class="page-title">其他</div>
       <div class="mkd-cells-wrapper">
       <mkd-cell is-link title="标题文字" value="带图片">
-        <img slot="icon" style="width:22px;" src="../assets/100x100.png">
+        <img slot="icon" style="width:22px;" src="../assets/test1.png">
       </mkd-cell>
       <mkd-cell title="标题文字" icon="more" value="带 icon"></mkd-cell>
       </div>
@@ -43,8 +43,5 @@
   text-align: center;
   display: block;
   line-height: 1;
-}
-.marginbtm {
-  margin-bottom: 10px;
 }
 </style>

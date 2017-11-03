@@ -1,12 +1,12 @@
 <template>
   <section class="page-demo">
-    <div v-for="(group, key) in navs" :key="key" >
+    <div v-for="(group, i) in navs" :key="i" >
       <div class="page-title" v-text="group.title"></div>
       <div class="page-cotentblock">
         <div class="mkd-cells-wrapper">
         <mkd-cell
-          v-for="item in group.list"
-          :to="item.path" :key="item"
+          v-for="(item,i) in group.list"
+          :to="item.path" :key="i"
           is-link>
           <div slot="title">
             <i :class="['indexicon', 'icon-' + item.icon]"></i>
@@ -36,13 +36,6 @@
       &.icon-checklist {
         font-size: 18px;
       }
-    }
-    .page-title {
-      font-size: 20px;
-      margin: 20px auto;
-      text-align: center;
-      display: block;
-      line-height: 1;
     }
     .page-contentblock {
       &>:first-child {

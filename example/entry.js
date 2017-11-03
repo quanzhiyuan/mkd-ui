@@ -16,7 +16,7 @@ const router = new VueRouter({
   // mode: 'history',
   routes
 })
-
+console.log(router)
 new Vue({ // eslint-disable-line
   el: '#app',
   render: h => h(App),

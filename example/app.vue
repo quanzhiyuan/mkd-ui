@@ -8,7 +8,7 @@
 </template>
 
 <style lang="scss">
-
+  @import './common';
   html, body {
     background-color:  #E9EFF6;
     -webkit-overflow-scrolling: touch;

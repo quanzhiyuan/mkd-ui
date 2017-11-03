@@ -87,7 +87,7 @@ export default {
   overflow: hidden;
   position: relative;
   text-decoration: none;
-  width: vm(351);
+  width: vm(359);
   margin: 0px auto;
   padding: 11px 12px;
   img {
