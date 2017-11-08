@@ -34,7 +34,7 @@ ToastConstructor.prototype.close = function () {
 };
 
 let Toast = (options = {}) => {
-  let duration = options.duration || 3000;
+  let duration = options.duration || 2000;
 
   let instance = getAnInstance();
   instance.closed = false;
@@ -42,7 +42,7 @@ let Toast = (options = {}) => {
   instance.message = typeof options === 'string' ? options : options.message;
   instance.position = options.position || 'middle';
   instance.className = options.className || '';
-  instance.iconClass = options.iconClass || '';
+  instance.icon = options.icon || '';
 
   document.body.appendChild(instance.$el);
   Vue.nextTick(function () {

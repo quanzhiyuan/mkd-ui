@@ -9,42 +9,47 @@
   </div>
 </template>
 
-<style>
-  @component-namespace page {
-    @component msgbox {
-      @descendent wrapper {
-        padding: 0 20px;
-        position: absolute 50% * * *;
-        width: 100%;
-        transform: translateY(-50%);
-        button:not(:last-child) {
-          margin-bottom: 20px;
-        }
-      }
+<style lang="scss">
+.page-msgbox {
+  >.page-msgbox-wrapper {
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    >:not(:last-child) {
+      margin-bottom: 20px;
     }
   }
+}
 </style>
 
 <script type="text/babel">
-  import { MessageBox } from '$src/index';
+  import { MessageBox } from '$src/index'
 
   export default {
     methods: {
       openAlert() {
-        MessageBox.alert('操作成功!', '提示');
+        MessageBox.alert('操作成功!', '提示')
       },
-
       openConfirm() {
-        MessageBox.confirm('确定执行此操作?', '提示');
-      },
-
-      openPrompt() {
-        MessageBox.prompt(' ', '请输入姓名').then(({ value }) => {
-          if (value) {
-            MessageBox.alert(`你的名字是 ${ value }`, '输入成功');
+        MessageBox.confirm('确定执行此操作?', '提示').then((action) => {
+          if (action === "confirm") {
+              MessageBox.alert('您点击了确认', '提示')
+          } else if  (action === "cancel") {
+              MessageBox.alert('您点击了取消', '提示')
           }
-        });
+        })
+      },
+      openPrompt() {
+        MessageBox.prompt(' ', '请输入姓名').then(({action, value}) => {
+          if (action === 'confirm' && value) {
+            MessageBox.alert(`你的名字是 ${ value }`, '输入成功')
+          } else if (action === 'cancel') {
+            MessageBox.alert('您点击了取消', '提示')
+          }
+        })
       }
     }
-  };
+  }
 </script>

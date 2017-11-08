@@ -9,20 +9,19 @@
   </div>
 </template>
 
-<style>
-  @component-namespace page {
-    @component toast {
-      @descendent wrapper {
-        padding: 0 20px;
-        position: absolute 50% * * *;
-        width: 100%;
-        transform: translateY(-50%);
-        button:not(:last-child) {
-          margin-bottom: 20px;
-        }
-      }
+<style lang="scss">
+.page-toast {
+  >.page-toast {
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    >:not(:last-child) {
+      margin-bottom: 20px;
     }
   }
+}
 </style>
 
 <script type="text/babel">
@@ -37,7 +36,7 @@
       openToastWithIcon() {
         Toast({
           message: '操作成功',
-          iconClass: 'mintui mintui-success'
+          icon : true
         });
       },
 

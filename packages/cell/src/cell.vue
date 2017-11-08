@@ -87,9 +87,10 @@ export default {
   overflow: hidden;
   position: relative;
   text-decoration: none;
-  width: vm(359);
+  width: vw(359);
   margin: 0px auto;
   padding: 11px 12px;
+  border-radius: 4px;
   img {
     vertical-align: middle;
   }
@@ -143,6 +144,12 @@ export default {
   }
 }
 .mkd-cells-wrapper {
+  &>*{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
   &>:first-child {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -157,6 +164,7 @@ export default {
     background-size: 100% 1px;
     background-repeat: no-repeat;
     background-position: top left;
+
   }
 }
 

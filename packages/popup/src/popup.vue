@@ -1,80 +1,74 @@
 <template>
   <transition :name="currentTransition">
-    <div v-show="currentValue" class="mint-popup" :class="[position ? 'mint-popup-' + position : '']">
+    <div v-show="currentValue" class="mkd-popup" :class="[position ? 'mkd-popup-' + position : '']">
       <slot></slot>
     </div>
   </transition>
 </template>
 
-<style>
-  @component-namespace mint {
-    @component popup {
-      position: fixed;
-      background: #fff;
-      top: 50%;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      backface-visibility: hidden;
-      transition: .2s ease-out;
+<style lang="scss">
+.mkd-popup {
+  position: fixed;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  backface-visibility: hidden;
+  transition: .2s ease-out;
+}
+.mkd-popup-top {
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+}
+.mkd-popup-right {
+  top: 50%;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  transform: translate3d(0, -50%, 0);
+}
+.mkd-popup-bottom {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+}
+.mkd-popup-left {
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  transform: translate3d(0, -50%, 0);
+}
 
-      @descendent top {
-        top: 0;
-        right: auto;
-        bottom: auto;
-        left: 50%;
-        transform: translate3d(-50%, 0, 0);
-      }
+.popup-slide-top-enter,
+.popup-slide-top-leave-active {
+  transform: translate3d(-50%, -100%, 0);
+}
 
-      @descendent right {
-        top: 50%;
-        right: 0;
-        bottom: auto;
-        left: auto;
-        transform: translate3d(0, -50%, 0);
-      }
+.popup-slide-right-enter,
+.popup-slide-right-leave-active {
+  transform: translate3d(100%, -50%, 0);
+}
 
-      @descendent bottom {
-        top: auto;
-        right: auto;
-        bottom: 0;
-        left: 50%;
-        transform: translate3d(-50%, 0, 0);
-      }
+.popup-slide-bottom-enter,
+.popup-slide-bottom-leave-active {
+  transform: translate3d(-50%, 100%, 0);
+}
 
-      @descendent left {
-        top: 50%;
-        right: auto;
-        bottom: auto;
-        left: 0;
-        transform: translate3d(0, -50%, 0);
-      }
-    }
-  }
+.popup-slide-left-enter,
+.popup-slide-left-leave-active {
+  transform: translate3d(-100%, -50%, 0);
+}
 
-  .popup-slide-top-enter,
-  .popup-slide-top-leave-active {
-    transform: translate3d(-50%, -100%, 0);
-  }
-
-  .popup-slide-right-enter,
-  .popup-slide-right-leave-active {
-    transform: translate3d(100%, -50%, 0);
-  }
-
-  .popup-slide-bottom-enter,
-  .popup-slide-bottom-leave-active {
-    transform: translate3d(-50%, 100%, 0);
-  }
-
-  .popup-slide-left-enter,
-  .popup-slide-left-leave-active {
-    transform: translate3d(-100%, -50%, 0);
-  }
-
-  .popup-fade-enter,
-  .popup-fade-leave-active {
-    opacity: 0;
-  }
+.popup-fade-enter,
+.popup-fade-leave-active {
+  opacity: 0;
+}
 </style>
 
 <script type="text/babel">
@@ -85,7 +79,7 @@
   }
 
   export default {
-    name: 'mt-popup',
+    name: 'mkd-popup',
 
     mixins: [Popup],
 

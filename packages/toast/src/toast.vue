@@ -1,103 +1,81 @@
 <template>
-  <transition name="mint-toast-pop">
-    <div class="mint-toast" v-show="visible" :class="customClass" :style="{ 'padding': iconClass === '' ? '10px' : '20px' }">
-      <i class="mint-toast-icon" :class="iconClass" v-if="iconClass !== ''"></i>
-      <span class="mint-toast-text" :style="{ 'padding-top': iconClass === '' ? '0' : '10px' }">{{ message }}</span>
+  <transition name="mkd-toast-pop">
+    <div class="mkd-toast" v-show="visible" :class="customClass" :style="{ padding: icon ? '24px' : '10px',width: icon ? '40vw' : 'auto'}">
+      <img style="width:58px;" v-if="icon" :src="iconUrl">
+      <span class="mkd-toast-text" :style="{ 'margin-top': icon ? '18px' : '0' }">{{ message }}</span>
     </div>
   </transition>
 </template>
-
-<style>
-  @component-namespace mint {
-    @component toast {
-      position: fixed;
-      max-width: 80%;
-      border-radius: 5px;
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      box-sizing: border-box;
-      text-align: center;
-      z-index: 1000;
-      transition: opacity .3s linear;
-  
-      @descendent icon {
-        display: block;
-        text-align: center;
-        font-size: 56px;
+<script type="text/babel">
+import ToastImg from '$src/assets/toast.png'
+export default {
+  props: {
+    message: String,
+    className: {
+      type: String,
+      default: ''
+    },
+    position: {
+      type: String,
+      default: 'middle'
+    },
+    icon: [Boolean, String]
+  },
+  data () {
+    return {
+      visible: false,
+      iconImg: ToastImg
+    }
+  },
+  computed: {
+    iconUrl () {
+      if (this.icon && this.icon !== true) {
+        return this.icon
+      } else {
+        return this.iconImg
       }
-      
-      @descendent text {
-        font-size: 14px;
-        display: block;
-        text-align: center;
+    },
+    customClass () {
+      var classes = [];
+      switch (this.position) {
+        case 'top':
+          classes.push('is-placetop')
+          break;
+        case 'bottom':
+          classes.push('is-placebottom')
+          break;
+        default:
+          classes.push('is-placemiddle')
       }
-      
-      @when placetop {
-        top: 50px;
-        left: 50%;
-        transform: translate(-50%, 0);
-      }
-      
-      @when placemiddle {
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-      
-      @when placebottom {
-        bottom: 50px;
-        left: 50%;
-        transform: translate(-50%, 0);
-      }
-      
-      @descendent pop-enter, pop-leave-active {
-        opacity: 0;
-      }
+      classes.push(this.className)
+      return classes.join(' ')
     }
   }
-</style>
-
-<script type="text/babel">
-  export default {
-    props: {
-      message: String,
-      className: {
-        type: String,
-        default: ''
-      },
-      position: {
-        type: String,
-        default: 'middle'
-      },
-      iconClass: {
-        type: String,
-        default: ''
-      }
-    },
-
-    data() {
-      return {
-        visible: false
-      };
-    },
-
-    computed: {
-      customClass() {
-        var classes = [];
-        switch (this.position) {
-          case 'top':
-            classes.push('is-placetop');
-            break;
-          case 'bottom':
-            classes.push('is-placebottom');
-            break;
-          default:
-            classes.push('is-placemiddle');
-        }
-        classes.push(this.className);
-
-        return classes.join(' ');
-      }
-    }
-  };
+}
 </script>
+<style lang="scss">
+@import '../../../src/style/tools.scss';
+ .mkd-toast {
+   position: fixed;
+   max-width: 80vw;
+   border-radius: 4px;
+   background: rgba(0, 0, 0, 0.7);
+   color: #fff;
+   box-sizing: border-box;
+   text-align: center;
+   z-index: 1000;
+   min-width: vw(92);
+   transition: opacity .3s linear;
+   >.mkd-toast-text {
+     font-size: 14px;
+     display: block;
+     text-align: center;
+   }
+ }
+/**
+* Toast 动画
+*/
+.mkd-toast-pop-enter,.mkd-toast-pop-leave-active {
+  opacity: 0;
+}
+</style>

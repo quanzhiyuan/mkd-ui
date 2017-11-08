@@ -1,7 +1,11 @@
-var CONFIRM_TEXT = '确定';
-var CANCEL_TEXT = '取消';
+import Vue from 'vue'
+import msgboxVue from './message-box.vue'
 
-var defaults = {
+/**默认确定，取消按钮*/
+const CONFIRM_TEXT = '确定'
+const CANCEL_TEXT = '取消'
+/**默认配置*/
+let defaults = {
   title: '提示',
   message: '',
   type: '',
@@ -24,53 +28,49 @@ var defaults = {
   cancelButtonText: CANCEL_TEXT,
   confirmButtonClass: '',
   cancelButtonClass: ''
-};
-
-import Vue from 'vue';
-import msgboxVue from './message-box.vue';
-
-var merge = function (target) {
-  for (var i = 1, j = arguments.length; i < j; i++) {
-    var source = arguments[i];
-    for (var prop in source) {
+}
+/**合并参数*/
+let merge = function (target) {
+  for (let i = 1, j = arguments.length; i < j; i++) {
+    let source = arguments[i]
+    for (let prop in source) {
       if (source.hasOwnProperty(prop)) {
-        var value = source[prop];
+        let value = source[prop]
         if (value !== undefined) {
-          target[prop] = value;
+          target[prop] = value
         }
       }
     }
   }
+  return target
+}
 
-  return target;
-};
+let MessageBoxConstructor = Vue.extend(msgboxVue);
 
-var MessageBoxConstructor = Vue.extend(msgboxVue);
-
-var currentMsg, instance;
-var msgQueue = [];
+let currentMsg, instance // msgbox 当前消息，和实例
+let msgQueue = []  // msgbox 队列
 
 const defaultCallback = action => {
   if (currentMsg) {
-    var callback = currentMsg.callback;
+    let callback = currentMsg.callback
     if (typeof callback === 'function') {
       if (instance.showInput) {
-        callback(instance.inputValue, action);
+        callback(instance.inputValue, action)
       } else {
-        callback(action);
+        callback(action)
       }
     }
     if (currentMsg.resolve) {
-      var $type = currentMsg.options.$type;
+      let $type = currentMsg.options.$type;
       if ($type === 'confirm' || $type === 'prompt') {
         if (action === 'confirm') {
           if (instance.showInput) {
-            currentMsg.resolve({ value: instance.inputValue, action });
+            currentMsg.resolve({action, value: instance.inputValue});
           } else {
-            currentMsg.resolve(action);
+            currentMsg.resolve(action)
           }
         } else if (action === 'cancel' && currentMsg.reject) {
-          currentMsg.reject(action);
+          currentMsg.resolve({action})
         }
       } else {
         currentMsg.resolve(action);
@@ -79,7 +79,7 @@ const defaultCallback = action => {
   }
 };
 
-var initInstance = function () {
+let initInstance = function () {
   instance = new MessageBoxConstructor({
     el: document.createElement('div')
   });
@@ -87,17 +87,15 @@ var initInstance = function () {
   instance.callback = defaultCallback;
 };
 
-var showNextMsg = function () {
+let showNextMsg = function () {
   if (!instance) {
     initInstance();
   }
-
   if (!instance.value || instance.closeTimer) {
     if (msgQueue.length > 0) {
       currentMsg = msgQueue.shift();
-
-      var options = currentMsg.options;
-      for (var prop in options) {
+      let options = currentMsg.options;
+      for (let prop in options) {
         if (options.hasOwnProperty(prop)) {
           instance[prop] = options[prop];
         }
@@ -111,15 +109,13 @@ var showNextMsg = function () {
         }
       });
       document.body.appendChild(instance.$el);
-
       Vue.nextTick(() => {
         instance.value = true;
       });
     }
   }
 };
-
-var MessageBox = function (options, callback) {
+let MessageBox = function (options, callback) {
   if (typeof options === 'string') {
     options = {
       title: options
@@ -142,7 +138,6 @@ var MessageBox = function (options, callback) {
         resolve: resolve,
         reject: reject
       });
-
       showNextMsg();
     });
   } else {

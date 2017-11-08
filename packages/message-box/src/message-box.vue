@@ -1,18 +1,18 @@
 <template>
-  <div class="mint-msgbox-wrapper">
+  <div class="mkd-msgbox-wrapper">
     <transition name="msgbox-bounce">
-      <div class="mint-msgbox" v-show="value">
-        <div class="mint-msgbox-header" v-if="title !== ''">
-          <div class="mint-msgbox-title">{{ title }}</div>
+      <div class="mkd-msgbox" v-show="value" :style="{width: showCancelButton ? '72vw' : '48vw'}">
+        <div class="mkd-msgbox-header" v-if="title !== ''">
+          <div class="mkd-msgbox-title">{{ title }}</div>
         </div>
-        <div class="mint-msgbox-content" v-if="message !== ''">
-          <div class="mint-msgbox-message" v-html="message"></div>
-          <div class="mint-msgbox-input" v-show="showInput">
+        <div class="mkd-msgbox-content" v-if="message !== ''">
+          <span v-if="!showInput" class="mkd-msgbox-message" v-html="message"></span>
+          <div class="mkd-msgbox-input" v-show="showInput">
             <input v-model="inputValue" :placeholder="inputPlaceholder" ref="input">
-            <div class="mint-msgbox-errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
+            <div class="mkd-msgbox-errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
           </div>
         </div>
-        <div class="mint-msgbox-btns">
+        <div class="mkd-msgbox-btns">
           <button :class="[ cancelButtonClasses ]" v-show="showCancelButton" @click="handleAction('cancel')">{{ cancelButtonText }}</button>
           <button :class="[ confirmButtonClasses ]" v-show="showConfirmButton" @click="handleAction('confirm')">{{ confirmButtonText }}</button>
         </div>
@@ -21,138 +21,125 @@
   </div>
 </template>
 
-<style>
-  @component-namespace mint {
-    @component msgbox {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      background-color: #fff;
-      width: 85%;
-      border-radius: 3px;
-      font-size: 16px;
-      -webkit-user-select: none;
-      overflow: hidden;
-      backface-visibility: hidden;
-      transition: .2s;
-
-      @descendent header {
-        padding: 15px 0 0;
+<style lang="scss">
+@import "../../../src/style/tools.scss";
+.mkd-msgbox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 72vw;
+  transform: translate3d(-50%, -50%, 0);
+  background-color: rgba(255,255,255,0.94);
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.25);
+  border-radius: $border-radius;
+  font-size: 16px;
+  -webkit-user-select: none;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: .2s;
+  * {
+    @include box-sizing;
+  }
+  >.mkd-msgbox-header {
+    padding: 30px 0 15px 0;
+    >.mkd-msgbox-title {
+      text-align: center;
+      padding-left: 0;
+      margin-bottom: 0;
+      font-size: 17px;
+      color: $font-color2;
+    }
+  }
+  >.mkd-msgbox-content {
+    padding: 0px 20px 20px 20px;
+    @include border-bottom;
+    min-height: 43px;
+    position: relative;
+    font-size: 13px;
+    text-align: center;
+    >.mkd-msgbox-message {
+      color: $font-color1;
+      display: inline-block;
+      max-width: 41.6vw;
+      text-align: left;
+    }
+    >.mkd-msgbox-input {
+      >input {
+        border: 0 solid #E5E5E5;
+        border-radius: 3px;
+        padding: 4px 5px;
+        width: vw(219);
+        height: 30px;
+        appearance: none;
+        outline: none;
       }
-
-      @descendent content {
-        padding: 10px 20px 15px;
-        border-bottom: 1px solid #ddd;
-        min-height: 36px;
-        position: relative;
-      }
-
-      @descendent input {
-        padding-top: 15px;
-        & input {
-          border: 1px solid #dedede;
-          border-radius: 5px;
-          padding: 4px 5px;
-          width: 100%;
-          appearance: none;
-          outline: none;
-        }
-        & input.invalid {
+      >input.invalid {
+        border-color: #ff4949;
+        &:focus {
           border-color: #ff4949;
-          &:focus {
-            border-color: #ff4949;
-          }
         }
       }
-
-      @descendent errormsg {
+      >.errormsg {
         color: red;
         font-size: 12px;
         min-height: 18px;
         margin-top: 2px;
       }
-
-      @descendent title {
-        text-align: center;
-        padding-left: 0;
-        margin-bottom: 0;
-        font-size: 16px;
-        font-weight: bold;
-        color: #333;
+    }
+  }
+  >.mkd-msgbox-btns {
+    display: flex;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    >.mkd-msgbox-btn {
+      line-height: 35px;
+      display: block;
+      flex: 1;
+      margin: 0;
+      border: 0;
+      &:focus {
+        outline: none;
       }
-
-      @descendent message {
-        color: #999;
-        margin: 0;
-        text-align: center;
-        line-height: 36px;
+    }
+    >.mkd-msgbox-cancel {
+      font-size: 16px;
+      width: 50%;
+      @include border-right;
+      background-color: rgba(255,255,255,0.2);
+      color: $font-color1;
+      &:active {
+        color: #000;
       }
-
-      @descendent btns {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        height: 40px;
-        line-height: 40px;
-      }
-
-      @descendent btn {
-        line-height: 35px;
-        display: block;
-        background-color: #fff;
-        flex: 1;
-        margin: 0;
-        border: 0;
-
-        &:focus {
-          outline: none;
-        }
-
-        &:active {
-          background-color: #fff;
-        }
-      }
-
-      @descendent cancel {
-        width: 50%;
-        border-right: 1px solid #ddd;
-        &:active {
-          color: #000;
-        }
-      }
-
-      @descendent confirm {
-        color: #26a2ff;
-        width: 50%;
-        &:active {
-         color: #26a2ff;
-        }
+    }
+    >.mkd-msgbox-confirm {
+      font-size: 16px;
+      color: #519EF8;
+      width: 50%;
+        background-color: rgba(255,255,255,0.2);
+      &:active {
+       color: #519EF8;
       }
     }
   }
-
-  .msgbox-bounce-enter {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0) scale(0.7);
-  }
-  .msgbox-bounce-leave-active {
-    opacity: 0;
-    transform: translate3d(-50%, -50%, 0) scale(0.9);
-  }
+}
+.msgbox-bounce-enter {
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.7);
+}
+.msgbox-bounce-leave-active {
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.9);
+}
 </style>
 <style src="mkd-ui/src/style/popup.css"></style>
 
 <script type="text/babel">
   let CONFIRM_TEXT = '确定';
   let CANCEL_TEXT = '取消';
-
   import Popup from 'mkd-ui/src/utils/popup';
-
   export default {
     mixins: [ Popup ],
-
     props: {
       modal: {
         default: true
@@ -176,19 +163,18 @@
         default: 'text'
       }
     },
-
     computed: {
       confirmButtonClasses() {
-        let classes = 'mint-msgbox-btn mint-msgbox-confirm ' + this.confirmButtonClass;
+        let classes = 'mkd-msgbox-btn mkd-msgbox-confirm ' + this.confirmButtonClass;
         if (this.confirmButtonHighlight) {
-          classes += ' mint-msgbox-confirm-highlight';
+          classes += ' mkd-msgbox-confirm-highlight';
         }
         return classes;
       },
       cancelButtonClasses() {
-        let classes = 'mint-msgbox-btn mint-msgbox-cancel ' + this.cancelButtonClass;
+        let classes = 'mkd-msgbox-btn mkd-msgbox-cancel ' + this.cancelButtonClass;
         if (this.cancelButtonHighlight) {
-          classes += ' mint-msgbox-cancel-highlight';
+          classes += ' mkd-msgbox-cancel-highlight';
         }
         return classes;
       }

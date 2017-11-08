@@ -1,5 +1,5 @@
 @import 'var.scss';
-@function vm($px){ // $px转vw
+@function vw($px){ // $px转vw
     @return $px / 375 * 100vw;
 }
 @function vh($px){ // $px转vh
@@ -17,4 +17,47 @@
   background-size: 100% 1px;
   background-repeat: no-repeat;
   background-position: bottom left;
+}
+@mixin border-right{
+  background-image:linear-gradient(270deg, $color-grey, $color-grey 50%, transparent 50%);
+  background-size:1px 100% ;
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+@mixin border-left{
+  background-image:linear-gradient(270deg, $color-grey, $color-grey 50%, transparent 50%);
+  background-size:1px 100% ;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+@mixin box-sizing {
+  box-sizing: border-box;
+}
+/**
+* 超出长度后隐藏文字
+*/
+.text-hidden {
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+  overflow:hidden;
+}
+/**
+* 元素出现的位置
+*/
+.is-placetop {
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.is-placemiddle {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.is-placebottom {
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }

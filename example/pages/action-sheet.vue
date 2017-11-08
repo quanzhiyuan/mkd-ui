@@ -5,26 +5,24 @@
       <mkd-button @click.native="sheetVisible = true" size="large">点击上拉 action sheet</mkd-button>
       <mkd-button @click.native="sheetVisible2 = true" size="large">不带取消按钮的 action sheet</mkd-button>
     </div>
-    <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
-    <mt-actionsheet :actions="actions2" v-model="sheetVisible2" cancel-text=""></mt-actionsheet>
+    <mkd-actionsheet :actions="actions" v-model="sheetVisible"></mkd-actionsheet>
+    <mkd-actionsheet :actions="actions2" v-model="sheetVisible2" cancel-text=""></mkd-actionsheet>
   </div>
 </template>
 
-<style>
-  @component-namespace page {
-    @component actionsheet {
-      @descendent wrapper {
-        padding: 0 20px;
-        position: absolute 50% * * *;
-        width: 100%;
-        transform: translateY(-50%);
-
-        button:first-child {
-          margin-bottom: 20px;
-        }
-      }
+<style lang="scss">
+.page-actionsheet{
+  >.page-actionsheet-wrapper {
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    >:first-child {
+      margin-bottom: 20px;
     }
   }
+}
 </style>
 
 <script type="text/babel">
