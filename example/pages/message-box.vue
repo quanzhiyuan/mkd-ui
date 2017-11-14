@@ -33,7 +33,7 @@
         MessageBox.alert('操作成功!', '提示')
       },
       openConfirm() {
-        MessageBox.confirm('确定执行此操作?', '提示').then((action) => {
+        MessageBox.confirm('确定执行此操作?', '提示').then(({action}) => {
           if (action === "confirm") {
               MessageBox.alert('您点击了确认', '提示')
           } else if  (action === "cancel") {

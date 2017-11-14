@@ -65,15 +65,15 @@ const defaultCallback = action => {
       if ($type === 'confirm' || $type === 'prompt') {
         if (action === 'confirm') {
           if (instance.showInput) {
-            currentMsg.resolve({action, value: instance.inputValue});
+            currentMsg.resolve({action, value : instance.inputValue})
           } else {
-            currentMsg.resolve(action)
+            currentMsg.resolve({action})
           }
         } else if (action === 'cancel' && currentMsg.reject) {
           currentMsg.resolve({action})
         }
       } else {
-        currentMsg.resolve(action);
+        currentMsg.resolve({action})
       }
     }
   }
