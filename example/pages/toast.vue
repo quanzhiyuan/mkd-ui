@@ -11,7 +11,7 @@
 
 <style lang="scss">
 .page-toast {
-  >.page-toast {
+  >.page-toast-wrapper{
     padding: 0 20px;
     position: absolute;
     top: 50%;

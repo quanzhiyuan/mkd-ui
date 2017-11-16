@@ -89,7 +89,7 @@ export default {
   text-decoration: none;
   width: vw(359);
   margin: 0px auto;
-  padding: 11px 12px;
+  padding: 0px 12px;
   border-radius: 4px;
   img {
     vertical-align: middle;

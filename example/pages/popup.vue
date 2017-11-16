@@ -81,8 +81,15 @@
     align-items: center;
     flex-flow: wrap;
     padding: 30px 20px 0px 20px;
+    width: 100%;
     >:nth-last-child(2):first-child {
-      margin-right: 57px;
+      width: 50% !important;
+    }
+    >:nth-last-child(1):nth-child(2) {
+      width: 50% !important;
+    }
+    >:nth-last-child(1):first-child {
+      width: 100% !important;
     }
   }
   >:nth-child(2) {
@@ -91,7 +98,7 @@
   }
   .mkd-popup-6-item {
     text-align: center;
-    width: 110px;
+    width: 33%;
     margin-bottom: 18px;
     >img {
       width: 52px;

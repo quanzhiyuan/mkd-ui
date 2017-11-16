@@ -11,6 +11,7 @@
   @import './common';
   html, body {
     background-color:  #E9EFF6;
+    // background-color: #ffffff;
     -webkit-overflow-scrolling: touch;
     user-select: none;
   }

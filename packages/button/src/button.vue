@@ -2,18 +2,16 @@
   <button
     :type="nativeType"
     class="mkd-button"
-    :class="['mkd-button--' + type, 'mkd-button--' + size, {
-      'is-disabled': disabled,
-      'is-plain': plain
+    :class="['mkd-button-' + buttonType, 'mkd-button-' + size, {
+      'is-disabled': disabled
     }]"
+    :style="{borderRadius: ifBstyle ? '5px' : 'auto'}"
     @click="handleClick"
     :disabled="disabled">
-    <span class="mkd-button-icon" v-if="icon || $slots.icon">
-      <slot name="icon">
-        <i v-if="icon" class="mkdui" :class="'mkdui-' + icon"></i>
-      </slot>
-    </span>
-    <label class="mkd-button-text"><slot></slot></label>
+    <slot name="icon">
+      <i v-if="icon" class="mkdui" :class="'mkdui-' + icon"></i>
+    </slot>
+    <span class="mkd-button-text"><slot></slot></span>
   </button>
 </template>
 
@@ -25,9 +23,8 @@ if (process.env.NODE_ENV === 'component') {
  * mkd-header
  * @module components/button
  * @desc 按钮
- * @param {string} [type=default] - 显示类型，接受 default, primary, danger
+ * @param {string} [type=primary] - 显示类型，接受 primary,secondary, danger
  * @param {boolean} [disabled=false] - 禁用
- * @param {boolean} [plain=false] - 幽灵按钮
  * @param {string} [size=normal] - 尺寸，接受 normal, small, large
  * @param {string} [native-type] - 原生 type 属性
  * @param {string} [icon] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .mkdui-xxx）
@@ -50,15 +47,17 @@ export default {
     icon: String,
     disabled: Boolean,
     nativeType: String,
-    plain: Boolean,
     type: {
       type: String,
-      default: 'default',
+      default: 'primary',
       validator(value) {
         return [
-          'default',
+          'primary',
+          'secondary',
           'danger',
-          'primary'
+          'primary-b',  // 扁平化的按钮
+          'secondary-b',
+          'danger-b'
         ].indexOf(value) > -1;
       }
     },
@@ -73,99 +72,138 @@ export default {
         ].indexOf(value) > -1;
       }
     }
+  },
+  computed: {
+    buttonType: function () {
+      return this.type === 'secondary-b' ? this.type : this.type.split('-')[0]  // secondary 由于1px圆角问题需要单独处理
+    },
+    ifBstyle: function () {
+      return this.type.split('-')[1]
+    }
   }
 };
 </script>
 
-<style lang="css">
-  @import "../../../src/style/var.scss";
-
-  @component-namespace mkd {
-    @component button {
-      appearance: none;
-      border-radius: 4px;
-      border: 0;
-      box-sizing: border-box;
-      color: inherit;
-      display: block;
-      font-size: 18px;
-      height: 41px;
-      outline: 0;
-      overflow: hidden;
-      position: relative;
-      text-align: center;
-
-      &::after {
-        background-color: #000;
-        content: " ";
-        opacity: 0;
-        position: absolute 0 0 0 0;
-      }
-
-      &:not(.is-disabled):active::after {
-        opacity: .4;
-      }
-
-      @descendent icon {
-        vertical-align: middle;
-        display: inline-block;
-      }
-
-      @modifier default {
-        color: $button-default-color;
-        background-color: $button-default-background-color;
-        box-shadow: $button-default-box-shadow;
-
-        @when plain {
-          border: 1px solid $button-default-plain-color;
-          background-color: transparent;
-          box-shadow: none;
-          color: $button-default-plain-color;
-        }
-      }
-
-      @modifier primary {
-        color: $button-primary-color;
-        background-color: $button-primary-background-color;
-
-        @when plain {
-          border: 1px solid $button-primary-background-color;
-          background-color: transparent;
-          color: $button-primary-background-color;
-        }
-      }
-
-      @modifier danger {
-        color: $button-danger-color;
-        background-color: $button-danger-background-color;
-
-        @when plain {
-          border: 1px solid $button-danger-background-color;
-          background-color: transparent;
-          color: $button-danger-background-color;
-        }
-      }
-
-      @modifier large {
-        display: block;
-        width: 100%;
-      }
-
-      @modifier normal {
-        display: inline-block;
-        padding: 0 12px;
-      }
-
-      @modifier small {
-        display: inline-block;
-        font-size: 14px;
-        padding: 0 12px;
-        height: 33px;
-      }
-
-      @when disabled {
-        opacity: .6;
-      }
-    }
+<style lang="scss">
+@import "../../../src/style/tools.scss";
+.mkd-button {
+  appearance: none;
+  border: 0;
+  border-radius: 50px;
+  color: inherit;
+  outline: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  &:not(.mkd-button-danger):after {
+    background-color: #000;
+    content: " ";
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
+  &:not(.is-disabled):active::after {
+    opacity: .1;
+  }
+}
+.mkd-button-secondary {
+  color: $button-secondary-color;
+  background-color: $button-secondary-background-color;
+  &:before {
+    content: "";
+    pointer-events: none; /* 防止点击触发 */
+    box-sizing: border-box;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+    border-radius: 50px;
+    border:1px solid #DDDDDD;
+    -webkit-transform-origin: 0 0;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+  }
+}
+.mkd-button-secondary-b {
+  color: $button-secondary-color;
+  background-color: $button-secondary-background-color;
+  &:before {
+    content: "";
+    pointer-events: none; /* 防止点击触发 */
+    box-sizing: border-box;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    border:1px solid #DDDDDD;
+    -webkit-transform-origin: 0 0;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+  }
+}
+.mkd-button-primary {
+  color: $button-primary-color;
+  background-color: $button-primary-background-color;
+}
+.mkd-button-danger {
+  color: $button-danger-color;
+  background-color: $button-danger-background-color;
+  &:not(.is-disabled):active{
+    opacity: .6;
+  }
+  &:not(.is-disabled):active > .mkd-button-text {
+    opacity: .4;
+  }
+}
+.mkd-button-large {
+  display: flex;
+  width: vw(327);
+  margin: auto;
+  font-size: 18px;
+  >img{
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+  }
+  >.mkd-button-text {
+    height: vh(44);
+    line-height: vh(44);
+  }
+}
+.mkd-button-normal {
+  display: inline-flex;
+  padding: 0 vw(22);
+  font-size: 16px;
+  >img{
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+  >.mkd-button-text {
+    height: vh(36);
+    line-height: vh(36);
+  }
+}
+.mkd-button-small {
+  display: inline-flex;
+  font-size: 13px;
+  padding: 0 15px;
+  >img{
+    width: 13px;
+    height: 13px;
+    margin-right: 10px;
+  }
+  >.mkd-button-text {
+   height: vh(30);
+   line-height: vh(30);
+  }
+}
 </style>

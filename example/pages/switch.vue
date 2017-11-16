@@ -2,23 +2,27 @@
   <div class="page-switch">
     <div class="page-title">Switch</div>
     <div class="page-part page-switch-padding">
-      <mt-switch v-model="value1" @change="handleChange">
-        <label v-text="value1"></label>
-      </mt-switch>
+      <mkd-switch v-model="value1" @change="handleChange">
+      </mkd-switch>
+      <label>{{value1}}</label>
     </div>
 
+    <div class="page-title">disabled Switch</div>
     <div class="page-part page-switch-padding">
-      <mt-switch v-model="value4" @change="handleChange">
-        <label v-text="value4"></label>
-      </mt-switch>
+      <mkd-switch v-model="value4" disabled @change="handleChange">
+      </mkd-switch>
+    </div>
+    <div class="page-part page-switch-padding">
+      <mkd-switch v-model="value5" disabled @change="handleChange">
+      </mkd-switch>
     </div>
 
-    <mt-cell :title="'选项 ' + value2">
-      <mt-switch v-model="value2" @change="handleChange"></mt-switch>
-    </mt-cell>
-    <mt-cell :title="'选项 ' + value3">
-      <mt-switch v-model="value3" @change="handleChange"></mt-switch>
-    </mt-cell>
+    <div class="page-title">单元格中的 Switch</div>
+    <div class="marginbtm"></div>
+    <mkd-cell :title="'选项 ' + value2">
+      <mkd-switch v-model="value2" @change="handleChange"></mkd-switch>
+    </mkd-cell>
+    <div class="marginbtm"></div>
   </div>
 </template>
 
@@ -31,24 +35,23 @@ export default {
       value1: false,
       value2: false,
       value3: true,
-      value4: true
+      value4: true,
+      value5: false
     };
   },
 
   methods: {
-    handleChange(event) {
-      console.log(event);
+    handleChange(val) {
+      console.log(val);
     }
   }
 };
 </script>
 
-<style lang="css">
-  @component-namespace page {
-    @component switch {
-      @descendent padding {
-        padding: 0 10px;
-      }
-    }
+<style lang="scss">
+.page-switch {
+  >.page-switch-padding{
+    padding: 0 10px;
   }
+}
 </style>

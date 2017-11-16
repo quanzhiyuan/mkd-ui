@@ -61,3 +61,8 @@
   left: 50%;
   transform: translate(-50%, 0);
 }
+/**reset 样式*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
