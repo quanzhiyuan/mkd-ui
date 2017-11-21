@@ -32,7 +32,6 @@
     </mkd-popup>
     <mkd-popup v-model="popupVisible4" position="bottom" class="mkd-popup-4">
       <div>底部Popup</div>
-      <!-- <mkd-picker :slots="dateSlots" @change="onDateChange" :visible-item-count="5" :show-toolbar="false"></mkd-picker> -->
     </mkd-popup>
     <mkd-popup v-model="popupVisible6" position="bottom" class="mkd-popup-6">
       <div>

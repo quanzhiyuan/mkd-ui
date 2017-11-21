@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'component') {
   require('mkd-ui/packages/font/style.css');
 }
 /**
- * mkd-header
+ * mkd-button
  * @module components/button
  * @desc 按钮
  * @param {string} [type=primary] - 显示类型，接受 primary,secondary, danger

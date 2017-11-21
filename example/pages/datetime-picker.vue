@@ -1,63 +1,64 @@
 <template>
   <div class="page-datetime">
     <h1 class="page-title">Datetime Picker</h1>
-    <div class="page-datetime-wrapper">
-      <mkd-button @click.native="open('picker1')" size="large">点击弹出 DateTime Picker</mkd-button>
-      <mkd-button @click.native="open('picker2')" size="large">点击弹出 Date Picker</mkd-button>
-      <mkd-button @click.native="open('picker3')" size="large">点击弹出 Time Picker</mkd-button>
-      <mkd-button @click.native="open('picker4')" size="large">自定义模板</mkd-button>
-      <mkd-button @click.native="open('picker5')" size="large">设定初始值</mkd-button>
-    </div>
-    <mt-datetime-picker
+    <mkd-cell title="选择日期" :value="dateValue" @click.native="open('picker1')" is-edit is-link></mkd-cell>
+    <div class="marginbtm"></div>
+    <mkd-cell title="选择月份" :value="dateValue2" @click.native="open('picker2')" is-edit is-link></mkd-cell>
+    <div class="marginbtm"></div>
+    <mkd-cell title="选择年份" :value="dateValue3" @click.native="open('picker3')" is-edit is-link></mkd-cell>
+    <div class="marginbtm"></div>
+    <mkd-cell title="选择日期（默认2017/11/11）" :value="dateValue4" @click.native="open('picker4')" is-edit is-link></mkd-cell>
+    <div class="marginbtm"></div>
+    <mkd-cell title="选择日期（设置开始和结束日期）" :value="dateValue5" @click.native="open('picker5')" is-edit is-link></mkd-cell>
+    <div class="marginbtm"></div>
+    <mkd-datetime-picker
       ref="picker1"
+      type="YMD"
       v-model="value"
-      @confirm="handleChange">
-    </mt-datetime-picker>
-    <mt-datetime-picker
+      @confirm="handleChange1">
+    </mkd-datetime-picker>
+    <mkd-datetime-picker
       ref="picker2"
-      type="date"
-      v-model="value2"
-      @confirm="handleChange">
-    </mt-datetime-picker>
-    <mt-datetime-picker
+      type="YM"
+      v-model="value"
+      @confirm="handleChange2">
+    </mkd-datetime-picker>
+    <mkd-datetime-picker
       ref="picker3"
-      type="time"
-      v-model="value3"
-      @confirm="handleChange">
-    </mt-datetime-picker>
-    <mt-datetime-picker
+      type="Y"
+      v-model="value"
+      @confirm="handleChange3">
+    </mkd-datetime-picker>
+    <mkd-datetime-picker
       ref="picker4"
-      type="date"
+      type="YMD"
       v-model="value4"
-      year-format="{value} 年"
-      month-format="{value} 月"
-      date-format="{value} 日"
-      @confirm="handleChange">
-    </mt-datetime-picker>
-    <mt-datetime-picker
+      @confirm="handleChange4">
+    </mkd-datetime-picker>
+    <mkd-datetime-picker
       ref="picker5"
-      type="time"
+      type="YMD"
       v-model="value5"
-      @confirm="handleChange">
-    </mt-datetime-picker>
+      :startDate = "startTime"
+      :endDate = "endTime"
+      @confirm="handleChange5">
+    </mkd-datetime-picker>
   </div>
 </template>
 
-<style>
-  @component-namespace page {
-    @component datetime {
-      @descendent wrapper {
-        padding: 0 20px;
-        position: absolute 50% * * *;
-        width: 100%;
-        transform: translateY(-50%);
-
-        button:not:(last-child) {
-          margin-bottom: 20px;
-        }
-      }
+<style lang="scss">
+.page-datetime{
+  >.page-datetime-wrapper {
+    padding: 0 20px;
+    position: absolute;
+    top:50%;
+    width: 100%;
+    transform: translateY(-50%);
+    button:not(:last-child) {
+      margin-bottom: 20px;
     }
   }
+}
 </style>
 
 <script type="text/babel">
@@ -69,27 +70,36 @@
         value: null,
         value2: null,
         value3: null,
-        value4: null,
-        value5: '04:32',
-        visible: false,
-        visible2: false,
-        visible3: false,
-        visible4: false,
-        visible5: false
+        value4: '2017/11/11',
+        value5: null,
+        dateValue: '请选择日期',
+        dateValue2: '请选择日期',
+        dateValue3: '请选择日期',
+        dateValue4: '请选择日期',
+        dateValue5: '请选择日期',
+        startTime : new Date(1991,12,12),
+        endTime : new Date()
       };
     },
-
     methods: {
       open(picker) {
         this.$refs[picker].open();
       },
-
-      handleChange(value) {
-        Toast({
-          message: '已选择 ' + value.toString(),
-          position: 'bottom'
-        });
-      }
+      handleChange1(value) {
+       this.dateValue = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDay() + '日'
+      },
+      handleChange2(value) {
+       this.dateValue2 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月'
+      },
+      handleChange3(value) {
+       this.dateValue3 = value.getFullYear() + '年'
+      },
+      handleChange4(value) {
+       this.dateValue4 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDay() + '日'
+     },
+     handleChange5(value) {
+      this.dateValue5 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDay() + '日'
+     }
     }
   };
 </script>

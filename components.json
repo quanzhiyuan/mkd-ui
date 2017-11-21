@@ -30,6 +30,7 @@
   "infinite-scroll": "./packages/infinite-scroll/index.js",
   "lazyload": "./packages/lazyload/index.js",
   "datetime-picker": "./packages/datetime-picker/index.js",
+  "area-picker": "./packages/area-picker/index.js",
   "index-list": "./packages/index-list/index.js",
   "index-section": "./packages/index-section/index.js",
   "palette-button": "./packages/palette-button/index.js"

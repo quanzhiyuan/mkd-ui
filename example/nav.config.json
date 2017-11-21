@@ -73,6 +73,11 @@
         "icon": "time"
       },
       {
+        "path": "/area-picker",
+        "name": "Area Picker",
+        "icon": "time"
+      },
+      {
         "path": "/index-list",
         "name": "Index List",
         "icon": "alphabet"

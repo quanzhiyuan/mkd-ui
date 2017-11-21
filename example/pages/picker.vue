@@ -1,47 +1,44 @@
 <template>
   <div class="page-picker">
     <h1 class="page-title">Picker</h1>
-    <div class="page-picker-wrapper">
-      <mt-picker :slots="yearSlot" @change="onYearChange" :visible-item-count="3"></mt-picker>
+    <mkd-cell title="选择地址" value="请选择地址" @click.native="popupVisible1 = true"  is-edit is-link></mkd-cell>
+    <mkd-popup v-model="popupVisible1" position="bottom">
+        <mkd-picker :slots="addressSlots" @change="onAddressChange" :visible-item-count="5"></mkd-picker>
+    </mkd-popup>
+    <!-- <div class="page-picker-wrapper">
+      <mkd-picker :slots="yearSlot" @change="onYearChange" :visible-item-count="3"></mkd-picker>
     </div>
     <p class="page-picker-desc">出生年份: {{ year }}</p>
 
     <div class="page-picker-wrapper">
-      <mt-picker :slots="dateSlots" @change="onDateChange" :visible-item-count="3"></mt-picker>
+      <mkd-picker :slots="dateSlots" @change="onDateChange" :visible-item-count="3"></mkd-picker>
     </div>
     <p class="page-picker-desc">在校时间: {{ dateStart }} 至 {{ dateEnd }}</p>
 
     <div class="page-picker-wrapper">
-      <mt-picker :slots="addressSlots" @change="onAddressChange" :visible-item-count="5"></mt-picker>
+      <mkd-picker :slots="addressSlots" @change="onAddressChange" :visible-item-count="5"></mkd-picker>
     </div>
-    <p class="page-picker-desc">地址: {{ addressProvince }} {{ addressCity }}</p>
-    
+    <p class="page-picker-desc">地址: {{ addressProvince }} {{ addressCity }}</p> -->
+
     <!-- defaultIndex 参数变化 -->
-    <div class="page-picker-wrapper">
-      <mt-picker :slots="numberSlot" @change="onNumberChange" :visible-item-count="3"></mt-picker>
+    <!-- <div class="page-picker-wrapper">
+      <mkd-picker :slots="numberSlot" @change="onNumberChange" :visible-item-count="3"></mkd-picker>
     </div>
-    <p class="page-picker-desc">动态默认选项: {{ number }}</p>
+    <p class="page-picker-desc">动态默认选项: {{ number }}</p> -->
   </div>
 </template>
 
-<style>
-  @component-namespace page {
-    @component picker {
-      padding: 0 10px 20px;
-      @descendent wrapper {
-        background-color: #fff;
-        text-align: center;
-      }
-
-      @descendent desc {
-        margin: 10px 0 50px;
-      }
-
-      .mint-button {
-        margin-top: 15px;
-      }
-    }
+<style lang="scss">
+.page-picker {
+  padding: 0 10px 20px;
+  >.page-picker-wrapper {
+    background-color: #fff;
+    text-align: center;
   }
+  >.page-picker-desc {
+    margin: 10px 0 50px;
+  }
+}
 </style>
 
 <script type="text/babel">
@@ -81,7 +78,6 @@
     '澳门': ['澳门'],
     '台湾': ['台北市', '高雄市', '台北县', '桃园县', '新竹县', '苗栗县', '台中县', '彰化县', '南投县', '云林县', '嘉义县', '台南县', '高雄县', '屏东县', '宜兰县', '花莲县', '台东县', '澎湖县', '基隆市', '新竹市', '台中市', '嘉义市', '台南市']
   };
-
   export default {
     methods: {
       onYearChange(picker, values) {
@@ -104,11 +100,16 @@
         picker.setSlotValues(1, address[values[0]]);
         this.addressProvince = values[0];
         this.addressCity = values[1];
+      },
+
+      openAdress () {
+
       }
     },
 
     data() {
       return {
+        popupVisible1: false,
         year: '1984',
         number: 0,
         yearSlot: [{

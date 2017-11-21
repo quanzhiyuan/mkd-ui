@@ -1,9 +1,10 @@
+/**reset 样式*/
 * {
   box-sizing: border-box;
   padding: 0;
 }
 body {
-margin: 0;
+  margin: 0;
 }
 a {
   text-decoration: none;
@@ -13,6 +14,8 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
+
+/**disabled样式*/
 .is-disabled {
-  opacity: 0.6
+  opacity: 0.4;
 }

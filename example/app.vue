@@ -14,6 +14,7 @@
     // background-color: #ffffff;
     -webkit-overflow-scrolling: touch;
     user-select: none;
+    padding-bottom: 200px;
   }
 
   a {
