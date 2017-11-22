@@ -2,6 +2,7 @@ import Header from '../packages/header'
 import Button from '../packages/button'
 import Cell from '../packages/cell'
 import CellSwipe from '../packages/cell-swipe'
+import List from '../packages/list'
 import Field from '../packages/field'
 import Badge from '../packages/badge'
 import Switch from '../packages/switch'
@@ -44,6 +45,7 @@ const install = function (Vue, config = {}) {
   Vue.component(Button.name, Button)
   Vue.component(Cell.name, Cell)
   Vue.component(CellSwipe.name, CellSwipe)
+  Vue.component(List.name, List)
   Vue.component(Field.name, Field)
   Vue.component(Badge.name, Badge)
   Vue.component(Switch.name, Switch)

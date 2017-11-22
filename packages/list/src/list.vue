@@ -1,27 +1,28 @@
 <template>
-  <a class="mkd-cell" :href="href">
-    <div class="mkd-cell-wrapper">
-      <div class="mkd-cell-title">
-        <slot name="icon" style="margin-right:10px;">
+  <a class="mkd-list" :href="href">
+    <div class="mkd-list-wrapper">
+      <div class="mkd-list-title">
+        <slot name="icon">
         </slot>
         <slot name="title">
-          <span class="mkd-cell-text" v-text="title"></span>
+          <span class="mkd-list-text" v-text="title"></span>
         </slot>
       </div>
-      <div class="mkd-cell-value" :class="{ 'is-link' : isLink , 'is-edit': isEdit}">
-        <slot>
+      <div class="mkd-list-value" :class="{ 'is-link' : isLink}">
+        <img v-if="selected" style="width:16px;" :src="selectedImgUrl">
+        <slot v-else>
           <span v-text="value"></span>
         </slot>
       </div>
     </div>
-    <i v-if="isLink" class="mkd-cell-allow-right"></i>
+    <i v-if="isLink" class="mkd-list-allow-right"></i>
   </a>
 </template>
 
 <script>
 /**
- * mt-cell
- * @module components/cell
+ * mt-list
+ * @module components/list
  * @desc 单元格
  * @param {string|Object} [to] - 跳转链接，使用 vue-router 的情况下 to 会传递给 router.push，否则作为 a 标签的 href 属性处理
  * @param {string} [icon] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .mkdui-xxx）
@@ -34,23 +35,29 @@
  * @param {slot} [icon] - 同 icon, 会覆盖 icon 属性，例如可以传入图片
  *
  * @example
- * <mt-cell title="标题文字" icon="back" is-link value="描述文字"></mt-cell>
- * <mt-cell title="标题文字" icon="back">
+ * <mt-list title="标题文字" icon="back" is-link value="描述文字"></mt-list>
+ * <mt-list title="标题文字" icon="back">
  *   <div slot="value">描述文字啊哈</div>
- * </mt-cell>
+ * </mt-list>
  */
+import selectedImg from '$src/assets/selectlist.png'
 export default {
-  name: 'mkd-cell',
-
+  name: 'mkd-list',
+  data () {
+    return {
+      selectedImgUrl: selectedImg,
+      selected: false
+    }
+  },
   props: {
     to: [String, Object],
     icon: String,
     title: String,
     isLink: Boolean,
-    isEdit: Boolean,
+    selectValue: Boolean,
+    isSelect: Boolean,
     value: {}
   },
-
   computed: {
     href() {
       if (this.to && !this.added && this.$router) {
@@ -69,8 +76,20 @@ export default {
 
   methods: {
     handleClick($event) {
+      $event.stopPropagation();
       $event.preventDefault();
       this.$router.push(this.href);
+    },
+    listSelectHandler ($event) {
+      $event.stopPropagation();
+      this.selected = !this.selected
+      this.$emit('selectchange', this.selected)
+    }
+  },
+  mounted: function () {
+    if (this.isSelect) {
+      this.selected = this.selectValue
+      this.$el.addEventListener('click', this.listSelectHandler);
     }
   }
 };
@@ -78,23 +97,23 @@ export default {
 
 <style lang="scss">
 @import "../../../src/style/tools.scss";
-.mkd-cell {
+.mkd-list {
   background-color: $color-white;
   box-sizing: border-box;
   color: inherit;
-  height: $cell-min-height;
+  min-height: $list-min-height;
   display: block;
   overflow: hidden;
   position: relative;
   text-decoration: none;
-  width: vw(359);
+  width: 100%;
   margin: 0px auto;
-  padding: 0px 12px;
-  border-radius: 4px;
+  padding: 11px 12px;
+  box-shadow:0 0 0 0 #DCE1E8;
   img {
     vertical-align: middle;
   }
-  >.mkd-cell-wrapper {
+  >.mkd-list-wrapper {
     background-origin: content-box;
     align-items: center;
     box-sizing: border-box;
@@ -105,33 +124,36 @@ export default {
     overflow: hidden;
     width: 100%;
     height: 100%;
-    >.mkd-cell-title {
+    >.mkd-list-title {
       flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
       font-size: 15px;
-      color: #999999;
+      color: $font-color1;
       letter-spacing: 0;
       line-height: 14px;
-      >.mkd-cell-text {
+      >.mkd-list-text {
         vertical-align: middle;
       }
     }
-    >.mkd-cell-value {
-      color: $cell-value-color;
+    >.mkd-list-value {
+      color: $font-color3;
       display: flex;
       align-items: center;
       font-size: 14px;
-      color: #999999;
+      color: $font-color3;
       letter-spacing: 0;
     }
   }
-  .mkd-cell-allow-right::after {
+  .mkd-list-allow-right::after {
     border: solid 1px #C0C7CE;
     border-bottom-width: 0;
     border-left-width: 0;
     content: " ";
     position: absolute;
     top: 50% ;
-    right: 20px;
+    right: 15px;
     width: 10px;
     height: 10px;
     transform: translateY(-50%) rotate(45deg);
@@ -139,26 +161,14 @@ export default {
   .is-link {
     margin-right: 24px !important;
   }
-  .is-edit {
-    color: #3F3F3F !important;
-  }
 }
-.mkd-cells-wrapper {
+.mkd-lists-wrapper {
   &>*{
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
-  &>:first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-  &>:last-child {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
-
   &>:not(:first-child) {
     background-image:linear-gradient(180deg, $color-grey, $color-grey 50%, transparent 50%);
     background-size: 100% 1px;

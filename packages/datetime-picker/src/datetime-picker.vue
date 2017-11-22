@@ -21,11 +21,11 @@
   .mkd-datepicker-cancel {
     padding: 0 10px;
     font-size: 16px;
-    color: $font-color3;
+    color: $font-color2;
   }
   .mkd-datepicker-title {
     font-size: 17px;
-    color: $font-color2;
+    color: $font-color1;
   }
   .mkd-datepicker-confim {
     padding: 0 10px;
@@ -38,7 +38,7 @@
 /**
  * mkd-datetime-picker
  * @module components/button
- * @desc 按钮
+ * @desc 时间选择器
  * @param {string} [type=primary] - 显示类型，接受 primary,secondary, danger
  * @param {boolean} [disabled=false] - 禁用
  * @param {string} [size=normal] - 尺寸，接受 normal, small, large
@@ -48,7 +48,7 @@
  * @param {slot} [icon] 显示图标
  *
  * @example
- * <mkd-button size="large" icon="back" type="primary">按钮</mkd-button>
+ * 
  */
 import Picker from 'mkd-ui/packages/picker/index.js'
 import Popup from 'mkd-ui/packages/popup/index.js'
@@ -266,10 +266,6 @@ export default {
   },
 
   watch: {
-    value (val) {
-      this.currentValue = val
-    },
-
     rims() {
       this.generateSlots()
     }

@@ -125,7 +125,7 @@ export default {
     >.mkd-card-title {
       height: $card-title-height;
       font-size: 14px;
-      color: $font-color1;
+      color: $font-color3;
       display: flex;
       align-items: center;
       >div {
@@ -150,7 +150,7 @@ export default {
         display: flex;
         justify-content: space-around;
         text-align: center;
-        color: $font-color2;
+        color: $font-color1;
       }
       .btm-botton {
         >div{

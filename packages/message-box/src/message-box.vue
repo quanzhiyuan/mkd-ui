@@ -47,7 +47,7 @@
       padding-left: 0;
       margin-bottom: 0;
       font-size: 17px;
-      color: $font-color2;
+      color: $font-color1;
     }
   }
   >.mkd-msgbox-content {
@@ -58,7 +58,7 @@
     font-size: 13px;
     text-align: center;
     >.mkd-msgbox-message {
-      color: $font-color1;
+      color: $font-color3;
       display: inline-block;
       max-width: 41.6vw;
       text-align: left;
@@ -107,7 +107,7 @@
       width: 50%;
       @include border-right;
       background-color: rgba(255,255,255,0.2);
-      color: $font-color1;
+      color: $font-color3;
       &:active {
         color: #000;
       }

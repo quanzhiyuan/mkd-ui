@@ -21,26 +21,35 @@ function getCity (province) {
 }
 /**根据省市国标码获取区列表*/
 function getArea (city) {
-  let areaData =  areaData.find(function (value) {
-    return value.t === province
+  let area =  areaData.find(function (value) {
+    return value.t === city
   })
-  let citys = []
-  let v = cityData.o
+  let areas = []
+  let v = area.o
   for (let i in v) {
-    citys.push(v[i].t)
+    areas.push(v[i].t)
   }
-  return citys
+  return areas
 }
 /**构造省市区的数据*/
-function getAddressData () {
+function getAddressData (p =  '北京') {
   let data = []
   let province = getProvince()
-  let defaultProvince = province[0]
+  let defaultProvince = p
   let city = getCity(defaultProvince)
   let defaultCity = city[0]
-  data.push(province)
-  data.push(city)
-  data.push(getArea(defaultCity))
+  data.push({
+      flex: 1,
+      values: province
+    })
+  data.push({
+    flex: 1,
+    values: city
+  })
+  data.push({
+    flex: 1,
+    values: getArea(defaultCity)
+  })
   return data
 }
 export default {

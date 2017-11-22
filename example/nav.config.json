@@ -123,6 +123,11 @@
         "icon": "cell"
       },
       {
+        "path": "/list",
+        "name": "List",
+        "icon": "cell"
+      },
+      {
         "path": "/spinner",
         "name": "Spinner",
         "icon": "spinner"

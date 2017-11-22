@@ -18,7 +18,7 @@
   border-radius: $border-radius;
   bottom: vw(12);
   left: 50%;
-  color: $font-color2;
+  color: $font-color1;
   transform: translate3d(-50%, 0, 0);
   backface-visibility: hidden;
   transition: transform .3s ease-out;

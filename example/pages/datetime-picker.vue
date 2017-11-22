@@ -86,7 +86,7 @@
         this.$refs[picker].open();
       },
       handleChange1(value) {
-       this.dateValue = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDay() + '日'
+       this.dateValue = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDate() + '日'
       },
       handleChange2(value) {
        this.dateValue2 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月'
@@ -95,10 +95,10 @@
        this.dateValue3 = value.getFullYear() + '年'
       },
       handleChange4(value) {
-       this.dateValue4 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDay() + '日'
+       this.dateValue4 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDate() + '日'
      },
      handleChange5(value) {
-      this.dateValue5 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDay() + '日'
+      this.dateValue5 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDate() + '日'
      }
     }
   };

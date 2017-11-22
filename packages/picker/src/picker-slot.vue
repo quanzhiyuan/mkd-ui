@@ -49,7 +49,7 @@
   .picker-item {
     height: 36px;
     line-height: 36px;
-    padding: 0 10px;
+    padding: 0 5px;
     white-space: nowrap;
     position: relative;
     overflow: hidden;
