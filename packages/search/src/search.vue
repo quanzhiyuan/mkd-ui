@@ -1,25 +1,25 @@
 <template>
-  <div class="mint-search">
-    <div class="mint-searchbar">
-      <div class="mint-searchbar-inner">
-        <i class="mintui mintui-search"></i>
+  <div class="mkd-search">
+    <div class="mkd-searchbar">
+      <div class="mkd-searchbar-inner">
+        <i class="mkdui mkdui-search"></i>
         <input
         ref="input"
         @click="visible = true"
         type="search"
         v-model="currentValue"
         :placeholder="placeholder"
-        class="mint-searchbar-core">
+        class="mkd-searchbar-core">
       </div>
       <a
-        class="mint-searchbar-cancel"
+        class="mkd-searchbar-cancel"
         @click="visible = false, currentValue = ''"
         v-show="visible"
         v-text="cancelText">
       </a>
     </div>
-    <div class="mint-search-list" v-show="show || currentValue">
-      <div class="mint-search-list-warp">
+    <div class="mkd-search-list" v-show="show || currentValue">
+      <div class="mkd-search-list-warp">
         <slot>
           <x-cell v-for="(item, index) in result" :key="index" :title="item"></x-cell>
         </slot>
@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'component') {
 }
 
 /**
- * mt-search
+ * mkd-search
  * @module components/search
  * @desc 搜索框
  * @param {string} value - 绑定值
@@ -47,13 +47,13 @@ if (process.env.NODE_ENV === 'component') {
  * @param {slot} 结果列表
  *
  * @example
- * <mt-search :value.sync="value" :result.sync="result"></mt-search>
- * <mt-search :value.sync="value">
- *   <mt-cell v-for="item in result" :title="item"></mt-cell>
- * </mt-search>
+ * <mkd-search :value.sync="value" :result.sync="result"></mkd-search>
+ * <mkd-search :value.sync="value">
+ *   <mkd-cell v-for="item in result" :title="item"></mkd-cell>
+ * </mkd-search>
  */
 export default {
-  name: 'mt-search',
+  name: 'mkd-search',
 
   data() {
     return {
@@ -93,41 +93,34 @@ export default {
 };
 </script>
 
-<style lang="css">
-  @import "../../../src/style/var.scss";
-
-  @component-namespace mint {
-    @component search {
-      height: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    @component searchbar {
-      position: relative;
+<style lang="scss">
+@import "../../../src/style/tools.scss";
+.mkd-search {
+  height: 100%;
+  height: 100vh;
+  overflow: hidden;
+  >.mkd-searchbar {
+    position: relative;
+    align-items: center;
+    background-color: $color-grey;
+    box-sizing: border-box;
+    display: flex;
+    padding: 8px 10px;
+    z-index: 1;
+    >.mkd-searchbar-inner {
       align-items: center;
-      background-color: $color-grey;
-      box-sizing: border-box;
+      background-color: $color-white;
+      border-radius: 2px;
       display: flex;
-      padding: 8px 10px;
-      z-index: 1;
+      flex: 1;
+      height: 28px;
+      padding: 4px 6px;
 
-      @descendent inner {
-        align-items: center;
-        background-color: $color-white;
-        border-radius: 2px;
-        display: flex;
-        flex: 1;
-        height: 28px;
-        padding: 4px 6px;
-
-        .mintui-search {
-          font-size: 12px;
-          color: $color-grey;
-        }
+      .mkdui-search {
+        font-size: 12px;
+        color: $color-grey;
       }
-
-      @descendent core {
+      >.mkd-searchbar-core {
         appearance: none;
         border: 0;
         box-sizing: border-box;
@@ -135,18 +128,21 @@ export default {
         height: 100%;
         outline: 0;
       }
-
-      @descendent cancel {
-        color: $color-blue;
-        margin-left: 10px;
-        text-decoration: none;
-      }
     }
-
-    @component search-list {
-      overflow: auto;
-      padding-top: 44px;
-      position: absolute 0 0 0 0;
+    >.mkd-searchbar-cancel {
+      color: $color-blue;
+      margin-left: 10px;
+      text-decoration: none;
     }
   }
+  >.mkd-search-list {
+    overflow: auto;
+    padding-top: 44px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
 </style>

@@ -9,12 +9,15 @@ body {
 a {
   text-decoration: none;
 }
+/**移动端点击后的背景*/
+a,button,input {
+  -webkit-tap-highlight-color:rgba(0,0,0,0.1);
+}
 img {
   border: 0;
   max-width: 100%;
   vertical-align: middle;
 }
-
 /**disabled样式*/
 .is-disabled {
   opacity: 0.4;

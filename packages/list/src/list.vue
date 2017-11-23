@@ -110,6 +110,17 @@ export default {
   margin: 0px auto;
   padding: 11px 12px;
   box-shadow:0 0 0 0 #DCE1E8;
+  &:active:after {
+    background-color: #000;
+    content: " ";
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: .1;
+  }
   img {
     vertical-align: middle;
   }
