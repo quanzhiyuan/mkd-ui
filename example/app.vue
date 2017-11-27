@@ -37,7 +37,7 @@
 
 <script>
   import '../src/assets/font/iconfont.css'
-  import '../src/style/common.css'
+  import '../src/style/common.scss'
 
   export default {
     computed: {

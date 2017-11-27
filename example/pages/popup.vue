@@ -8,6 +8,7 @@
       <mkd-button @click.native="popupVisible3 = true" size="large">右侧弹出 popup</mkd-button>
       <mkd-button @click.native="popupVisible4 = true" size="large">下侧弹出 popup</mkd-button>
       <mkd-button @click.native="popupVisible6 = true" size="large">下侧弹出 入口popup</mkd-button>
+      <mkd-button @click.native="popupVisible7 = true" size="large">右侧弹出页面</mkd-button>
     </div>
     <mkd-popup v-model="popupVisible1"  popup-transition="popup-fade" class="mkd-popup-1">
       <div>
@@ -63,9 +64,17 @@
       <img @click.stop="popupVisible6 = false"  class="close" src="../assets/close_blue.png">
       <!-- <mkd-picker :slots="dateSlots" @change="onDateChange" :visible-item-count="5" :show-toolbar="false"></mkd-picker> -->
     </mkd-popup>
+    <mkd-popup v-model="popupVisible7" position="right" :modal="false" class="mkd-popup-7">
+      <h1 class="page-title">Popup</h1>
+      <mkd-button @click.native="popupVisible7 = false" size="large" type="primary">关闭 popup</mkd-button>
+    </mkd-popup>
   </div>
 </template>
 <style lang="scss">
+.mkd-popup-7 {
+  width: 100vw;
+  min-height: 100vh;
+}
 .mkd-popup-6 {
   text-align: center;
   width: 100%;
@@ -216,6 +225,7 @@
         popupVisible4: false,
         popupVisible5: false,
         popupVisible6: false,
+        popupVisible7: false,
         buttonBottom: 0,
         dateSlots: [
           {

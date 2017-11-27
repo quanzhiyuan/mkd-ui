@@ -1,11 +1,11 @@
 <template>
   <div class="mkd-search">
     <div class="mkd-searchbar">
+      <slot name="lefticon"></slot>
       <div class="mkd-searchbar-inner">
-        <i class="mkdui mkdui-search"></i>
+        <img :src="searchUrl" style="margin-right:12px;">
         <input
         ref="input"
-        @click="visible = true"
         type="search"
         v-model="currentValue"
         :placeholder="placeholder"
@@ -13,23 +13,15 @@
       </div>
       <a
         class="mkd-searchbar-cancel"
-        @click="visible = false, currentValue = ''"
-        v-show="visible"
+        @click="$emit('cancel')"
         v-text="cancelText">
       </a>
-    </div>
-    <div class="mkd-search-list" v-show="show || currentValue">
-      <div class="mkd-search-list-warp">
-        <slot>
-          <x-cell v-for="(item, index) in result" :key="index" :title="item"></x-cell>
-        </slot>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import XCell from 'mkd-ui/packages/cell/index.js';
+import search from '$src/assets/search.png'
 if (process.env.NODE_ENV === 'component') {
   require('mkd-ui/packages/cell/style.css');
 }
@@ -58,11 +50,10 @@ export default {
   data() {
     return {
       visible: false,
-      currentValue: this.value
+      currentValue: this.value,
+      searchUrl: search
     };
   },
-
-  components: { XCell },
 
   watch: {
     currentValue(val) {
@@ -96,29 +87,37 @@ export default {
 <style lang="scss">
 @import "../../../src/style/tools.scss";
 .mkd-search {
-  height: 100%;
-  height: 100vh;
-  overflow: hidden;
   >.mkd-searchbar {
     position: relative;
     align-items: center;
-    background-color: $color-grey;
-    box-sizing: border-box;
     display: flex;
-    padding: 8px 10px;
+    width: 100%;
+    height: vh(44);
+    background-color: #fff;
+    padding: 8px 8px;
+    overflow: hidden;
     z-index: 1;
+    >.lefticon {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      >img{
+        vertical-align: baseline;
+      }
+    }
     >.mkd-searchbar-inner {
       align-items: center;
-      background-color: $color-white;
-      border-radius: 2px;
+      background-color: #F0F4F7;
+      border-radius: 4px;
       display: flex;
       flex: 1;
+      width: vw(309);
       height: 28px;
-      padding: 4px 6px;
+      padding: 4px 12px;
 
-      .mkdui-search {
-        font-size: 12px;
-        color: $color-grey;
+      input::-webkit-input-placeholder {
+        color: #BBBBBB;
+        font-size: 14px;
       }
       >.mkd-searchbar-core {
         appearance: none;
@@ -126,12 +125,18 @@ export default {
         box-sizing: border-box;
         width: 100%;
         height: 100%;
+        background-color: #F0F4F7;
         outline: 0;
+        font-size: 14px;
+        color: #BBBBBB;
       }
     }
     >.mkd-searchbar-cancel {
-      color: $color-blue;
-      margin-left: 10px;
+      font-size: 15px;
+      color: $font-color1;
+      margin-left: 16px;
+      margin-right: 4px;
+      width: 30px;
       text-decoration: none;
     }
   }
