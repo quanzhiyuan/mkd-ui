@@ -1,0 +1,13 @@
+@import "./var";
+.mkd-zoom-in-top-enter-active,
+.mkd-zoom-in-top-leave-active {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: $--md-fade-transition;
+  transform-origin: center top;
+}
+.mkd-zoom-in-top-enter,
+.mkd-zoom-in-top-leave-active {
+  opacity: 0;
+  transform: scaleY(0);
+}

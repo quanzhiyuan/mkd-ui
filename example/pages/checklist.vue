@@ -2,47 +2,47 @@
   <div class="page-checklist">
     <div class="page-title">Checklist</div>
 
-    <mt-checklist
+    <mkd-checklist
       class="page-part"
       title="复选框列表"
       v-model="value1"
       :options="options1">
-    </mt-checklist>
+    </mkd-checklist>
 
     <div>
-      <mt-cell title="选中的项">{{ value1 }}</mt-cell>
+      <mkd-cell title="选中的项">{{ value1 }}</mkd-cell>
     </div>
 
-    <mt-checklist
+    <mkd-checklist
       class="page-part"
       title="第二个复选框列表"
       v-model="value2"
       :options="options2">
-    </mt-checklist>
+    </mkd-checklist>
 
     <div>
-      <mt-cell title="选中的项">{{ value2 }}</mt-cell>
+      <mkd-cell title="选中的项">{{ value2 }}</mkd-cell>
     </div>
 
-    <mt-checklist
+    <mkd-checklist
       class="page-part"
       title="最多选两个"
       :max="2"
       v-model="value3"
       :options="options3">
-    </mt-checklist>
+    </mkd-checklist>
 
     <div>
-      <mt-cell title="选中的项">{{ value3 }}</mt-cell>
+      <mkd-cell title="选中的项">{{ value3 }}</mkd-cell>
     </div>
 
-    <mt-checklist
+    <mkd-checklist
       align="right"
       class="page-part"
       title="右对齐"
       v-model="value4"
       :options="options4">
-    </mt-checklist>
+    </mkd-checklist>
   </div>
 </template>
 
@@ -87,8 +87,13 @@ export default {
 };
 </script>
 
-<style lang="css">
-  .page-checklist .page-part {
-    margin-top: 40px;
-  }
+<style lang="scss">
+ .page-checklist {
+   >*{
+     margin-bottom: 10px;
+   }
+   .page-part {
+     margin-top: 40px;
+   }
+ }
 </style>

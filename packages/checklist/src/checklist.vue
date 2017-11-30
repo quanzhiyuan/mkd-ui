@@ -1,33 +1,35 @@
 <template>
-  <div @change="$emit('change', currentValue)" class="mint-checklist" :class="{ 'is-limit': max <= currentValue.length }">
-    <label class="mint-checklist-title" v-text="title"></label>
-    <x-cell v-for="option in options">
-      <label class="mint-checklist-label" slot="title">
+  <div @change="$emit('change', currentValue)" class="mkd-checklist" :class="{ 'is-limit': max <= currentValue.length }">
+    <label class="mkd-checklist-title" v-text="title"></label>
+    <div class="mkd-cells-wrapper">
+    <mkd-cell v-for="option in options">
+      <label class="mkd-checklist-label" slot="title">
         <span
           :class="{'is-right': align === 'right'}"
-          class="mint-checkbox">
+          class="mkd-checkbox">
           <input
-            class="mint-checkbox-input"
+            class="mkd-checkbox-input"
             type="checkbox"
             v-model="currentValue"
             :disabled="option.disabled"
             :value="option.value || option">
-          <span class="mint-checkbox-core"></span>
+          <span class="mkd-checkbox-core"></span>
         </span>
-        <span class="mint-checkbox-label" v-text="option.label || option"></span>
+        <span class="mkd-checkbox-label" v-text="option.label || option"></span>
       </label>
-    </x-cell>
+    </mkd-cell>
+    </div>
   </div>
 </template>
 
 <script>
-import XCell from 'mkd-ui/packages/cell/index.js';
+import mkdCell from 'mkd-ui/packages/cell/index.js';
 if (process.env.NODE_ENV === 'component') {
   require('mkd-ui/packages/cell/style.css');
 }
 
 /**
- * mt-checklist
+ * mkd-checklist
  * @module components/checklist
  * @desc 复选框列表，依赖 cell 组件
  *
@@ -39,10 +41,10 @@ if (process.env.NODE_ENV === 'component') {
  *
  *
  * @example
- * <mt-checklist :v-model="value" :options="['a', 'b', 'c']"></mt-checklist>
+ * <mkd-checklist :v-model="value" :options="['a', 'b', 'c']"></mkd-checklist>
  */
 export default {
-  name: 'mt-checklist',
+  name: 'mkd-checklist',
 
   props: {
     max: Number,
@@ -55,7 +57,7 @@ export default {
     value: Array
   },
 
-  components: { XCell },
+  components: { mkdCell },
 
   data() {
     return {
@@ -82,87 +84,79 @@ export default {
 };
 </script>
 
-<style lang="css">
-  @import "../../../src/style/var.scss";
-
-  @component-namespace mint {
-    @component checklist {
-
-      .mint-cell {
-        padding: 0;
-      }
-
-      @descendent label {
-        display: block;
-        padding: 0 10px;
-      }
-
-      @descendent title {
-        color: $checklist-title-color;
-        display: block;
-        font-size: 12px;
-        margin: 8px;
-      }
-
-      @when limit {
-        .mint-checkbox-core:not(:checked) {
-          background-color: $color-grey;
-          border-color: $color-grey;
-        }
-      }
-    }
-
-    @component checkbox {
-      @when right {
-        float: right;
-      }
-
-      @descendent label {
-        vertical-align: middle;
-        margin-left: 6px;
-      }
-
-      @descendent input {
-        display: none;
-
-        &:checked {
-          + .mint-checkbox-core {
-            background-color: $color-blue;
-            border-color: $color-blue;
-
-            &::after {
-              border-color: $color-white;
-              transform: rotate(45deg) scale(1);
-            }
-          }
-        }
-
-        &[disabled] + .mint-checkbox-core {
-          background-color: $color-grey;
-          border-color: #ccc;
-        }
-      }
-
-      @descendent core {
-        display: inline-block;
-        background-color: $color-white;
-        border-radius: 100%;
-        border: 1px solid #ccc;
-        position: relative;
-        size: 20px;
-        vertical-align: middle;
-
-        &::after {
-          border: 2px solid transparent;
-          border-left: 0;
-          border-top: 0;
-          content: " ";
-          position: absolute 3px * * 6px;
-          size: 4px 8px;
-          transform: rotate(45deg) scale(0);
-          transition: transform .2s;
-        }
-      }
-    }
+<style lang="scss">
+@import "../../../src/style/tools.scss";
+.mkd-checklist {
+  .mkd-cell {
+   padding: 0;
   }
+  .mkd-checklist-title {
+   color: $checklist-title-color;
+   display: block;
+   font-size: 12px;
+   margin: 8px;
+  }
+  .mkd-checklist-label {
+   display: block;
+   padding: 0 10px;
+   >.mkd-checkbox {
+     >.mkd-checkbox-label {
+       vertical-align: middle;
+       margin-left: 6px;
+     }
+     >.mkd-checkbox-input {
+       display: none;
+       &:checked {
+         + .mkd-checkbox-core {
+           background-color: $color-blue;
+           border-color: $color-blue;
+
+           &::after {
+             border-color: $color-white;
+             transform: rotate(45deg) scale(1);
+           }
+         }
+       }
+
+       &[disabled] + .mkd-checkbox-core {
+         background-color: $color-grey;
+         border-color: #ccc;
+       }
+     }
+     >.mkd-checkbox-core {
+       display: inline-block;
+       background-color: $color-white;
+       border-radius: 100%;
+       border: 1px solid #ccc;
+       position: relative;
+       width:20px;
+       height: 20px;
+       vertical-align: middle;
+
+       &::after {
+         border: 2px solid transparent;
+         border-left: 0;
+         border-top: 0;
+         content: " ";
+         position: absolute;
+         top: 3px;
+         left: 6px;
+         width: 4px;
+         height: 8px;
+         transform: rotate(45deg) scale(0);
+         transition: transform .2s;
+       }
+     }
+     &.is-right {
+       float: right;
+     }
+   }
+  }
+  &.is-limit {
+   .mkd-checkbox-core:not(:checked) {
+     background-color: $color-grey;
+     border-color: $color-grey;
+   }
+  }
+}
 </style>

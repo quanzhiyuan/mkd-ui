@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="14px" viewBox="0 0 13 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>delete</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="搜索" transform="translate(-492.000000, -2325.000000)">
+            <g id="拍照／扫描搜索" transform="translate(150.000000, 2177.000000)">
+                <g id="在页面上" transform="translate(0.000000, 72.000000)">
+                    <g id="part1" transform="translate(18.000000, 76.000000)">
+                        <g id="delete" transform="translate(324.000000, 0.000000)">
+                            <rect id="Rectangle-6" fill="#666666" x="0" y="2" width="13" height="1"></rect>
+                            <path d="M3.5,2.5 L9.5,2.5 L9.5,0.998956561 C9.5,0.721190216 9.27722342,0.5 8.99707067,0.5 L4.00292933,0.5 C3.71829214,0.5 3.5,0.719109363 3.5,0.998956561 L3.5,2.5 Z" id="Rectangle-19" stroke="#666666"></path>
+                            <path d="M1.5,2.5 L1.5,12.9975267 C1.5,13.2717909 1.72556091,13.5 1.9955775,13.5 L11.0044225,13.5 C11.2778646,13.5 11.5,13.2761865 11.5,12.9975267 L11.5,2.5 L1.5,2.5 Z" id="Rectangle-8" stroke="#666666"></path>
+                            <rect id="Rectangle-9" fill="#666666" x="4" y="5" width="1" height="7"></rect>
+                            <rect id="Rectangle-9-Copy" fill="#666666" x="6" y="5" width="1" height="7"></rect>
+                            <rect id="Rectangle-9-Copy-2" fill="#666666" x="8" y="5" width="1" height="7"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

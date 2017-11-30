@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="11px" viewBox="0 0 16 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>显示</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="搜索" transform="translate(-1016.000000, -2463.000000)" stroke="#666666" fill-rule="nonzero">
+            <g id="拍照／扫描搜索" transform="translate(150.000000, 2177.000000)">
+                <g id="在页面上" transform="translate(525.000000, 72.000000)">
+                    <g id="part2" transform="translate(18.000000, 213.000000)">
+                        <g id="显示" transform="translate(324.000000, 2.000000)">
+                            <path d="M6.99872843,0.00501392758 C3.25522252,0.00501392758 0,3.02139276 0,4.49749304 C0,5.97359331 3.25522252,8.98997214 6.99872843,8.98997214 C10.7422343,8.98997214 13.9974569,5.97359331 13.9974569,4.49749304 C13.9974569,3.02139276 10.7422343,0.00501392758 6.99872843,0.00501392758 Z" id="Shape"></path>
+                            <path d="M6.99872843,2.01320334 C5.59259893,2.01320334 4.47137148,3.12672852 4.47137148,4.49749304 C4.47137148,5.87646801 5.60100501,6.98178273 6.99872843,6.98178273 C8.40485793,6.98178273 9.52608538,5.86825756 9.52608538,4.49749304 C9.52608538,3.11851806 8.39645185,2.01320334 6.99872843,2.01320334 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

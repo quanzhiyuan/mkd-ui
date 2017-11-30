@@ -1,5 +1,4 @@
 import InfiniteScroll from './directive';
-import 'mkd-ui/src/style/empty.css';
 import Vue from 'vue';
 
 const install = function (Vue) {

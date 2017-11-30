@@ -42,7 +42,7 @@
   export default {
     computed: {
       visible() {
-        return ['/', '/header', '/search'].indexOf(this.$route.path) < 0
+        return ['/', '/header'].indexOf(this.$route.path) < 0
       }
     }
   }

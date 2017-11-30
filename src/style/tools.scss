@@ -1,5 +1,6 @@
 @import 'var.scss';
 @import 'common.scss';
+@import 'animate.scss';
 @function vw($px){ // $px转vw
     @return $px / 375 * 100vw;
 }
@@ -61,4 +62,13 @@
   bottom: 50px;
   left: 50%;
   transform: translate(-50%, 0);
+}
+
+/**下拉动画*/
+@keyframes slide-down{
+    0%{transform: scale(1,0);}
+    25%{transform: scale(1,1.2);}
+    50%{transform: scale(1,0.85);}
+    75%{transform: scale(1,1.05);}
+    100%{transform: scale(1,1);}
 }

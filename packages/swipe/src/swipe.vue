@@ -1,70 +1,21 @@
-<style>
-  @component-namespace mint {
-    @component swipe {
-      overflow: hidden;
-      position: relative;
-      height: 100%;
-
-      @descendent items-wrap {
-        position: relative;
-        overflow: hidden;
-        height: 100%;
-
-        > div {
-          position: absolute;
-          transform: translateX(-100%);
-          size: 100% 100%;
-          display: none;
-
-          @when active {
-            display: block;
-            transform: none;
-          }
-        }
-      }
-
-      @descendent indicators {
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      @descendent indicator {
-        size: 8px 8px;
-        display: inline-block;
-        border-radius: 100%;
-        background: #000;
-        opacity: 0.2;
-        margin: 0 3px;
-
-        @when active {
-          background: #fff;
-        }
-      }
-    }
-  }
-</style>
-
 <template>
-  <div class="mint-swipe">
-    <div class="mint-swipe-items-wrap" ref="wrap">
+  <div class="mkd-swipe">
+    <div class="mkd-swipe-items-wrap" ref="wrap">
       <slot></slot>
     </div>
-    <div class="mint-swipe-indicators" v-show="showIndicators">
-      <div class="mint-swipe-indicator"
+    <div class="mkd-swipe-indicators" v-show="showIndicators">
+      <div class="mkd-swipe-indicator"
         v-for="(page, $index) in pages"
         :class="{ 'is-active': $index === index }"></div>
     </div>
   </div>
 </template>
-
 <script>
   import { once } from 'mkd-ui/src/utils/dom';
   import { addClass, removeClass } from 'mkd-ui/src/utils/dom';
 
   export default {
-    name: 'mt-swipe',
+    name: 'mkd-swipe',
 
     created() {
       this.dragState = {};
@@ -530,3 +481,44 @@
     }
   };
 </script>
+<style lang="scss">
+.mkd-swipe {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  >.mkd-swipe-items-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    > div {
+      position: absolute;
+      transform: translateX(-100%);
+      width: 100%;
+      height: 100%;
+      display: none;
+      &.is-active {
+        display: block;
+        transform: none;
+      }
+    }
+  }
+  .mkd-swipe-indicators {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      >.mkd-swipe-indicator {
+        width:8px;
+        height: 8px;
+        display: inline-block;
+        border-radius: 100%;
+        background: #000;
+        opacity: 0.2;
+        margin: 0 3px;
+        &.active{
+          background: #fff;
+        }
+      }
+    }
+}
+</style>
