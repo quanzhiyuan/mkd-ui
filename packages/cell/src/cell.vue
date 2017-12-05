@@ -111,6 +111,7 @@ export default {
       color: #999999;
       letter-spacing: 0;
       line-height: 14px;
+      text-align: left;
       >.mkd-cell-text {
         vertical-align: middle;
       }

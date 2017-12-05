@@ -1,39 +1,37 @@
 <template>
   <div class="page-badge">
     <div class="page-title">Badge</div>
-
     <div class="page-badge-container">
+      <div class="page-title">size=large</div>
       <div class="page-part">
-        <mt-badge type="primary" size="large">30</mt-badge>
-        <mt-badge type="error" size="large">10</mt-badge>
-        <mt-badge type="success" size="large">10</mt-badge>
-        <mt-badge type="warning" size="large">10</mt-badge>
+        <mkd-badge type="primary" size="large">30</mkd-badge>
+        <mkd-badge type="important" size="large">10</mkd-badge>
       </div>
 
       <div class="page-part">
-        <mt-badge type="primary">30</mt-badge>
-        <mt-badge type="error">10</mt-badge>
-        <mt-badge type="success">10</mt-badge>
-        <mt-badge type="warning">10</mt-badge>
+        <div class="page-title">size=normal</div>
+        <mkd-badge type="primary">30</mkd-badge>
+        <mkd-badge type="important">30</mkd-badge>
       </div>
 
       <div class="page-part">
-        <mt-badge type="primary" size="small">30</mt-badge>
-        <mt-badge type="error" size="small">10</mt-badge>
-        <mt-badge type="success" size="small">10</mt-badge>
-        <mt-badge type="warning" size="small">10</mt-badge>
+        <div class="page-title">size=small</div>
+        <mkd-badge type="primary" size="small"></mkd-badge>
+        <mkd-badge type="important" size="small"></mkd-badge>
       </div>
 
       <div class="page-part">
-        <mt-badge size="small" color="#888">自定义颜色</mt-badge>
+        <div class="page-title">自定义颜色</div>
+        <mkd-badge size="large" color="#ffc107">自定义颜色</mkd-badge>
       </div>
     </div>
 
     <div class="page-part">
-      <mt-cell title="徽章">
+      <div class="page-title">列表中示例</div>
+      <mkd-cell title="徽章">
         <span style="margin-right: 5px;">未读消息</span>
-        <mt-badge type="error" size="small">10</mt-badge>
-      </mt-cell>
+        <mkd-badge type="important" size="large">10+</mkd-badge>
+      </mkd-cell>
     </div>
   </div>
 </template>
@@ -47,5 +45,8 @@ export default {
 <style lang="css">
   .page-badge-container {
     padding: 0 10px;
+  }
+  .page-part {
+    text-align: center;
   }
 </style>

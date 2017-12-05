@@ -1,6 +1,6 @@
 <template>
   <span
-    class="mint-badge"
+    class="mkd-badge"
     :style="{ backgroundColor: color }"
     :class="['is-' + type, 'is-size-' + size]">
     <slot></slot>
@@ -9,7 +9,7 @@
 
 <script>
 /**
- * mt-badge
+ * mkd-badge
  * @module components/badge
  * @desc 徽章
  * @param {string} [type=primary] 组件样式，可选 primary, error, success, warning
@@ -17,11 +17,11 @@
  * @param {string} [size=normal] - 尺寸，接受 normal, small, large
  *
  * @example
- * <mt-badge color="error">错误</mt-badge>
- * <mt-badge color="#333">30</mt-badge>
+ * <mkd-badge color="error">错误</mkd-badge>
+ * <mkd-badge color="#333">30</mkd-badge>
  */
 export default {
-  name: 'mt-badge',
+  name: 'mkd-badge',
 
   props: {
     color: String,
@@ -36,48 +36,38 @@ export default {
   }
 };
 </script>
-<style lang="css">
-  @import "../../../src/style/var.scss";
-
-  @component-namespace mint {
-    @component badge {
-      color: $color-white;
-      text-align: center;
-      display: inline-block;
-
-      @when success {
-        background-color: $success-color;
-      }
-
-      @when primary {
-        background-color: $color-blue;
-      }
-
-      @when error {
-        background-color: $error-color;
-      }
-
-      @when warning {
-        background-color: $warning-color;
-      }
-
-      @when size-normal {
-        border-radius: 12px;
-        font-size: 15px;
-        padding: 2px 8px;
-      }
-
-      @when size-small {
-        border-radius: 8px;
-        font-size: 12px;
-        padding: 2px 6px;
-      }
-
-      @when size-large {
-        border-radius: 14px;
-        font-size: 18px;
-        padding: 2px 10px;
-      }
-    }
-  }
+<style lang="scss">
+  @import "../../../src/style/tools.scss";
+ .mkd-badge {
+   color: $color-white;
+   text-align: center;
+   display: inline-block;
+   &.is-primary {
+     background-color: #81B8F5;
+   }
+   &.is-important {
+     background-color: #F35959;
+   }
+   &.is-size-small {
+     width: 9px;
+     height: 9px;
+     border-radius: 9px;
+   }
+   &.is-size-normal {
+     min-width: 20px;
+     height: 20px;
+     line-height: 20px;
+     border-radius: 12px;
+     font-size: 12px;
+     padding: 0 3px;
+   }
+   &.is-size-large {
+     min-width: 20px;
+     height: 20px;
+     line-height: 20px;
+     border-radius: 12px;
+     font-size: 12px;
+     padding: 0 7px;
+   }
+ }
 </style>

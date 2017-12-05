@@ -129,8 +129,8 @@ export default {
        border-radius: 100%;
        border: 1px solid #ccc;
        position: relative;
-       width:20px;
-       height: 20px;
+       width:26px;
+       height: 26px;
        vertical-align: middle;
 
        &::after {
@@ -139,10 +139,10 @@ export default {
          border-top: 0;
          content: " ";
          position: absolute;
-         top: 3px;
-         left: 6px;
-         width: 4px;
-         height: 8px;
+         top: 4px;
+         left: 9px;
+         width: 5px;
+         height: 11px;
          transform: rotate(45deg) scale(0);
          transition: transform .2s;
        }

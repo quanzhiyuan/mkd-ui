@@ -1,29 +1,29 @@
 <template>
   <div class="page-swipe">
     <h1 class="page-title">Swipe</h1>
-    <p class="page-swipe-desc">基础用法</p>
+    <p class="page-swipe-desc">基础用法(size=large)</p>
     <mkd-swipe :auto="4000">
       <mkd-swipe-item class="slide1">1</mkd-swipe-item>
       <mkd-swipe-item class="slide2">2</mkd-swipe-item>
       <mkd-swipe-item class="slide3">3</mkd-swipe-item>
     </mkd-swipe>
 
-    <p class="page-swipe-desc">隐藏 indicators</p>
-    <mkd-swipe :show-indicators="false">
+    <p class="page-swipe-desc">隐藏 indicators(size=normal)</p>
+    <mkd-swipe :show-indicators="false" size="normal">
       <mkd-swipe-item class="slide1">1</mkd-swipe-item>
       <mkd-swipe-item class="slide2">2</mkd-swipe-item>
       <mkd-swipe-item class="slide3">3</mkd-swipe-item>
     </mkd-swipe>
 
-    <p class="page-swipe-desc">取消自动播放</p>
-    <mkd-swipe :auto="0">
-      <mkd-swipe-item class="slide1">1</mkd-swipe-item>
-      <mkd-swipe-item class="slide2">2</mkd-swipe-item>
-      <mkd-swipe-item class="slide3">3</mkd-swipe-item>
+    <p class="page-swipe-desc">取消自动播放(size=normal)</p>
+    <mkd-swipe :auto="0" size="normal">
+      <mkd-swipe-item class="slide1"></mkd-swipe-item>
+      <mkd-swipe-item class="slide2"></mkd-swipe-item>
+      <mkd-swipe-item class="slide3"></mkd-swipe-item>
     </mkd-swipe>
 
-    <p class="page-swipe-desc">设置默认显示页</p>
-    <mkd-swipe :auto="0" :defaultIndex="1">
+    <p class="page-swipe-desc">设置默认显示页(size=small)</p>
+    <mkd-swipe :auto="0" :defaultIndex="1" size="small">
       <mkd-swipe-item class="slide1">1</mkd-swipe-item>
       <mkd-swipe-item class="slide2">2</mkd-swipe-item>
       <mkd-swipe-item class="slide3">3</mkd-swipe-item>
@@ -44,13 +44,11 @@
     margin-bottom: 5px;
   }
   .mkd-swipe {
-    height: 200px;
-    color: #fff;
-    font-size: 30px;
-    text-align: center;
-    margin-bottom: 20px;
     .mkd-swipe-item {
-      line-height: 200px;
+      text-align: center;
+      line-height: 1;
+      display: flex;
+      align-items: center;
     }
     .slide1 {
       background-color: #0089dc;
@@ -65,6 +63,5 @@
       color: #fff;
     }
   }
-
 }
 </style>

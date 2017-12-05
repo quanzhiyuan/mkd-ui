@@ -1,5 +1,5 @@
 <template>
-  <div class="mkd-swipe">
+  <div class="mkd-swipe" :style="bannersize">
     <div class="mkd-swipe-items-wrap" ref="wrap">
       <slot></slot>
     </div>
@@ -75,6 +75,27 @@
       stopPropagation: {
         type: Boolean,
         default: false
+      },
+
+      size: {
+        type: String,
+        default () {
+          return 'large'
+        },
+        validator(value) {
+          return [
+            'small',
+            'normal',
+            'large'
+          ].indexOf(value) > -1;
+        }
+      }
+    },
+    computed: {
+      bannersize: function () {
+        return {
+          height: this.size === 'small' ? '92px' : this.size === 'normal' ? '141px': '188px'
+        }
       }
     },
 
@@ -485,12 +506,12 @@
 .mkd-swipe {
   overflow: hidden;
   position: relative;
-  height: 100%;
+  // height: 100%;
   >.mkd-swipe-items-wrap {
     position: relative;
     overflow: hidden;
     height: 100%;
-    > div {
+    > .mkd-swipe-item {
       position: absolute;
       transform: translateX(-100%);
       width: 100%;
@@ -508,14 +529,15 @@
       left: 50%;
       transform: translateX(-50%);
       >.mkd-swipe-indicator {
-        width:8px;
-        height: 8px;
+        width:6px;
+        height: 6px;
         display: inline-block;
-        border-radius: 100%;
+        border-radius: 6px;
         background: #000;
         opacity: 0.2;
         margin: 0 3px;
-        &.active{
+        &.is-active{
+          width: 12px;
           background: #fff;
         }
       }
