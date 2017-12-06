@@ -59,7 +59,7 @@ export default {
      line-height: 20px;
      border-radius: 12px;
      font-size: 12px;
-     padding: 0 3px;
+     padding: 0 2px;
    }
    &.is-size-large {
      min-width: 20px;

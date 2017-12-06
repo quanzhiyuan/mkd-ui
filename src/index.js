@@ -1,8 +1,8 @@
 import Header from '../packages/header'
 import Button from '../packages/button'
 import Cell from '../packages/cell'
-import CellSwipe from '../packages/cell-swipe'
 import List from '../packages/list'
+import CellSwipe from '../packages/cell-swipe'
 import Field from '../packages/field'
 import Badge from '../packages/badge'
 import Switch from '../packages/switch'
@@ -13,7 +13,6 @@ import TabContainer from '../packages/tab-container'
 import Navbar from '../packages/navbar'
 import Tabbar from '../packages/tabbar'
 import Search from '../packages/search'
-import Card from '../packages/card'
 import Checklist from '../packages/checklist'
 import Radio from '../packages/radio'
 import Loadmore from '../packages/loadmore'
@@ -38,14 +37,14 @@ import '../src/assets/font/iconfont.css'
 import merge from './utils/merge'
 
 const version = '0.1.3'
-const install = function (Vue, config = {}) {
+const install = function(Vue, config = {}) {
   if (install.installed) return
 
   Vue.component(Header.name, Header)
   Vue.component(Button.name, Button)
   Vue.component(Cell.name, Cell)
-  Vue.component(CellSwipe.name, CellSwipe)
   Vue.component(List.name, List)
+  Vue.component(CellSwipe.name, CellSwipe)
   Vue.component(Field.name, Field)
   Vue.component(Badge.name, Badge)
   Vue.component(Switch.name, Switch)
@@ -55,7 +54,6 @@ const install = function (Vue, config = {}) {
   Vue.component(TabContainer.name, TabContainer)
   Vue.component(Navbar.name, Navbar)
   Vue.component(Tabbar.name, Tabbar)
-  Vue.component(Card.name, Card)
   Vue.component(Search.name, Search)
   Vue.component(Checklist.name, Checklist)
   Vue.component(Radio.name, Radio)
@@ -88,12 +86,13 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export {
+module.exports = {
   install,
   version,
   Header,
   Button,
   Cell,
+  List,
   CellSwipe,
   Field,
   Badge,
@@ -105,7 +104,6 @@ export {
   Navbar,
   Tabbar,
   Search,
-  Card,
   Checklist,
   Radio,
   Loadmore,
