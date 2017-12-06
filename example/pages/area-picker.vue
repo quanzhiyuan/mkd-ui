@@ -18,18 +18,6 @@
   </div>
 </template>
 
-<style lang="scss">
-.page-picker {
-  padding: 0 10px 20px;
-  >.page-picker-wrapper {
-    background-color: #fff;
-    text-align: center;
-  }
-  >.page-picker-desc {
-    margin: 10px 0 50px;
-  }
-}
-</style>
 <script type="text/babel">
   export default {
     methods: {
@@ -49,10 +37,20 @@
         value: '',
         dataValue: '请选择地址',
         dataValue1: '请选择地址'
-      };
-    },
-
-    mounted() {
+      }
     }
-  };
+  }
 </script>
+
+<style lang="scss">
+.page-picker {
+  padding: 0 10px 20px;
+  >.page-picker-wrapper {
+    background-color: #fff;
+    text-align: center;
+  }
+  >.page-picker-desc {
+    margin: 10px 0 50px;
+  }
+}
+</style>

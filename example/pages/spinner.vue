@@ -23,13 +23,7 @@
 <script>
 export default {
   name: 'page-spinner',
-
-  data() {
-    return {
-
-    };
-  }
-};
+}
 </script>
 
 <style lang="css">

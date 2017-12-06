@@ -39,7 +39,7 @@
 <script>
 export default {
   name: 'page-badge'
-};
+}
 </script>
 
 <style lang="css">

@@ -10,21 +10,6 @@
   </div>
 </template>
 
-<style lang="scss">
-.page-actionsheet{
-  >.page-actionsheet-wrapper {
-    padding: 0 20px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
-    >:first-child {
-      margin-bottom: 20px;
-    }
-  }
-}
-</style>
-
 <script type="text/babel">
   export default {
     data() {
@@ -33,20 +18,20 @@
         sheetVisible2: false,
         actions: [],
         actions2: []
-      };
+      }
     },
 
     methods: {
       takePhoto() {
-        console.log('taking photo');
+        console.log('taking photo')
       },
 
       openAlbum() {
-        console.log('opening album');
+        console.log('opening album')
       },
 
       goBack() {
-        history.go(-1);
+        history.go(-1)
       }
     },
 
@@ -63,7 +48,22 @@
       }, {
         name: '返回上一步',
         method: this.goBack
-      }];
+      }]
     }
-  };
+  }
 </script>
+
+<style lang="scss">
+.page-actionsheet{
+  >.page-actionsheet-wrapper {
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    >:first-child {
+      margin-bottom: 20px;
+    }
+  }
+}
+</style>

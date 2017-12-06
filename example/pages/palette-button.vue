@@ -33,14 +33,14 @@
   export default {
     methods: {
       main_log(val) {
-        console.log('main_log', val);
+        console.log('main_log', val)
       },
       sub_log(val) {
-        console.log('sub_log', val);
-        this.$refs.target_1.collapse();
+        console.log('sub_log', val)
+        this.$refs.target_1.collapse()
       }
     }
-  };
+  }
 </script>
 
 <style>
@@ -66,4 +66,3 @@
     background-color:#26a2ff;
   }
 </style>
- 

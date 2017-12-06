@@ -34,7 +34,7 @@ export default {
       default: 'normal'
     }
   }
-};
+}
 </script>
 <style lang="scss">
   @import "../../../src/style/tools.scss";

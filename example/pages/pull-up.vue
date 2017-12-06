@@ -19,6 +19,49 @@
   </div>
 </template>
 
+<script type="text/babel">
+  export default {
+    data() {
+      return {
+        list: [],
+        allLoaded: false,
+        bottomStatus: '',
+        wrapperHeight: 0
+      }
+    },
+
+    methods: {
+      handleBottomChange(status) {
+        this.bottomStatus = status
+      },
+
+      loadBottom() {
+        setTimeout(() => {
+          let lastValue = this.list[this.list.length - 1]
+          if (lastValue < 40) {
+            for (let i = 1; i <= 10; i++) {
+              this.list.push(lastValue + i)
+            }
+          } else {
+            this.allLoaded = true
+          }
+          this.$refs.loadmore.onBottomLoaded()
+        }, 1500)
+      }
+    },
+
+    created() {
+      for (let i = 1; i <= 20; i++) {
+        this.list.push(i)
+      }
+    },
+
+    mounted() {
+      this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top
+    }
+  }
+</script>
+
 <style>
   @component-namespace page {
     @component loadmore {
@@ -64,46 +107,3 @@
     }
   }
 </style>
-
-<script type="text/babel">
-  export default {
-    data() {
-      return {
-        list: [],
-        allLoaded: false,
-        bottomStatus: '',
-        wrapperHeight: 0
-      };
-    },
-
-    methods: {
-      handleBottomChange(status) {
-        this.bottomStatus = status;
-      },
-
-      loadBottom() {
-        setTimeout(() => {
-          let lastValue = this.list[this.list.length - 1];
-          if (lastValue < 40) {
-            for (let i = 1; i <= 10; i++) {
-              this.list.push(lastValue + i);
-            }
-          } else {
-            this.allLoaded = true;
-          }
-          this.$refs.loadmore.onBottomLoaded();
-        }, 1500);
-      }
-    },
-
-    created() {
-      for (let i = 1; i <= 20; i++) {
-        this.list.push(i);
-      }
-    },
-
-    mounted() {
-      this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
-    }
-  };
-</script>

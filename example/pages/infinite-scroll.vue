@@ -14,6 +14,39 @@
   </div>
 </template>
 
+<script type="text/babel">
+  export default {
+    data() {
+      return {
+        list: [],
+        loading: false,
+        allLoaded: false,
+        wrapperHeight: 0
+      }
+    },
+
+    methods: {
+      loadMore() {
+        this.loading = true
+        setTimeout(() => {
+          let last = this.list[this.list.length - 1]
+          for (let i = 1; i <= 10; i++) {
+            this.list.push(last + i)
+          }
+          this.loading = false
+        }, 2500)
+      }
+    },
+
+    mounted() {
+      this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top
+      for (let i = 1; i <= 20; i++) {
+        this.list.push(i)
+      }
+    }
+  }
+</script>
+
 <style>
   @component-namespace page {
     @component infinite {
@@ -53,36 +86,3 @@
     }
   }
 </style>
-
-<script type="text/babel">
-  export default {
-    data() {
-      return {
-        list: [],
-        loading: false,
-        allLoaded: false,
-        wrapperHeight: 0
-      };
-    },
-
-    methods: {
-      loadMore() {
-        this.loading = true;
-        setTimeout(() => {
-          let last = this.list[this.list.length - 1];
-          for (let i = 1; i <= 10; i++) {
-            this.list.push(last + i);
-          }
-          this.loading = false;
-        }, 2500);
-      }
-    },
-
-    mounted() {
-      this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
-      for (let i = 1; i <= 20; i++) {
-        this.list.push(i);
-      }
-    }
-  };
-</script>

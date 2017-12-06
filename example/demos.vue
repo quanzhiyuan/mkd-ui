@@ -19,6 +19,20 @@
   </section>
 </template>
 
+
+<script>
+  import '../src/assets/font/iconfont.css'
+  import '../src/style/common.scss'
+
+  export default {
+    computed: {
+      visible() {
+        return ['/', '/header'].indexOf(this.$route.path) < 0
+      }
+    }
+  }
+</script>
+
 <style lang="scss">
   .page-demo {
     padding-bottom: 50px;
@@ -53,18 +67,3 @@
     }
   }
 </style>
-
-<script type="text/babel">
-  import { navs } from './route'
-
-  export default {
-    data() {
-      return {
-        navs: []
-      }
-    },
-    created() {
-      this.navs = navs
-    }
-  }
-</script>

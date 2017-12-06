@@ -9,6 +9,32 @@
   </div>
 </template>
 
+<script type="text/babel">
+import { Toast } from '$src/index';
+
+export default {
+  methods: {
+    openToast() {
+      Toast('提示信息');
+    },
+
+    openToastWithIcon() {
+      Toast({
+        message: '操作成功',
+        icon : true
+      })
+    },
+
+    openBottomToast() {
+      Toast({
+        message: '提示信息',
+        position: 'bottom'
+      })
+    }
+  }
+}
+</script>
+
 <style lang="scss">
 .page-toast {
   >.page-toast-wrapper{
@@ -23,29 +49,3 @@
   }
 }
 </style>
-
-<script type="text/babel">
-  import { Toast } from '$src/index';
-
-  export default {
-    methods: {
-      openToast() {
-        Toast('提示信息');
-      },
-
-      openToastWithIcon() {
-        Toast({
-          message: '操作成功',
-          icon : true
-        });
-      },
-
-      openBottomToast() {
-        Toast({
-          message: '提示信息',
-          position: 'bottom'
-        });
-      }
-    }
-  };
-</script>

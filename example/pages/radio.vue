@@ -72,9 +72,9 @@ export default {
           disabled: true
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
 
 <style lang="scss">

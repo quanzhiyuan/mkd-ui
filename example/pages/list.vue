@@ -87,6 +87,24 @@
   </div>
 </template>
 
+<script>
+export default {
+ name: 'page-list',
+ 
+ data () {
+   return {
+     select : true
+   }
+ },
+
+ methods: {
+   selectchange (val) {
+     console.log(val)
+   }
+ }
+}
+</script>
+
 <style lang="scss">
 .page-list {
   padding-bottom: 100px;

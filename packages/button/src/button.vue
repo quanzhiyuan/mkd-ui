@@ -17,7 +17,7 @@
 
 <script>
 if (process.env.NODE_ENV === 'component') {
-  require('mkd-ui/packages/font/style.css');
+  require('mkd-ui/packages/font/style.css')
 }
 /**
  * mkd-button
@@ -39,7 +39,7 @@ export default {
 
   methods: {
     handleClick(evt) {
-      this.$emit('click', evt);
+      this.$emit('click', evt)
     }
   },
 
@@ -58,7 +58,7 @@ export default {
           'primary-b',  // 扁平化的按钮
           'secondary-b',
           'danger-b'
-        ].indexOf(value) > -1;
+        ].indexOf(value) > -1
       }
     },
     size: {
@@ -69,7 +69,7 @@ export default {
           'small',
           'normal',
           'large'
-        ].indexOf(value) > -1;
+        ].indexOf(value) > -1
       }
     }
   },
@@ -81,7 +81,7 @@ export default {
       return this.type.split('-')[1]
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

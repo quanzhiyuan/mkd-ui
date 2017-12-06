@@ -9,7 +9,7 @@
     <mkd-button @click.native="search2 = true" size="large">带前置icon搜索</mkd-button>
     <mkd-popup v-model="search2" position="right" :modal="false" class="mkd-search1">
       <mkd-search autofocus @search="search"  type="icon" v-model="value" @cancel="search2 = false">
-        <img slot="lefticon" src="/static/assets/scan.svg" style="width:20px;height:20px;margin-right:10px;">
+        <img slot="lefticon" src="static/assets/scan.svg" style="width:20px;height:20px;margin-right:10px;">
       </mkd-search>
     </mkd-popup>
 

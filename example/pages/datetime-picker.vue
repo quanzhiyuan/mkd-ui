@@ -46,23 +46,8 @@
   </div>
 </template>
 
-<style lang="scss">
-.page-datetime{
-  >.page-datetime-wrapper {
-    padding: 0 20px;
-    position: absolute;
-    top:50%;
-    width: 100%;
-    transform: translateY(-50%);
-    button:not(:last-child) {
-      margin-bottom: 20px;
-    }
-  }
-}
-</style>
-
 <script type="text/babel">
-  import { Toast } from '$src/index';
+  import { Toast } from '$src/index'
 
   export default {
     data() {
@@ -79,27 +64,43 @@
         dateValue5: '请选择日期',
         startTime : new Date(1991,12,12),
         endTime : new Date()
-      };
+      }
     },
+    
     methods: {
       open(picker) {
-        this.$refs[picker].open();
+        this.$refs[picker].open()
       },
       handleChange1(value) {
-       this.dateValue = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDate() + '日'
+        this.dateValue = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDate() + '日'
       },
       handleChange2(value) {
-       this.dateValue2 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月'
+        this.dateValue2 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月'
       },
       handleChange3(value) {
-       this.dateValue3 = value.getFullYear() + '年'
+        this.dateValue3 = value.getFullYear() + '年'
       },
       handleChange4(value) {
-       this.dateValue4 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDate() + '日'
-     },
-     handleChange5(value) {
-      this.dateValue5 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDate() + '日'
-     }
+        this.dateValue4 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDate() + '日'
+      },
+      handleChange5(value) {
+        this.dateValue5 = value.getFullYear() + '年' + (value.getMonth() + 1) + '月' + value.getDate() + '日'
+      }
     }
-  };
+  }
 </script>
+
+<style lang="scss">
+.page-datetime{
+  >.page-datetime-wrapper {
+    padding: 0 20px;
+    position: absolute;
+    top:50%;
+    width: 100%;
+    transform: translateY(-50%);
+    button:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+</style>

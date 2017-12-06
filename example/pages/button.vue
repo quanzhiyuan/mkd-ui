@@ -82,12 +82,13 @@
 import { MessageBox } from '$src/index'
 export default {
   name: 'button',
+  
   methods: {
     openAlert(title) {
       MessageBox.alert(title + '!', 'Button')
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

@@ -7,6 +7,22 @@
   </div>
 </template>
 
+<script type="text/babel">
+  import { Indicator } from '$src/index'
+
+  export default {
+    methods: {
+      openIndicator() {
+        Indicator.open();
+        setTimeout(() => Indicator.close(), 200000)
+      },
+    },
+    beforeDestroy() {
+      Indicator.close()
+    }
+  };
+</script>
+
 <style lang="scss">
 .page-indicator-wrapper{
   padding: 0 20px;
@@ -19,19 +35,3 @@
   }
 }
 </style>
-
-<script type="text/babel">
-  import { Indicator } from '$src/index';
-
-  export default {
-    methods: {
-      openIndicator() {
-        Indicator.open();
-        setTimeout(() => Indicator.close(), 200000);
-      },
-    },
-    beforeDestroy() {
-      Indicator.close();
-    }
-  };
-</script>

@@ -27,6 +27,7 @@
     </div>
   </div>
 </template>
+
 <script>
 /**
 * title : 卡片标题
@@ -43,21 +44,21 @@ let mkdCardItem1 = {
   computed: {
     href() {
       if (this.to && !this.added && this.$router) {
-        const resolved = this.$router.match(this.to);
-        if (!resolved.matched.length) return this.to;
+        const resolved = this.$router.match(this.to)
+        if (!resolved.matched.length) return this.to
         this.$nextTick(() => {
-          this.added = true;
-          this.$el.addEventListener('click', this.handleClick);
+          this.added = true
+          this.$el.addEventListener('click', this.handleClick)
         });
-        return resolved.path;
+        return resolved.path
       }
-      return this.to;
+      return this.to
     }
   },
   methods: {
     handleClick($event) {
-      $event.preventDefault();
-      this.$router.push(this.href);
+      $event.preventDefault()
+      this.$router.push(this.href)
     }
   }
 }

@@ -54,9 +54,9 @@ export default {
   data() {
     return {
       selected: '外卖'
-    };
+    }
   }
-};
+}
 </script>
 
 <style>

@@ -28,19 +28,6 @@
   </div>
 </template>
 
-<style lang="scss">
-.page-picker {
-  padding: 0 10px 20px;
-  >.page-picker-wrapper {
-    background-color: #fff;
-    text-align: center;
-  }
-  >.page-picker-desc {
-    margin: 10px 0 50px;
-  }
-}
-</style>
-
 <script type="text/babel">
   const address = {
     '北京': ['北京'],
@@ -77,17 +64,15 @@
     '香港': ['香港'],
     '澳门': ['澳门'],
     '台湾': ['台北市', '高雄市', '台北县', '桃园县', '新竹县', '苗栗县', '台中县', '彰化县', '南投县', '云林县', '嘉义县', '台南县', '高雄县', '屏东县', '宜兰县', '花莲县', '台东县', '澎湖县', '基隆市', '新竹市', '台中市', '嘉义市', '台南市']
-  };
+  }
   export default {
     methods: {
       onYearChange(picker, values) {
         this.year = values[0];
       },
-
       onNumberChange(picker, values) {
         this.number = values[0];
       },
-
       onDateChange(picker, values) {
         if (values[0] > values[1]) {
           picker.setSlotValue(1, values[0]);
@@ -95,13 +80,11 @@
         this.dateStart = values[0];
         this.dateEnd = values[1];
       },
-
       onAddressChange(picker, values) {
         picker.setSlotValues(1, address[values[0]]);
         this.addressProvince = values[0];
         this.addressCity = values[1];
       },
-
       openAdress () {
 
       }
@@ -161,7 +144,7 @@
         ],
         addressProvince: '北京',
         addressCity: '北京'
-      };
+      }
     },
 
     mounted() {
@@ -172,8 +155,21 @@
           if (step > this.numberSlot[0].values.length - 1) {
             step = 0;
           }
-        }, 1000);
-      });
+        }, 1000)
+      })
     }
-  };
+  }
 </script>
+
+<style lang="scss">
+.page-picker {
+  padding: 0 10px 20px;
+  >.page-picker-wrapper {
+    background-color: #fff;
+    text-align: center;
+  }
+  >.page-picker-desc {
+    margin: 10px 0 50px;
+  }
+}
+</style>

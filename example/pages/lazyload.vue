@@ -49,7 +49,7 @@
           'http://fuss10.elemecdn.com/b/df/b630636b444346e38cef6c59f6457jpeg.jpeg',
           'http://fuss10.elemecdn.com/7/a5/596ab03934612236f807b92906fd8jpeg.jpeg'
         ]
-      };
+      }
     }
-  };
+  }
 </script>

@@ -37,27 +37,27 @@
     <mkd-popup v-model="popupVisible6" position="bottom" class="mkd-popup-6">
       <div>
         <a class="mkd-popup-6-item" href="http://ueclub.kingdee.com">
-          <img src="/static/assets/business.png">
+          <img src="static/assets/business.png">
           <div>出差申请</div>
         </a>
         <a class="mkd-popup-6-item" href="http://ueclub.kingdee.com">
-          <img src="/static/assets/borrow.png">
+          <img src="static/assets/borrow.png">
           <div>借款申请</div>
         </a>
         <a class="mkd-popup-6-item" href="http://ueclub.kingdee.com">
-          <img src="/static/assets/yun.png">
+          <img src="static/assets/yun.png">
           <div>小云机器人人</div>
         </a>
         <a class="mkd-popup-6-item" href="http://ueclub.kingdee.com">
-          <img src="/static/assets/yun.png">
+          <img src="static/assets/yun.png">
           <div>小云机器人人</div>
         </a>
        <!-- <a class="mkd-popup-6-item" href="http://ueclub.kingdee.com">
-          <img src="/static/assets/yun.png">
+          <img src="static/assets/yun.png">
           <div>小云机器人人</div>
         </a>
         <a class="mkd-popup-6-item" href="http://ueclub.kingdee.com">
-          <img src="/static/assets/yun.png">
+          <img src="static/assets/yun.png">
           <div>小云机器人人</div>
         </a> -->
       </div>
@@ -70,6 +70,77 @@
     </mkd-popup>
   </div>
 </template>
+
+
+<script type="text/babel">
+  export default {
+    data() {
+      return {
+        popupVisible1: false,
+        popupVisible2: false,
+        popupVisible3: false,
+        popupVisible4: false,
+        popupVisible5: false,
+        popupVisible6: false,
+        popupVisible7: false,
+        buttonBottom: 0,
+        dateSlots: [
+          {
+            flex: 1,
+            values: ['2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06'],
+            className: 'slot1',
+            textAlign: 'right'
+          }, {
+            divider: true,
+            content: '-',
+            className: 'slot2'
+          }, {
+            flex: 1,
+            values: ['2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06'],
+            className: 'slot3',
+            textAlign: 'left'
+          }
+        ],
+        mkdpopup1Info:{
+
+        }
+      }
+    },
+
+    watch: {
+      popupVisible2(val) {
+        if (val) {
+          setTimeout(() => {
+            this.popupVisible2 = false
+          }, 2000)
+        }
+      }
+    },
+
+    methods: {
+      onDateChange(picker, values) {
+        if (values[0] > values[1]) {
+          picker.setSlotValue(1, values[0])
+        }
+        this.dateStart = values[0]
+        this.dateEnd = values[1]
+      },
+      popupHandler (popup, event) {
+        close()
+        // event.preventDefault()
+        // event.stoppropagation()
+        // if(event.srcElement.className === 'popup-close') {
+        //   vm[popup] = false
+        // }
+      }
+    },
+
+    mounted() {
+      this.buttonBottom = this.$refs.button.$el.getBoundingClientRect().bottom
+    }
+  }
+</script>
+
 <style lang="scss">
 .mkd-popup-7 {
   width: 100vw;
@@ -214,72 +285,3 @@
   }
 }
 </style>
-
-<script type="text/babel">
-  export default {
-    data() {
-      return {
-        popupVisible1: false,
-        popupVisible2: false,
-        popupVisible3: false,
-        popupVisible4: false,
-        popupVisible5: false,
-        popupVisible6: false,
-        popupVisible7: false,
-        buttonBottom: 0,
-        dateSlots: [
-          {
-            flex: 1,
-            values: ['2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06'],
-            className: 'slot1',
-            textAlign: 'right'
-          }, {
-            divider: true,
-            content: '-',
-            className: 'slot2'
-          }, {
-            flex: 1,
-            values: ['2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06'],
-            className: 'slot3',
-            textAlign: 'left'
-          }
-        ],
-        mkdpopup1Info:{
-
-        }
-      };
-    },
-
-    watch: {
-      popupVisible2(val) {
-        if (val) {
-          setTimeout(() => {
-            this.popupVisible2 = false;
-          }, 2000);
-        }
-      }
-    },
-
-    methods: {
-      onDateChange(picker, values) {
-        if (values[0] > values[1]) {
-          picker.setSlotValue(1, values[0]);
-        }
-        this.dateStart = values[0];
-        this.dateEnd = values[1];
-      },
-      popupHandler (popup, event) {
-        close()
-        // event.preventDefault()
-        // event.stoppropagation()
-        // if(event.srcElement.className === 'popup-close') {
-        //   vm[popup] = false
-        // }
-      }
-    },
-
-    mounted() {
-      this.buttonBottom = this.$refs.button.$el.getBoundingClientRect().bottom;
-    }
-  };
-</script>

@@ -5,7 +5,7 @@
     <p class="page-loadmore-desc">此例请使用手机查看</p>
     <p class="page-loadmore-desc">translate : {{ translate }}</p>
     <div class="loading-background" :style="{ transform: 'scale3d(' + moveTranslate + ',' + moveTranslate + ',1)' }">
-      translateScale : {{ moveTranslate }} 
+      translateScale : {{ moveTranslate }}
     </div>
     <div class="page-loadmore-wrapper" ref="wrapper" :style="{ height: wrapperHeight + 'px' }">
       <mt-loadmore :top-method="loadTop" @translate-change="translateChange" @top-status-change="handleTopChange" ref="loadmore">
@@ -22,6 +22,51 @@
     </div>
   </div>
 </template>
+
+<script type="text/babel">
+  export default {
+    data() {
+      return {
+        list: [],
+        topStatus: '',
+        wrapperHeight: 0,
+        translate: 0,
+        moveTranslate: 0
+      }
+    },
+
+    methods: {
+      handleTopChange(status) {
+        this.moveTranslate = 1
+        this.topStatus = status
+      },
+      translateChange(translate) {
+        const translateNum = + translate
+        this.translate = translateNum.toFixed(2)
+        this.moveTranslate = (1 + translateNum / 70).toFixed(2)
+      },
+      loadTop() {
+        setTimeout(() => {
+          let firstValue = this.list[0]
+          for (let i = 1; i <= 10; i++) {
+            this.list.unshift(firstValue - i)
+          }
+          this.$refs.loadmore.onTopLoaded()
+        }, 1500)
+      }
+    },
+
+    created() {
+      for (let i = 1; i <= 20; i++) {
+        this.list.push(i)
+      }
+    },
+
+    mounted() {
+      this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
+    }
+  }
+</script>
 
 <style>
   @component-namespace page {
@@ -75,48 +120,3 @@
     }
   }
 </style>
-
-<script type="text/babel">
-  export default {
-    data() {
-      return {
-        list: [],
-        topStatus: '',
-        wrapperHeight: 0,
-        translate: 0,
-        moveTranslate: 0
-      };
-    },
-
-    methods: {
-      handleTopChange(status) {
-        this.moveTranslate = 1;
-        this.topStatus = status;
-      },
-      translateChange(translate) {
-        const translateNum = +translate;
-        this.translate = translateNum.toFixed(2);
-        this.moveTranslate = (1 + translateNum / 70).toFixed(2);
-      },
-      loadTop() {
-        setTimeout(() => {
-          let firstValue = this.list[0];
-          for (let i = 1; i <= 10; i++) {
-            this.list.unshift(firstValue - i);
-          }
-          this.$refs.loadmore.onTopLoaded();
-        }, 1500);
-      }
-    },
-
-    created() {
-      for (let i = 1; i <= 20; i++) {
-        this.list.push(i);
-      }
-    },
-
-    mounted() {
-      this.wrapperHeight = document.documentElement.clientHeight - this.$refs.wrapper.getBoundingClientRect().top;
-    }
-  };
-</script>

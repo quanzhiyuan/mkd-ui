@@ -8,7 +8,64 @@
     </div>
   </transition>
 </template>
-
+<script type="text/babel">
+  import Popup from 'mkd-ui/src/utils/popup'
+  import 'mkd-ui/src/style/popup.css'
+  export default {
+    name: 'mkd-actionsheet',
+    mixins: [Popup],
+    props: {
+      modal: {
+        default: true
+      },
+      modalFade: {
+        default: false
+      },
+      lockScroll: {
+        default: false
+      },
+      closeOnClickModal: {
+        default: true
+      },
+      cancelText: {
+        type: String,
+        default: '取消'
+      },
+      actions: {
+        type: Array,
+        default: () => []
+      }
+    },
+    data() {
+      return {
+        currentValue: false
+      };
+    },
+    watch: {
+      currentValue(val) {
+        this.$emit('input', val)
+      },
+      value(val) {
+        this.currentValue = val
+      }
+    },
+    methods: {
+      itemClick(item, index) {
+        if (item.method && typeof item.method === 'function') {
+          item.method(item, index)
+        }
+        this.currentValue = false
+      }
+    },
+    mounted() {
+      if (this.value) {
+        this.rendered = true
+        this.currentValue = true
+        this.open()
+      }
+    }
+  }
+</script>
 <style lang="scss">
 @import "../../../src/style/tools.scss";
 .mkd-actionsheet {
@@ -72,62 +129,3 @@
   transform: translate3d(-50%, 100%, 0);
 }
 </style>
-
-<script type="text/babel">
-  import Popup from 'mkd-ui/src/utils/popup';
-  import 'mkd-ui/src/style/popup.css';
-  export default {
-    name: 'mkd-actionsheet',
-    mixins: [Popup],
-    props: {
-      modal: {
-        default: true
-      },
-      modalFade: {
-        default: false
-      },
-      lockScroll: {
-        default: false
-      },
-      closeOnClickModal: {
-        default: true
-      },
-      cancelText: {
-        type: String,
-        default: '取消'
-      },
-      actions: {
-        type: Array,
-        default: () => []
-      }
-    },
-    data() {
-      return {
-        currentValue: false
-      };
-    },
-    watch: {
-      currentValue(val) {
-        this.$emit('input', val);
-      },
-      value(val) {
-        this.currentValue = val;
-      }
-    },
-    methods: {
-      itemClick(item, index) {
-        if (item.method && typeof item.method === 'function') {
-          item.method(item, index);
-        }
-        this.currentValue = false;
-      }
-    },
-    mounted() {
-      if (this.value) {
-        this.rendered = true;
-        this.currentValue = true;
-        this.open();
-      }
-    }
-  }
-</script>

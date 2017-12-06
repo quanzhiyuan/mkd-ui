@@ -27,9 +27,9 @@ export default {
   data() {
     return {
       active: 'tab-container1'
-    };
+    }
   }
-};
+}
 </script>
 
 <style lang="css" scoped>

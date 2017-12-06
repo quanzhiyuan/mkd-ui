@@ -12,28 +12,6 @@
     </mkd-picker>
   </mkd-popup>
 </template>
-
-<style lang="scss">
-@import "../../../src/style/tools.scss";
-.mkd-area-picker {
-  width: 100%;
-  .mkd-areapicker-cancel {
-    padding: 0 10px;
-    font-size: 16px;
-    color: $font-color2;
-  }
-  .mkd-areapicker-title {
-    font-size: 17px;
-    color: $font-color1;
-  }
-  .mkd-areapicker-confim {
-    padding: 0 10px;
-    font-size: 16px;
-    color: $font-colorblue;
-  }
-}
-</style>
-
 <script type="text/babel">
 /**
  * mkd-area-picker
@@ -89,7 +67,7 @@ export default {
       this.visible = false
     },
     onChange(picker) {
-      let values = picker.$children.filter(child => child.currentValue !== undefined).map(child => child.currentValue);
+      let values = picker.$children.filter(child => child.currentValue !== undefined).map(child => child.currentValue)
       if (this.selfTriggered) {
         this.selfTriggered = false
         return
@@ -144,7 +122,7 @@ export default {
           setSlotValue(key,value)
       })
       this.currentValue = values;
-      [].forEach.call(this.$refs.areapicker.$children, child => child.doOnValueChange());
+      [].forEach.call(this.$refs.areapicker.$children, child => child.doOnValueChange())
     },
     confirm() {
       this.visible = false
@@ -159,3 +137,23 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+@import "../../../src/style/tools.scss";
+.mkd-area-picker {
+  width: 100%;
+  .mkd-areapicker-cancel {
+    padding: 0 10px;
+    font-size: 16px;
+    color: $font-color2;
+  }
+  .mkd-areapicker-title {
+    font-size: 17px;
+    color: $font-color1;
+  }
+  .mkd-areapicker-confim {
+    padding: 0 10px;
+    font-size: 16px;
+    color: $font-colorblue;
+  }
+}
+</style>

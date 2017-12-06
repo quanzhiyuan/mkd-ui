@@ -48,15 +48,15 @@ export default {
   data() {
     return {
 
-    };
+    }
   },
 
   methods: {
     handleClose() {
-      alert('close this page');
+      alert('close this page')
     }
   }
-};
+}
 </script>
 
 <style lang="css">

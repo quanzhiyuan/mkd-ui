@@ -9,21 +9,6 @@
   </div>
 </template>
 
-<style lang="scss">
-.page-msgbox {
-  >.page-msgbox-wrapper {
-    padding: 0 20px;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
-    >:not(:last-child) {
-      margin-bottom: 20px;
-    }
-  }
-}
-</style>
-
 <script type="text/babel">
   import { MessageBox } from '$src/index'
 
@@ -53,3 +38,18 @@
     }
   }
 </script>
+
+<style lang="scss">
+.page-msgbox {
+  >.page-msgbox-wrapper {
+    padding: 0 20px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    >:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+</style>

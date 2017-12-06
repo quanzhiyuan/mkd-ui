@@ -1,4 +1,4 @@
-import NavConfig from './nav.config.json';
+import NavConfig from './nav.config.json'
 
 const registerRoute = (config) => {
   let route = [];
@@ -16,15 +16,15 @@ const registerRoute = (config) => {
     )
   );
 
-  return { route, navs: config };
+  return { route, navs: config }
 };
 
-const route = registerRoute(NavConfig);
+const route = registerRoute(NavConfig)
 
 route.route.push({
   path: '/',
   name: 'index',
   component: require('./demos.vue')
 });
-export const navs = route.navs;
-export default route.route;
+export const navs = route.navs
+export default route.route

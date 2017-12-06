@@ -7,6 +7,19 @@
   </div>
 </template>
 
+<script>
+  import '../src/assets/font/iconfont.css'
+  import '../src/style/common.scss'
+
+  export default {
+    computed: {
+      visible() {
+        return ['/', '/header'].indexOf(this.$route.path) < 0
+      }
+    }
+  }
+</script>
+
 <style lang="scss">
   @import './common';
   html, body {
@@ -34,16 +47,3 @@
     }
   }
 </style>
-
-<script>
-  import '../src/assets/font/iconfont.css'
-  import '../src/style/common.scss'
-
-  export default {
-    computed: {
-      visible() {
-        return ['/', '/header'].indexOf(this.$route.path) < 0
-      }
-    }
-  }
-</script>

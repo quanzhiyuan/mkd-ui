@@ -25,6 +25,43 @@
   </div>
 </template>
 
+<script type="text/babel">
+  import { Toast } from '$src/index'
+
+  export default {
+    data() {
+      return {
+        progressVisible: false,
+        value: 0,
+        uploading: false,
+        timer: null
+      }
+    },
+
+    watch: {
+      value(val) {
+        if (val >= 100) {
+          this.uploading = false
+          this.progressVisible = false
+          setTimeout(() => Toast({ message: '上传成功', position: 'bottom', duration: 1000 }), 200)
+          clearTimeout(this.timer)
+        }
+      }
+    },
+
+    methods: {
+      uploadFile() {
+        if (!this.uploading) {
+          this.value = 0
+          this.progressVisible = true
+          this.uploading = true
+          this.timer = setInterval(() => this.value++, 10)
+        }
+      }
+    }
+  }
+</script>
+
 <style>
   @component-namespace page {
     @component progress {
@@ -60,40 +97,3 @@
     }
   }
 </style>
-
-<script type="text/babel">
-  import { Toast } from '$src/index';
-
-  export default {
-    data() {
-      return {
-        progressVisible: false,
-        value: 0,
-        uploading: false,
-        timer: null
-      };
-    },
-
-    watch: {
-      value(val) {
-        if (val >= 100) {
-          this.uploading = false;
-          this.progressVisible = false;
-          setTimeout(() => Toast({ message: '上传成功', position: 'bottom', duration: 1000 }), 200);
-          clearTimeout(this.timer);
-        }
-      }
-    },
-
-    methods: {
-      uploadFile() {
-        if (!this.uploading) {
-          this.value = 0;
-          this.progressVisible = true;
-          this.uploading = true;
-          this.timer = setInterval(() => this.value++, 10);
-        }
-      }
-    }
-  };
-</script>

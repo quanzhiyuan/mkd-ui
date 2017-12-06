@@ -42,7 +42,7 @@
       <mkd-card title="序时薄"  isCard4>
       </mkd-card>
       <div class="marginbtm"></div>
-      <mkd-card title="序时薄" titleImg="/static/assets/titleImg.png" isButton isCard4>
+      <mkd-card title="序时薄" titleImg="static/assets/titleImg.png" isButton isCard4>
         <div slot="content"></div>
         <div slot="btm-left">这里是文案</div>
         <div slot="button">
@@ -53,6 +53,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   name: 'page-card',
@@ -61,35 +62,35 @@ export default {
       content: [
         {
           url: 'http://ueclub.kingdee.com/mobile/index',
-          imgUrl: '/static/assets/test1.png',
+          imgUrl: 'static/assets/test1.png',
           content: '跳转到UEClub'
         },
         {
           url: {name: 'index'},
-          imgUrl: '/static/assets/test1.png',
+          imgUrl: 'static/assets/test1.png',
           content: '跳转到路由index'
         }
       ],
       content1: [
         {
-          imgUrl: '/static/assets/test1.png',
+          imgUrl: 'static/assets/test1.png',
           content: '没有内容哦～'
         },
         {
-        imgUrl: '/static/assets/test1.png',
-        content: '没有内容哦～'
+          imgUrl: 'static/assets/test1.png',
+          content: '没有内容哦～'
         },
         {
-        imgUrl: '/static/assets/test1.png',
-        content: '没有内容哦～'
+          imgUrl: 'static/assets/test1.png',
+          content: '没有内容哦～'
         },
         {
-        imgUrl: '/static/assets/test1.png',
-        content: '没有内容哦～'
+          imgUrl: 'static/assets/test1.png',
+          content: '没有内容哦～'
         },
         {
-        imgUrl: '/static/assets/test1.png',
-        content: '没有内容哦～'
+          imgUrl: 'static/assets/test1.png',
+          content: '没有内容哦～'
         }
       ],
       content3: [
@@ -112,7 +113,7 @@ export default {
         {
           title: '广州客户大会出差',
           time: '今天9:20',
-          imgUrl: '/static/assets/test1.png',
+          imgUrl: 'static/assets/test1.png',
           step: '审批中'
         }
       ]
@@ -120,6 +121,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 .page-card{
   padding-bottom: 100px;
