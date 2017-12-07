@@ -38,7 +38,7 @@ module.exports = merge({
       compress: {
         warnings: false
       },
-      sourceMap: false
+      sourceMap: true
     }),
     // extract css into its own file
     new ExtractTextPlugin({

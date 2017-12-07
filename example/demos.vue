@@ -23,10 +23,14 @@
 <script>
 import { navs } from './route'
 export default {
-  computed: {
-    visible() {
-      return ['/', '/header'].indexOf(this.$route.path) < 0
+  data () {
+    return {
+      navs: []
     }
+  },
+
+  created () {
+    this.navs = navs
   }
 }
 </script>
