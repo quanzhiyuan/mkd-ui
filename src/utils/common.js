@@ -11,8 +11,16 @@ function getArrayLocalStorage (array) {
 function clearLocalStorage(value) {
   localStorage.clear(value)
 }
+
+function siblings (elem) { // 获取兄弟节点
+  let children = Array.prototype.slice.call(elem.parentNode.children)
+  return children.filter(child => {
+    return child !== elem
+  })
+}
 export default {
   setArrayLocalStorage,
   getArrayLocalStorage,
-  clearLocalStorage
+  clearLocalStorage,
+  siblings
 }

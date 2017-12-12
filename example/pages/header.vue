@@ -1,75 +1,73 @@
 <template>
   <div>
-    <mt-header fixed title="固定在顶部"></mt-header>
+    <mkd-header fixed title="固定在顶部"></mkd-header>
     <div class="page-header-main">
       <div class="page-title">Header</div>
-      <mt-header title="标题过长会隐藏后面的内容啊哈哈哈哈">
+      <mkd-header title="标题过长会隐藏后面的内容啊哈哈哈哈">
         <router-link to="/" slot="left">
-          <mt-button icon="back">返回</mt-button>
+          <img @click="close" src="static/assets/cancel.svg">
         </router-link>
-        <mt-button icon="more" slot="right"></mt-button>
-      </mt-header>
+        <i class="mkdui mkdui-more" @click="openRight" slot="right"></i>
+      </mkd-header>
 
-      <mt-header title="多个按钮">
+      <mkd-header title="多个按钮">
+        <i class="mkdui mkdui-more" @click="openRight" slot="right"></i>
+      </mkd-header>
+
+      <mkd-header :is-back="false" title="左侧仅文字">
         <router-link to="/" slot="left">
-          <mt-button icon="back">返回</mt-button>
+            返回
         </router-link>
-        <mt-button @click="handleClose">关闭</mt-button>
-        <mt-button icon="more" slot="right"></mt-button>
-      </mt-header>
+      </mkd-header>
 
-      <mt-header title="左侧仅文字">
-        <router-link to="/" slot="left">
-            <mt-button>返回</mt-button>
-          </router-link>
-      </mt-header>
+      <mkd-header title="右侧仅文字">
+        <span slot="right" @click="openRight">
+          分享
+        </span>
+      </mkd-header>
 
-      <mt-header title="右侧仅文字">
-        <router-link to="/" slot="right">
-          <mt-button>分享</mt-button>
-        </router-link>
-      </mt-header>
-
-      <mt-header title="仅图标">
-        <router-link to="/" slot="left">
-          <mt-button icon="back"></mt-button>
-        </router-link>
-        <mt-button slot="right" icon="more"></mt-button>
-      </mt-header>
+      <mkd-header title="仅图标">
+        <i class="mkdui mkdui-more" @click="openRight" slot="right"></i>
+      </mkd-header>
     </div>
 
   </div>
 </template>
 
 <script>
+import { MessageBox } from '$src/index'
 export default {
   name: 'header',
 
   data() {
     return {
-
     }
   },
 
   methods: {
     handleClose() {
-      alert('close this page')
+      MessageBox.alert('关闭页面!', '提示')
+    },
+    openAlert() {
+      MessageBox.alert('分享!', '提示')
+    },
+    openRight() {
+      MessageBox.alert('标题右侧按钮', '提示')
+    },
+    openLeft() {
+      MessageBox.alert('标题左侧按钮', '提示')
     }
   }
 }
 </script>
 
-<style lang="css">
-  @component-namespace page {
-    @component header {
-      @descendent main {
-        margin-top: 50px;
-        min-height: 120vh;
+<style lang="scss">
+.page-header-main {
+  margin-top: 50px;
+  min-height: 120vh;
 
-        > * {
-          margin-bottom: 15px;
-        }
-      }
-    }
+  > * {
+    margin-bottom: 15px;
   }
+}
 </style>

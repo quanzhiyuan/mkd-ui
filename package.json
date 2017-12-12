@@ -17,17 +17,14 @@
   ],
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build-example": "node build/build-example.js",
+    "build-example": "npm run build:entry && node build/build-example.js",
     "deploy-example": "npm run clean && npm run build-example && gh-pages -d example/dist --remote origin",
     "clean": "rimraf lib && rimraf packages/*/lib",
-
-
     "dist": "npm run clean && npm run build:entry && npm run lint && cooking build -c build/cooking.conf.js,build/cooking.common.js,build/cooking.component.js -p",
     "deploy": "npm run build:entry && cooking build -c build/cooking.demo.js -p",
     "build:entry": "node build/build-entry",
     "pub": "sh build/release.sh",
-    "pub:all": "node build/bin/build-all.js && lerna publish",
-    "lint": "eslint src/**/*.js packages/**/*.{js,vue} build/**/*.js --quiet"
+    "pub:all": "node build/bin/build-all.js && lerna publish"
   },
   "repository": {
     "type": "git",

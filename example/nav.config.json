@@ -133,11 +133,6 @@
         "icon": "spinner"
       },
       {
-        "path": "/tab-container",
-        "name": "TabContainer",
-        "icon": "panel"
-      },
-      {
         "path": "/search",
         "name": "Search",
         "icon": "searchbar"

@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss">
   .page-demo {
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     .indexicon {
       font-size: 22px;
       color: #26a2ff;

@@ -1,6 +1,7 @@
 import Header from '../packages/header'
 import Button from '../packages/button'
 import Cell from '../packages/cell'
+import Card from '../packages/card'
 import List from '../packages/list'
 import CellSwipe from '../packages/cell-swipe'
 import Field from '../packages/field'
@@ -43,6 +44,7 @@ const install = function(Vue, config = {}) {
   Vue.component(Header.name, Header)
   Vue.component(Button.name, Button)
   Vue.component(Cell.name, Cell)
+  Vue.component(Card.name, Card)
   Vue.component(List.name, List)
   Vue.component(CellSwipe.name, CellSwipe)
   Vue.component(Field.name, Field)
@@ -85,12 +87,14 @@ const install = function(Vue, config = {}) {
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
+
 export {
   install,
   version,
   Header,
   Button,
   Cell,
+  Card,
   List,
   CellSwipe,
   Field,

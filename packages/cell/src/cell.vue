@@ -20,7 +20,7 @@
 
 <script>
 /**
- * mt-cell
+ * mkd-cell
  * @module components/cell
  * @desc 单元格
  * @param {string|Object} [to] - 跳转链接，使用 vue-router 的情况下 to 会传递给 router.push，否则作为 a 标签的 href 属性处理
@@ -34,10 +34,10 @@
  * @param {slot} [icon] - 同 icon, 会覆盖 icon 属性，例如可以传入图片
  *
  * @example
- * <mt-cell title="标题文字" icon="back" is-link value="描述文字"></mt-cell>
- * <mt-cell title="标题文字" icon="back">
+ * <mkd-cell title="标题文字" icon="back" is-link value="描述文字"></mkd-cell>
+ * <mkd-cell title="标题文字" icon="back">
  *   <div slot="value">描述文字啊哈</div>
- * </mt-cell>
+ * </mkd-cell>
  */
 export default {
   name: 'mkd-cell',
@@ -117,11 +117,10 @@ export default {
       }
     }
     >.mkd-cell-value {
-      color: $cell-value-color;
       display: flex;
       align-items: center;
       font-size: 14px;
-      color: #999999;
+      color: $font-color3;
       letter-spacing: 0;
     }
   }
@@ -161,7 +160,7 @@ export default {
   }
 
   &>:not(:first-child) {
-    background-image:linear-gradient(180deg, $color-grey, $color-grey 50%, transparent 50%);
+    background-image:linear-gradient(180deg, $color-grey 50%, transparent 50%);
     background-size: 100% 1px;
     background-repeat: no-repeat;
     background-position: top left;
