@@ -2,6 +2,5 @@
 .cache
 .DS_Store
 .idea
-node_modules/
 .vscode/
 node_modules

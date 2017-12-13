@@ -9,15 +9,19 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var env = config.build.env
-module.exports = merge({
+module.exports = merge(baseWebpackConfig, {
   entry: {
     app: './example/entry.js'
   },
   output: {
     path: path.join(__dirname, '../example/dist'),
   },
-  resolve: baseWebpackConfig.resolve,
-  module: baseWebpackConfig.module,
+  module: {
+    rules: utils.styleLoaders({
+      sourceMap: config.build.productionSourceMap,
+      extract: true
+    })
+  },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   externals: {
     vue: 'Vue',
@@ -80,12 +84,4 @@ module.exports = merge({
       }
     ])
   ]
-},
-{
-  module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.build.productionSourceMap,
-      extract: true
-    })
-  }
 })
