@@ -1,9 +1,6 @@
 var path = require('path')
 var utils = require('./utils')
-var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var copyWebpackPlugin=require('copy-webpack-plugin')
-var postcss = require('postcss')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)

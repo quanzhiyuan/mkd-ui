@@ -7,6 +7,7 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const Components = require('../components.json')
 const dependencies = require('../package.json').dependencies
+const env = config.build.env
 let externals = {}
 let pkg = {}
 
@@ -18,7 +19,7 @@ Object.keys(dependencies).forEach(function(key) {
   externals[key] = key
   pkg[key] = key
 })
-exports.externals = Object.assign({
+externals = Object.assign({
   vue: {
     root: 'Vue',
     commonjs: 'vue',
@@ -26,10 +27,10 @@ exports.externals = Object.assign({
     amd: 'vue'
   }
 }, externals)
+exports.externals = externals
 exports.pkg = Object.assign({
   vue: 'vue'
 }, pkg)
-const env = config.build.env
 let webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({

@@ -21,7 +21,8 @@ export default {
     openToastWithIcon() {
       Toast({
         message: '操作成功',
-        icon : true
+        icon : true,
+        duration: 1500
       })
     },
 

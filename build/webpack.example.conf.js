@@ -1,3 +1,4 @@
+process.env.NODE_ENV = 'production'
 const baseWebpackConfig = require('./webpack.base.conf.js')
 const config = require('../config')
 const utils = require('./utils')

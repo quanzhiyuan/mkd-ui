@@ -9,7 +9,7 @@ var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 module.exports = merge(baseWebpackConfig, {
   entry: {
-    app:  ['./build/dev-client'].concat(config.dev.entry['app'])
+    app: ['./build/dev-client'].concat(config.dev.entry['app'])
   },
   output: {
     path: config.build.assetsRoot,
@@ -32,9 +32,9 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-     filename: 'index.html',
-     template:  path.join(__dirname, '../example/index.html'),
-     inject: true
+      filename: 'index.html',
+      template: path.join(__dirname, '../example/index.html'),
+      inject: true
     }),
     new FriendlyErrorsPlugin()
   ]
