@@ -19,7 +19,6 @@
   </section>
 </template>
 
-
 <script>
 import { navs } from './route'
 export default {

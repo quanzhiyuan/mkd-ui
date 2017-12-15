@@ -1,20 +1,20 @@
-var baseWebpackConfig = require('./webpack.base.conf.js')
-var config = require('../config')
-var utils = require('./utils')
-var merge = require('webpack-merge')
-var path = require('path')
-var webpack =  require('webpack')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-var env = config.build.env
+const baseWebpackConfig = require('./webpack.base.conf.js')
+const config = require('../config')
+const utils = require('./utils')
+const merge = require('webpack-merge')
+const path = require('path')
+const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+const env = config.build.env
 module.exports = merge(baseWebpackConfig, {
   entry: {
     app: './example/entry.js'
   },
   output: {
-    path: path.join(__dirname, '../example/dist'),
+    path: path.join(__dirname, '../example/dist')
   },
   module: {
     rules: utils.styleLoaders({
@@ -30,10 +30,10 @@ module.exports = merge(baseWebpackConfig, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-     filename: 'index.html',
-     template:  path.join(__dirname, '../example/index.html'),
-     inject: true
-   }),
+      filename: 'index.html',
+      template: path.join(__dirname, '../example/index.html'),
+      inject: true
+    }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env

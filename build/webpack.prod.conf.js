@@ -1,17 +1,15 @@
-const path = require('path')
+process.env.NODE_ENV = 'production'
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-
 const Components = require('../components.json')
 const dependencies = require('../package.json').dependencies
 let externals = {}
 let pkg = {}
+
 Object.keys(Components).forEach(function(key) {
   externals[`mkd/packages/${key}/index.js`] = `mkd/lib/${key}`
   externals[`mkd/packages/${key}/style.css`] = `mkd/lib/${key}/style.css`
@@ -31,8 +29,6 @@ exports.externals = Object.assign({
 exports.pkg = Object.assign({
   vue: 'vue'
 }, pkg)
-
-
 const env = config.build.env
 let webpackConfig = merge(baseWebpackConfig, {
   module: {

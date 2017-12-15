@@ -1,10 +1,10 @@
 {
-  "name": "mint-actionsheet",
+  "name": "mkd-actionsheet",
   "description": "An action sheet component for vue.js",
   "version": "0.1.0",
   "main": "lib/index.js",
   "author": "kingdee-kux",
-  "homepage": "https://github.com/ElemeFE/mint-ui",
+  "homepage": "https://github.com/quanzhiyuan/mkd-ui",
   "license": "MIT",
   "repository": "https://github.com/ElemeFE/mint-ui/tree/master/components/mint-actionsheet",
   "dependencies": {
