@@ -1,19 +1,21 @@
-var cooking = require('cooking');
-var path = require('path');
-var config = require('../../build/config');
+process.env.NODE_ENV = 'production'
+const path = require('path')
+const conf = require('../../build/webpack.prod.conf.js')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+var merge = require('webpack-merge')
 
-cooking.set({
+module.exports = merge(conf, {
   entry: {
     index: path.join(__dirname, 'index.js')
   },
-  dist: path.join(__dirname, 'lib'),
-  template: false,
-  format: 'umd',
-  moduleName: 'MintNavbar',
-  extractCSS: 'style.css',
-  extends: config.extends,
-  alias: config.alias,
-  externals: config.externals
-});
-
-module.exports = cooking.resolve();
+  output: {
+    path: path.join(__dirname, 'lib'),
+    filename: '[name].js'
+  },
+  // extract css into its own file
+  plugins: [
+    new ExtractTextPlugin({
+      filename: 'style.css'
+    })
+  ]
+})

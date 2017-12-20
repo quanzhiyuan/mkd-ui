@@ -6,7 +6,7 @@ var ora = require('ora')
 var rm = require('rimraf')
 var chalk = require('chalk')
 var webpack = require('webpack')
-var webpackConfig = require('./webpack.example.conf')
+var webpackConfig = require('../webpack.example.conf')
 var spinner = ora('building for example...')
 spinner.start()
 
@@ -17,10 +17,10 @@ rm(webpackConfig.output.path, err => {
     if (err) throw err
     process.stdout.write(stats.toString({
       colors: true,
-      modules: false,
-      children: false,
-      chunks: false,
-      chunkModules: false
+      modules: true,
+      children: true,
+      chunks: true,
+      chunkModules: true
     }) + '\n\n')
 
     console.log(chalk.cyan('  Build complete.\n'))

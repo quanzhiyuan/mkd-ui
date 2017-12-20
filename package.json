@@ -17,13 +17,14 @@
   ],
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build-example": "npm run build:entry && node build/build-example.js",
+    "build-example": "npm run build:entry && node build/bin/build-example.js",
     "deploy-example": "npm run clean && npm run build-example && gh-pages -d example/dist --remote origin",
     "clean": "rimraf lib && rimraf packages/*/lib",
     "dist": "npm run clean && npm run build:entry && npm run lint && cooking build -c build/cooking.conf.js,build/cooking.common.js,build/cooking.component.js -p",
     "deploy": "npm run build:entry && cooking build -c build/cooking.demo.js -p",
     "build:entry": "node build/build-entry",
     "pub": "sh build/release.sh",
+    "build-all": "node build/bin/build-all.js",
     "pub:all": "node build/bin/build-all.js && lerna publish"
   },
   "repository": {
@@ -37,10 +38,8 @@
   "author": "kingdee-kux",
   "license": "MIT",
   "dependencies": {
-    "array-find-index": "^1.0.2",
-    "raf.js": "0.0.4",
+    "babel-runtime": "^6.26.0",
     "uppercamelcase": "^3.0.0",
-    "vue": "^2.3.3",
     "vue-lazyload": "^1.0.1",
     "vue-router": "^2.6.0"
   },
@@ -97,7 +96,9 @@
     "json-templater": "^1.0.4",
     "lerna": "2.0.0-beta.18",
     "gh-pages": "^0.11.0",
-    "uppercamelcase": "^3.0.0"
+    "uppercamelcase": "^3.0.0",
+    "array-find-index": "^1.0.2",
+    "raf.js": "0.0.4"
   },
   "engines": {
     "node": ">= 4.0.0",

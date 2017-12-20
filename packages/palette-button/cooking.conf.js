@@ -1,31 +1,21 @@
-var cooking = require('cooking');
-var path = require('path');
+process.env.NODE_ENV = 'production'
+const path = require('path')
+const conf = require('../../build/webpack.prod.conf.js')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+var merge = require('webpack-merge')
 
-cooking.set({
+module.exports = merge(conf, {
   entry: {
     index: path.join(__dirname, 'index.js')
   },
-  dist: path.join(__dirname, 'lib'),
-  template: false,
-  format: 'umd',
-  moduleName: 'MintPaletteButton',
-  extractCSS: 'style.css',
-
-  extends: ['vue', 'saladcss']
-});
-
-cooking.add('resolve.alias', {
-  'main': path.join(__dirname, '../../src'),
-  'mint-ui': path.join(__dirname, '..')
-});
-
-cooking.add('externals', {
-  vue: {
-    root: 'Vue',
-    commonjs: 'vue',
-    commonjs2: 'vue',
-    amd: 'vue'
-  }
-});
-
-module.exports = cooking.resolve();
+  output: {
+    path: path.join(__dirname, 'lib'),
+    filename: '[name].js'
+  },
+  // extract css into its own file
+  plugins: [
+    new ExtractTextPlugin({
+      filename: 'style.css'
+    })
+  ]
+})

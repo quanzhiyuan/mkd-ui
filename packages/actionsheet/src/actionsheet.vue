@@ -10,7 +10,6 @@
 </template>
 <script type="text/babel">
   import Popup from 'mkd-ui/src/utils/popup'
-  import 'mkd-ui/src/style/popup.css'
   export default {
     name: 'mkd-actionsheet',
     mixins: [Popup],
@@ -67,6 +66,7 @@
   }
 </script>
 <style lang="scss">
+@import '../../../src/style/popup.css';
 @import "../../../src/style/tools.scss";
 .mkd-actionsheet {
   position: fixed;

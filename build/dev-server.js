@@ -1,4 +1,4 @@
-require('./check-versions')()
+require('./bin/check-versions')()
 
 var config = require('../config')
 if (!process.env.NODE_ENV) {
