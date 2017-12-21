@@ -1,7 +1,7 @@
 {
   "name": "mkd-tab-item",
   "description": "An tab-item component for vue.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "lib/index.js",
   "author": "kingdee-kux",
   "homepage": "https://github.com/quanzhiyuan/mkd-ui",
