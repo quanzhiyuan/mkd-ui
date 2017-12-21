@@ -9,7 +9,7 @@ module.exports = merge(conf, {
     index: path.join(__dirname, 'index.js')
   },
   output: {
-    path: path.join(__dirname, 'lib'),
+    path: path.join(__dirname, '../../lib/index-list'),
     filename: '[name].js'
   },
   // extract css into its own file

@@ -2,14 +2,16 @@ process.env.NODE_ENV = 'production'
 const path = require('path')
 const conf = require('../../build/webpack.prod.conf.js')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-var merge = require('webpack-merge')
-
+const merge = require('webpack-merge')
+let Components = require('./components.json')
+var entrys = {}
+Object.keys(Components).forEach(function (key) {
+  entrys[key] = [path.join(__dirname, Components[key])]
+})
 module.exports = merge(conf, {
-  entry: {
-    index: path.join(__dirname, 'index.js')
-  },
+  entry: entrys,
   output: {
-    path: path.join(__dirname, '../../lib/list'),
+    path: path.join(__dirname, '../../lib/index-list'),
     filename: '[name].js'
   },
   // extract css into its own file

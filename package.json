@@ -25,7 +25,7 @@
     "build:entry": "node build/build-entry",
     "pub": "sh build/release.sh",
     "build-all": "node build/bin/build-all.js",
-    "pub:all": "node build/bin/build-all.js && lerna publish"
+    "deploy-all": "npm run build-all && lerna publish"
   },
   "repository": {
     "type": "git",
