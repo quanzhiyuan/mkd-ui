@@ -1,12 +1,10 @@
 {
   "name": "mkd-button",
-  "description": "",
-  "version": "0.1.0",
+  "description": "An action sheet component for vue.js",
+  "version": "0.1.1",
   "main": "lib/index.js",
-  "author": "kux",
-  "homepage": "",
+  "author": "kingdee-kux",
+  "homepage": "https://github.com/quanzhiyuan/mkd-ui",
   "license": "MIT",
-  "repository": "",
-  "dependencies": {
-  }
+  "repository": "https://github.com/quanzhiyuan/mkd-ui/tree/master/packages/badge"
 }

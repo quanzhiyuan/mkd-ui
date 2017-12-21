@@ -1,17 +1,12 @@
 {
-  "name": "mint-picker",
-  "description": "",
-  "version": "0.1.0",
+  "name": "mkd-picker",
+  "description": "An action sheet component for vue.js",
+  "version": "0.1.1",
   "main": "lib/index.js",
-  "homepage": "https://github.com/ElemeFE/mint-ui",
+  "author": "kingdee-kux",
+  "homepage": "https://github.com/quanzhiyuan/mkd-ui",
   "license": "MIT",
-  "repository": "https://github.com/ElemeFE/mint-ui/tree/master/components/mint-picker",
-  "keywords": [
-    "picker",
-    "multi slots",
-    "vue"
-  ],
-  "author": "long.zhang@ele.me",
+  "repository": "https://github.com/quanzhiyuan/mkd-ui/tree/master/packages/picker",
   "dependencies": {
     "raf.js": "0.0.4",
     "wind-dom": "0.0.3"

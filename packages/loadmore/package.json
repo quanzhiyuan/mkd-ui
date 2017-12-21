@@ -1,11 +1,10 @@
 {
-  "name": "mint-loadmore",
-  "description": "",
-  "version": "0.1.2",
+  "name": "mkd-loadmore",
+  "description": "An action sheet component for vue.js",
+  "version": "0.1.1",
   "main": "lib/index.js",
-  "author": "elemefe",
-  "homepage": "https://github.com/ElemeFE/mint-ui",
+  "author": "kingdee-kux",
+  "homepage": "https://github.com/quanzhiyuan/mkd-ui",
   "license": "MIT",
-  "repository": "https://github.com/ElemeFE/mint-ui/tree/master/components/mint-loadmore",
-  "dependencies": {}
+  "repository": "https://github.com/quanzhiyuan/mkd-ui/tree/master/packages/loadmore"
 }

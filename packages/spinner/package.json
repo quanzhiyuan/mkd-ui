@@ -1,21 +1,10 @@
 {
-  "name": "mint-spinner",
-  "version": "2.0.0",
-  "description": "A spinner component for vue.js",
+  "name": "mkd-spinner",
+  "description": "An action sheet component for vue.js",
+  "version": "0.1.1",
   "main": "lib/index.js",
-  "files": [
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mint-ui/mint-spinner.git"
-  },
-  "homepage": "https://github.com/mint-ui/mint-spinner#readme",
-  "bugs": {
-    "url": "https://github.com/mint-ui/mint-spinner/issues"
-  },
-  "author": "qingwei-li<cinwell.li@gmail.com>",
+  "author": "kingdee-kux",
+  "homepage": "https://github.com/quanzhiyuan/mkd-ui",
   "license": "MIT",
-  "devDependencies": {
-  }
+  "repository": "https://github.com/quanzhiyuan/mkd-ui/tree/master/packages/spinner"
 }

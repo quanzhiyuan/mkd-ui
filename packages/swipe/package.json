@@ -1,7 +1,13 @@
 {
-  "private": true,
+  "name": "mkd-swipe",
+  "description": "An action sheet component for vue.js",
+  "version": "0.1.1",
+  "main": "lib/index.js",
+  "author": "kingdee-kux",
+  "homepage": "https://github.com/quanzhiyuan/mkd-ui",
+  "license": "MIT",
+  "repository": "https://github.com/quanzhiyuan/mkd-ui/tree/master/packages/swipe",
   "dependencies": {
     "wind-dom": "0.0.3"
-  },
-  "name": "mint-swipe"
+  }
 }

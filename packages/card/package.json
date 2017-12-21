@@ -1,10 +1,10 @@
 {
   "name": "mkd-card",
-  "description": "",
-  "version": "0.1.0",
+  "description": "An action sheet component for vue.js",
+  "version": "0.1.1",
   "main": "lib/index.js",
-  "author": "kingdee ued",
+  "author": "kingdee-kux",
+  "homepage": "https://github.com/quanzhiyuan/mkd-ui",
   "license": "MIT",
-  "dependencies": {
-  }
+  "repository": "https://github.com/quanzhiyuan/mkd-ui/tree/master/packages/card"
 }

@@ -1,12 +1,10 @@
 {
-  "name": "mint-switch",
-  "description": "",
-  "version": "0.1.0",
+  "name": "mkd-switch",
+  "description": "An action sheet component for vue.js",
+  "version": "0.1.1",
   "main": "lib/index.js",
-  "author": "elemefe",
-  "homepage": "https://github.com/ElemeFE/mint-ui",
+  "author": "kingdee-kux",
+  "homepage": "https://github.com/quanzhiyuan/mkd-ui",
   "license": "MIT",
-  "repository": "https://github.com/ElemeFE/mint-ui/tree/master/components/mint-switch",
-  "dependencies": {
-  }
+  "repository": "https://github.com/quanzhiyuan/mkd-ui/tree/master/packages/switch"
 }
