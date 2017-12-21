@@ -1,1 +1,1 @@
-# mint-card
+# mkd-card

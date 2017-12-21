@@ -1,1 +1,1 @@
-# mint-message-box
+# mkd-message-box

@@ -1,1 +1,1 @@
-# mint-switch
+# mkd-switch

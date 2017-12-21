@@ -1,1 +1,1 @@
-# mint-search
+# mkd-search

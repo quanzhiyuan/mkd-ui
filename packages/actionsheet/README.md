@@ -1,21 +1,21 @@
 # Overview
-mint-actionsheet is an action sheet component for vue.js
+mkd-actionsheet is an action sheet component for vue.js
 
 # Installation
-First, install `mint-actionsheet` from npm:
+First, install `mkd-actionsheet` from npm:
 ```bash
-$ npm install mint-actionsheet
+$ npm install mkd-actionsheet
 ```
 
 Import it:
 ```Javascript
-require ('mint-actionsheet/lib/index.css');
+require ('mkd-actionsheet/lib/index.css');
 
 // ES6 mudule
-import Actionsheet from 'mint-actionsheet';
+import Actionsheet from 'mkd-actionsheet';
 
 // CommonJS
-const Actionsheet = require('mint-actionsheet').default;
+const Actionsheet = require('mkd-actionsheet').default;
 ```
 
 Register component:

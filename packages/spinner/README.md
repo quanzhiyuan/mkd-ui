@@ -1,9 +1,9 @@
-# mint-spinner
+# mkd-spinner
 > spinner.
 
 ## Install
 ```shell
-npm i mint-spinner -S
+npm i mkd-spinner -S
 ```
 
 ## Required
@@ -15,7 +15,7 @@ npm i babel-plugin-component -D
 import all spinner
 ```javascript
 import Vue from 'vue';
-import Spinner from 'mint-spinner';
+import Spinner from 'mkd-spinner';
 
 Vue.use(Spinner);
 ```
@@ -28,7 +28,7 @@ import one spinner
 
 ```javascript
 import Vue from 'vue';
-import { DoubleBounce } from 'mint-spinner';
+import { DoubleBounce } from 'mkd-spinner';
 
 Vue.component(DoubleBounce.name, DoubleBounce);
 ```
@@ -44,7 +44,7 @@ Vue.component(DoubleBounce.name, DoubleBounce);
     "xxx",
     ["component", [
         {
-          "libraryName": "mint-spinner",
+          "libraryName": "mkd-spinner",
           "style": true
         }
       ]
@@ -53,7 +53,7 @@ Vue.component(DoubleBounce.name, DoubleBounce);
 }
 ```
 
-**`import Spinner from 'mint-spinner'` and `import { DoubleBounce } from 'mint-spinner'` can not be used together.**.
+**`import Spinner from 'mkd-spinner'` and `import { DoubleBounce } from 'mkd-spinner'` can not be used together.**.
 
 ## Spinner
 - snake

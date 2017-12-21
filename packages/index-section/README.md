@@ -1,1 +1,1 @@
-# mint-index-section
+# mkd-index-section

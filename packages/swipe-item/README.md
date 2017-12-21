@@ -1,1 +1,1 @@
-# mint-swipe-item
+# mkd-swipe-item

@@ -1,15 +1,15 @@
-# mint-range
-> A mint component
+# mkd-range
+> A mkd component
 
 ## Installation
 ```shell
-npm i mint-range -D
+npm i mkd-range -D
 ```
 
 ## Usage
 ```javascript
 import Vue from 'vue'
-import MintRange from 'mint-range'
+import MintRange from 'mkd-range'
 
 Vue.use(MintRange)
 ```
@@ -18,9 +18,9 @@ or
 
 ```javascript
 import Vue from 'vue'
-import { MintRange } from 'mint-range'
+import { MintRange } from 'mkd-range'
 
-Vue.component('mint-range', MintRange)
+Vue.component('mkd-range', MintRange)
 ```
 
 ## Development

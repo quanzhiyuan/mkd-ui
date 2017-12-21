@@ -1,7 +1,7 @@
 {
   "name": "mkd-card",
-  "description": "An action sheet component for vue.js",
-  "version": "0.1.1",
+  "description": "An card component for vue.js",
+  "version": "0.1.2",
   "main": "lib/index.js",
   "author": "kingdee-kux",
   "homepage": "https://github.com/quanzhiyuan/mkd-ui",

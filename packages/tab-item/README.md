@@ -1,1 +1,1 @@
-# mint-tab-item
+# mkd-tab-item

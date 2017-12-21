@@ -1,1 +1,1 @@
-# mint-lazyload
+# mkd-lazyload

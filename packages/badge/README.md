@@ -1,1 +1,1 @@
-# mint-badge
+# mkd-badge

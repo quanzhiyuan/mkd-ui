@@ -1,21 +1,21 @@
 # Overview
-mint-popup is a popup component for vue.js
+mkd-popup is a popup component for vue.js
 
 # Installation
-First, install `mint-popup` from npm:
+First, install `mkd-popup` from npm:
 ```bash
-$ npm install mint-popup
+$ npm install mkd-popup
 ```
 
 Import it:
 ```Javascript
-require ('mint-popup/lib/index.css');
+require ('mkd-popup/lib/index.css');
 
 // ES6 mudule
-import Popup from 'mint-popup';
+import Popup from 'mkd-popup';
 
 // CommonJS
-const Popup = require('mint-popup').default;
+const Popup = require('mkd-popup').default;
 ```
 
 Register component:

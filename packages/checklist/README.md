@@ -1,1 +1,1 @@
-# mint-checklist
+# mkd-checklist

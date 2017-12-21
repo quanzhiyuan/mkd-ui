@@ -1,15 +1,15 @@
-# mint-progress
-> A mint component
+# mkd-progress
+> A mkd component
 
 ## Installation
 ```shell
-npm i mint-progress -D
+npm i mkd-progress -D
 ```
 
 ## Usage
 ```javascript
 import Vue from 'vue'
-import MintProgress from 'mint-progress'
+import MintProgress from 'mkd-progress'
 
 Vue.use(MintProgress)
 ```
@@ -18,9 +18,9 @@ or
 
 ```javascript
 import Vue from 'vue'
-import { MintProgress } from 'mint-progress'
+import { MintProgress } from 'mkd-progress'
 
-Vue.component('mint-progress', MintProgress)
+Vue.component('mkd-progress', MintProgress)
 ```
 
 ## Development
