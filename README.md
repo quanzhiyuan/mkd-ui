@@ -1,6 +1,8 @@
 # Mkd UI
 
-> Mobile UI elements for **Vue 2.0**
+
+> 
+Mobile UI elements for **Vue 2.0**
 
 - [Homepage](http://quanzhiyuan.github.io/mkd-ui)
 - [Documentation](http://mint-ui.github.io/docs)
